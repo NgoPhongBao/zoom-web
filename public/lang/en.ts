@@ -6,5 +6,6 @@ export default {
         project: "Project",
         customer: "Customers",
         contact: "Contact",
+        language: "Language",
     }
 }

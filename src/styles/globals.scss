@@ -2,6 +2,26 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: GoogleSans-Light;
+  src: url("/fonts/GoogleSans-Light.ttf");
+}
+
+@font-face {
+  font-family: GoogleSans-Regular;
+  src: url("/fonts/GoogleSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: GoogleSans-Medium;
+  src: url("/fonts/GoogleSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: GoogleSans-Bold;
+  src: url("/fonts/GoogleSans-Bold.ttf");
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -14,5 +34,6 @@ body {
   overflow-x: hidden;
   height: 100%;
   background-color: #ffffff;
+  font-family: GoogleSans-Regular;
+  color: #000000;
 }
-

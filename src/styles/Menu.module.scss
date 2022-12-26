@@ -31,7 +31,8 @@
   }
   .menu__item {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 16px;
+    padding: 20px 25px;
+    font-size: 1.1rem;
     .menu__sub {
       padding-left: 16px;
       height: 0;
@@ -42,7 +43,7 @@
     &.active {
       .menu__item__arrow {
         transition: 0.4s;
-        transform: translateX(-50%)
+        transform: translateX(-50%);
       }
       .menu__sub {
         height: auto;
@@ -67,6 +68,7 @@
       justify-content: space-between;
       align-items: center;
       border-top: none;
+      padding: 16px;
       .menu__item__link {
         position: relative;
         &::after {
@@ -85,7 +87,7 @@
         position: absolute;
         transform: rotateX(-90deg);
         transition: transform 0.3s, opacity 0.3s;
-        min-width: 250px;
+        min-width: 300px;
         opacity: 0;
         box-shadow: 0px 5px 10px -5px rgb(0 0 0 / 15%);
         left: -20px;
@@ -95,6 +97,7 @@
         // visibility: hidden;
         transform-origin: 0% 0%;
         height: auto;
+        width: auto;
       }
       &:hover {
         .menu__sub {
@@ -106,6 +109,9 @@
           width: 30px;
         }
       }
+    }
+    .menu__item:last-child {
+      display: none;
     }
   }
 }

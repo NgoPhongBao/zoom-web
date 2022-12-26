@@ -6,5 +6,6 @@ export default {
         project: "Dự án",
         customer: "Khách hàng",
         contact: "Liên hệ",
+        language: "Ngôn ngữ",
     }
 }

@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <div className="container mx-auto">
+        <div className="container mx-auto py-4">
           <div
             className={`${menuStyles.overlaybg} ${
               showMenuMobile ? menuStyles.show : ""
@@ -136,6 +136,49 @@ export default function Home() {
                 </Link>
               </li>
               {/* End contact */}
+
+              {/* Start lang mobile */}
+              <li
+                className={`flex items-center menu__item__lang ${menuStyles.menu__item} lg:hidden`}
+              >
+                <p className="mr-4">{trans.menu.language}: </p>
+                <div className="flex items-center">
+                  <Link href="/" locale="vi">
+                    <div className="flex items-center">
+                      <img
+                        src="/images/icons/flag_vietnam.png"
+                        alt="vi"
+                        className="h-3 mr-1"
+                      />
+                      <span
+                        className={`text-xs ${
+                          locale === "vi" ? "font-bold text-red-500" : ""
+                        }`}
+                      >
+                        VI
+                      </span>
+                    </div>
+                  </Link>
+                  <div className="mx-2">|</div>
+                  <Link href="/" locale="en">
+                    <div className="flex items-center">
+                      <img
+                        src="/images/icons/flag_usa.png"
+                        alt="en"
+                        className="h-3 mr-1"
+                      />
+                      <span
+                        className={`text-xs ${
+                          locale === "en" ? "font-bold text-red-500" : ""
+                        }`}
+                      >
+                        EN
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+              </li>
+              {/* End lang mobile  */}
             </ul>
             <div className="hidden items-center justify-between lg:flex">
               <Link href="/" locale="vi">
@@ -143,10 +186,10 @@ export default function Home() {
                   <img
                     src="/images/icons/flag_vietnam.png"
                     alt="vi"
-                    className="h-3 mr-1"
+                    className="h-4 mr-1"
                   />
                   <span
-                    className={`text-xs ${
+                    className={`${
                       locale === "vi" ? "font-bold text-red-400" : ""
                     }`}
                   >
@@ -160,10 +203,10 @@ export default function Home() {
                   <img
                     src="/images/icons/flag_usa.png"
                     alt="en"
-                    className="h-3 mr-1"
+                    className="h-4 mr-1"
                   />
                   <span
-                    className={`text-xs ${
+                    className={`${
                       locale === "en" ? "font-bold text-red-400" : ""
                     }`}
                   >
