@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   const toggleServiceMobile = () => {
-    setShowServiceMobile(!showServiceMobile);
+    if(showMenuMobile) setShowServiceMobile(!showServiceMobile);
   };
 
   return (
