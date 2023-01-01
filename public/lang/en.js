@@ -3,9 +3,12 @@ export default {
         home: "Home",
         about: "About",
         service: "Services",
-        project: "Project",
+        project: "Projects",
         customer: "Customers",
         contact: "Contact",
         language: "Language",
+    },
+    footer: {
+        let_us_make_your_success: "Let us make your success"
     }
 }

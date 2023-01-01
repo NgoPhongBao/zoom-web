@@ -15,6 +15,15 @@
   }
 }
 
+header.fixed{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FFFFFF;
+  z-index: 20;
+}
+
 .menu {
   position: fixed;
   left: 0;
@@ -24,28 +33,38 @@
   height: 100vh;
   transition: all 0.3s;
   transform: translateX(-100%);
-  z-index: 2;
+  z-index: 30;
   color: white;
   &.menu__mobile_show {
     transform: translateX(0);
   }
   .menu__item {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 18px 25px;
     font-size: 1.1rem;
     position: relative;
-    .menu__item__arrow {
-      transition: all 0.4s;
-      transform: rotate(0);
-      position: absolute;
-      right: 25px
+    .menu__item__link {
+      padding: 18px 25px;
+      cursor: pointer;
+      display: block;
+      position: relative;
+      white-space: nowrap;
+      .menu__item__arrow {
+        transition: all 0.4s;
+        transform: rotate(0);
+        position: absolute;
+        right: 10px;
+        top: 20px;
+      }
+     
     }
+
     .menu__sub {
-      padding-left: 16px;
+      padding-left: 40px;
       height: 0;
       overflow: hidden;
       transition: 0.3s;
       opacity: 0;
+      font-size: 1rem;
     }
 
     &.active {
@@ -69,14 +88,16 @@
     background: none;
     color: #000000;
     transform: translateX(0);
+    z-index: 20;
     .menu__item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: none;
-      padding: 16px;
+      font-size: 1.3rem;
       .menu__item__link {
         position: relative;
+        padding: 5px 20px;
         &::after {
           transition: 0.2s;
           position: absolute;
@@ -88,10 +109,13 @@
           transform: translate(-50%, 100%);
           left: 50%;
         }
+        .menu__item__arrow {
+          right: -5px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
-      .menu__item__arrow{
-        right: 0;
-      }
+
       .menu__sub {
         position: absolute;
         transform: rotateX(-90deg);
@@ -99,14 +123,16 @@
         min-width: 300px;
         opacity: 0;
         box-shadow: 0px 5px 10px -5px rgb(0 0 0 / 15%);
-        left: -20px;
-        top: 100%;
+        left: -30px;
+        top: 105%;
         padding: 10px 30px;
         transform-style: preserve-3d;
         // visibility: hidden;
         transform-origin: 0% 0%;
         height: auto;
         width: auto;
+        background-color: #FFFFFF;
+        border-radius: 10px;
       }
       &:hover {
         .menu__sub {
