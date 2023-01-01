@@ -14,6 +14,9 @@ export default function App({ Component, pageProps }) {
       offset: 50,
       duration: 1000
     });
+    setTimeout(() => {
+      AOS.refresh()
+    },500)
   }, []);
 
   return (
