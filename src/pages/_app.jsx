@@ -10,7 +10,7 @@ import "../styles/globals.scss";
 export default function App({ Component, pageProps }) {
   useEffect(function () {
     AOS.init({
-      once: true,
+      once: false,
       offset: 50,
       duration: 1000
     });
