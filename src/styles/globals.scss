@@ -264,7 +264,24 @@ body {
   }
   .element-group > .element.two {
     top: 0;
-    right: 460px;
+    right: 300px;
+    width: 280px;
+    height: 280px;
+    background-color: #38f9d7;
+    border-radius: 100%;
+    z-index: -1;
+  }
+}
+
+
+.service5 {
+  .element-group > .element {
+    z-index: 0;
+    position: absolute;
+  }
+  .element-group > .element.two {
+    top: 0;
+    right: 0;
     width: 280px;
     height: 280px;
     background-color: #38f9d7;

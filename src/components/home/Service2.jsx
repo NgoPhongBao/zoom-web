@@ -28,7 +28,7 @@ const settings = {
 
 export default function Service2() {
   return (
-    <section className="service2 mb-16 lg:mb-20">
+    <section className="service2 mb-16 lg:mb-32">
       <div className="container mx-auto rounded-3xl overflow-hidden">
         <p
           className="text-xl lg:text-4xl uppercase text-center pt-4"
@@ -36,39 +36,51 @@ export default function Service2() {
         >
           Sản xuất <span className="font-bold">TVC - KV - BILLBOARD</span>
         </p>
-        <Swiper
-          {...settings}
-          effect={"cards"}
-          className="lg:w-[80%]"
-          data-aos="fade-up"
-        >
-          <SwiperSlide className="p-8 sm:p-16 lg:p-24">
-            <img
-              src="/images/banners/banner-zoom-01.jpg"
-              alt="banner-zoom-01"
-              className="object-cover rounded-lg lg:rounded-[40px] transition-all duration-300"
-            />
-            <p className="font-bold lg:text-2xl uppercase text-center">TVC</p>
-          </SwiperSlide>
-          <SwiperSlide className="p-8 sm:p-16 lg:p-24">
-            <img
-              src="/images/banners/banner-zoom-02.jpg"
-              alt="banner-zoom-02"
-              className="object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
-            />
-            <p className="font-bold lg:text-2xl uppercase text-center">KV</p>
-          </SwiperSlide>
-          <SwiperSlide className="p-8 sm:p-16 lg:p-24">
-            <img
-              src="/images/banners/banner-zoom-03.jpg"
-              alt="banner-zoom-03"
-              className="object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
-            />
-            <p className="font-bold lg:text-2xl uppercase text-center">
-              BILLBOARD
-            </p>
-          </SwiperSlide>
-        </Swiper>
+        <div className="lg:mt-16">
+          <Swiper
+            {...settings}
+            effect={"cards"}
+            className="lg:w-[80%]"
+            data-aos="fade-up"
+          >
+            <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
+              <img
+                src="/images/banners/banner-zoom-01.jpg"
+                alt="banner-zoom-01"
+                className="object-cover rounded-lg lg:rounded-[40px] transition-all duration-300"
+              />
+              <p className="font-bold lg:text-2xl uppercase text-center">TVC</p>
+            </SwiperSlide>
+            <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
+              <img
+                src="/images/banners/banner-zoom-02.jpg"
+                alt="banner-zoom-02"
+                className="object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
+              />
+              <p className="font-bold lg:text-2xl uppercase text-center">KV</p>
+            </SwiperSlide>
+            <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
+              <img
+                src="/images/banners/banner-zoom-03.jpg"
+                alt="banner-zoom-03"
+                className="object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
+              />
+              <p className="font-bold lg:text-2xl uppercase text-center">
+                BILLBOARD
+              </p>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+
+        <div className="text-center">
+          <button
+            className="bg-red-500 hover:bg-red-400 px-5 py-2 text-white rounded-full lg:mt-5"
+            data-aos="fade-up"
+            data-aos-duration="200"
+          >
+            Xem chi tiết
+          </button>
+        </div>
       </div>
     </section>
   );
