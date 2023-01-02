@@ -37,8 +37,8 @@ export default function Service3() {
           </button>
         </div>
       </div>
-      <div class="element-group">
-        <div class="element two animation-moving-left-right-two"></div>
+      <div className="element-group">
+        <div className="element two animation-moving-left-right-two"></div>
       </div>
     </section>
   );

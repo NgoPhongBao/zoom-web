@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 
 const settings = {
-  slidesPerView: 7,
+  slidesPerView: 3,
   modules: [Autoplay],
   loop: true,
   grabCursor: true,
@@ -15,6 +15,16 @@ const settings = {
     delay: 1000,
     disableOnInteraction: false,
   },
+  breakpoints:{
+    768: {
+      width: 768,
+      slidesPerView: 5,
+    },
+    768: {
+      width: 1024,
+      slidesPerView: 7,
+    },
+  }
 };
 
 export default function Customer() {
