@@ -34,6 +34,7 @@ body {
   background-color: #ffffff;
   font-family: GoogleSans-Regular, sans-serif;
   color: #000000;
+  width: 100vw;
 }
 
 .mainbanner {
@@ -210,11 +211,7 @@ body {
   .service1-image {
     z-index: 2;
   }
-  .element-group > .element {
-    z-index: 0;
-    position: absolute;
-  }
-  .element-group > .element.one {
+  .element.one {
     top: 0;
     left: 255px;
     width: 280px;
@@ -258,11 +255,8 @@ body {
       left: 16px;
     }
   }
-  .element-group > .element {
-    z-index: 0;
-    position: absolute;
-  }
-  .element-group > .element.two {
+
+  .element.two {
     top: 0;
     right: 300px;
     width: 280px;
@@ -273,13 +267,8 @@ body {
   }
 }
 
-
 .service5 {
-  .element-group > .element {
-    z-index: 0;
-    position: absolute;
-  }
-  .element-group > .element.two {
+  .element.two {
     top: 0;
     right: 0;
     width: 280px;

@@ -29,9 +29,7 @@ export default function Service5() {
           </button>
         </div>
       </div>
-      <div className="element-group">
-        <div className="element two animation-moving-left-right-two"></div>
-      </div>
+      <div className="element two animation-moving-left-right-two z-0 absolute hidden lg:block"></div>
     </section>
   );
 }

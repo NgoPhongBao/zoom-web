@@ -18,13 +18,13 @@ export default function Service3() {
             src="/images/services/service-3-1.jpg"
             alt="service"
             className="w-full lg:w-1/2 rounded-xl object-cover"
-            data-aos="fade-up-right"
+            data-aos="fade-up"
           />
           <img
             src="/images/services/service-3-2.jpg"
             alt="service"
             className="w-full lg:w-1/2 rounded-xl object-cover"
-            data-aos="fade-up-left"
+            data-aos="fade-up"
           />
         </div>
         <div className="text-center">
@@ -37,9 +37,7 @@ export default function Service3() {
           </button>
         </div>
       </div>
-      <div className="element-group">
-        <div className="element two animation-moving-left-right-two"></div>
-      </div>
+      <div className="element two animation-moving-left-right-two z-0 absolute hidden lg:block"></div>
     </section>
   );
 }
