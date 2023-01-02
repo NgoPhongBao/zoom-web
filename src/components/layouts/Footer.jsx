@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="pb-10 h-auto">
       <div className="container mx-auto">
-        <div data-aos="fade-up">
+        <div>
           <img
             src="/images/quang-cao-zoom-logo.png"
             alt="logo"
@@ -19,7 +19,7 @@ export default function Footer() {
 
         <div className="mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {/* gioi thieu */}
-          <div className="flex gap-4" data-aos="fade-right">
+          <div className="flex gap-4">
             <div>
               <span className="icofont-street-view text-4xl lg:text-[60px] text-red-500"></span>
             </div>
@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
           </div>
           {/* lien he */}
-          <div className="flex gap-4" data-aos="fade-right">
+          <div className="flex gap-4">
             <div>
               <span className="icofont-phone text-4xl lg:text-[50px] text-red-500"></span>
             </div>
@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
           </div>
           {/* cong viec */}
-          <div className="flex gap-4" data-aos="fade-left">
+          <div className="flex gap-4">
             <div>
               <span className="icofont-computer text-4xl lg:text-[50px] text-red-500"></span>
             </div>
@@ -81,7 +81,7 @@ export default function Footer() {
             </div>
           </div>
           {/* doi ngu nhan su */}
-          <div className="flex gap-4" data-aos="fade-left">
+          <div className="flex gap-4">
             <div>
               <span className="icofont-people text-4xl lg:text-[50px] text-red-500"></span>
             </div>
@@ -97,10 +97,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div
-          className="mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          data-aos="fade-up"
-        >
+        <div className="mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {/* phim truong */}
           <div className="flex gap-4">
             <div>

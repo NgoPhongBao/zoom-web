@@ -44,7 +44,6 @@ export default function Service1() {
       </div>
       <div className="element-group hidden lg:block">
         <div className="element one animation-moving-left-right-three"></div>
-        <div className="element two"></div>
       </div>
     </section>
   );

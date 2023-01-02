@@ -189,30 +189,6 @@ body {
   animation: moving-left-right-three 25s infinite;
 }
 
-.mainbanner {
-  .element-group > .element {
-    z-index: 0;
-    position: absolute;
-  }
-  .element-group > .element.one {
-    top: 100px;
-    right: 0px;
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
-    background-color: #ffa07a;
-    -webkit-filter: blur(100px);
-  }
-
-  .element-group > .element.two {
-    top: 0;
-    right: 460px;
-    width: 280px;
-    height: 280px;
-    background-color: #e52b50;
-    border-radius: 100%;
-  }
-}
 
 .service1 {
   position: relative;
@@ -224,7 +200,7 @@ body {
     top: -60px;
     width: 100%;
     height: 400px;
-    background-color: rgba(252, 157, 154, 0.3);
+    background-color: rgba(56, 249, 215, 0.3);
     z-index: 1;
     @media screen and (min-width: 768px) {
       width: 50vw;
@@ -248,21 +224,8 @@ body {
     left: 255px;
     width: 280px;
     height: 280px;
-    background-color: #e52b50;
+    background-color: #38f9d7;
     border-radius: 100%;
-    z-index: 0;
-  }
-  .element-group > .element.two {
-    top: 0;
-    left: -200px;
-    width: 350px;
-    height: 350px;
-    border-radius: 100%;
-    background-color: #ffa07a;
-    -webkit-filter: blur(100px);
-    -moz-filter: blur(100px);
-    -o-filter: blur(100px);
-    -ms-filter: blur(100px);
     z-index: 0;
   }
 }

@@ -91,10 +91,7 @@ export default function Banner() {
           </div>
         </div>
       </div>
-      <div className="element-group hidden lg:block">
-        <div className="element one"></div>
-        {/* <div className="element two animation-moving-left-right-two"></div> */}
-      </div>
+     
     </section>
   );
 }
