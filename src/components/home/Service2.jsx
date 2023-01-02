@@ -40,7 +40,7 @@ export default function Service2() {
           {...settings}
           effect={"cards"}
           className="lg:w-[80%]"
-          data-aos="fade-zoom-in"
+          data-aos="fade-up"
         >
           <SwiperSlide className="p-8 sm:p-16 lg:p-24">
             <img
