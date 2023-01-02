@@ -36,7 +36,6 @@ body {
   color: #000000;
 }
 
-
 .mainbanner {
   .swiper-btn-next,
   .swiper-btn-prev {
@@ -186,7 +185,6 @@ body {
   animation: moving-left-right-three 25s infinite;
 }
 
-
 .service1 {
   position: relative;
   z-index: 1;
@@ -232,14 +230,45 @@ body {
     .swiper-slide-shadow {
       background: none;
     }
-    .swiper-slide-active{
-      img{
+    .swiper-slide-active {
+      img {
         transform: translateY(-15px);
         @media screen and (min-width: 768px) {
           transform: translateY(-40px);
         }
-        
       }
     }
+  }
+}
+
+.service3 {
+  .i-circle {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    top: -6px;
+    left: 9px;
+    background: rgb(239 68 68);
+    @media screen and (min-width: 1024px) {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      top: -7px;
+      left: 16px;
+    }
+  }
+  .element-group > .element {
+    z-index: 0;
+    position: absolute;
+  }
+  .element-group > .element.two {
+    top: 0;
+    right: 460px;
+    width: 280px;
+    height: 280px;
+    background-color: #38f9d7;
+    border-radius: 100%;
+    z-index: -1;
   }
 }

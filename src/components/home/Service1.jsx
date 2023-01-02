@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Service1() {
   return (
-    <section className="service1 relative mb-16 lg:mb-24">
+    <section className="service1 relative mb-16 lg:mb-32">
       <div className="container mx-auto">
         <div className="flex justify-center lg:justify-between flex-wrap lg:flex-nowrap lg:gap-6">
           <div className="service1-content w-full lg:w-1/2 lg:text-center">

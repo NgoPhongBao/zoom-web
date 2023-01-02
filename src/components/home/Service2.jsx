@@ -28,7 +28,7 @@ const settings = {
 
 export default function Service2() {
   return (
-    <section className="service2">
+    <section className="service2 mb-16 lg:mb-20">
       <div className="container mx-auto rounded-3xl overflow-hidden">
         <p
           className="text-xl lg:text-4xl uppercase text-center pt-4"
