@@ -245,7 +245,6 @@ body {
     height: 280px;
     background-color: #38f9d7;
     border-radius: 100%;
-    z-index: -1;
   }
 }
 
@@ -257,7 +256,6 @@ body {
     height: 280px;
     background-color: #38f9d7;
     border-radius: 100%;
-    z-index: -1;
   }
 }
 
@@ -303,10 +301,33 @@ body {
       cursor: pointer;
       border-radius: 1px;
       transition: 0.4s;
-      &.swiper-pagination-bullet-active{
+      &.swiper-pagination-bullet-active {
         width: 30px;
         background-color: #38f9d7;
       }
     }
   }
 }
+
+.about-us-info {
+  .element.two {
+    top: 0;
+    right: 300px;
+    width: 280px;
+    height: 280px;
+    background-color: #38f9d7;
+    border-radius: 100%;
+  }
+}
+
+.about-us-service {
+  .element.two {
+    top: -50px;
+    right: 400px;
+    width: 280px;
+    height: 280px;
+    background-color: #38f9d7;
+    border-radius: 100%;
+  }
+}
+

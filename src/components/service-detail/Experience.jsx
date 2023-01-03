@@ -30,14 +30,14 @@ export default function Experience() {
             )}
           >
             <Collapse.Panel
-              header={<p className="font-bold">An toàn là trên hết</p>}
+              header={<p className="font-bold text-lg">An toàn là trên hết</p>}
               key="1"
             >
               <p>{text}</p>
             </Collapse.Panel>
             <Collapse.Panel
               header={
-                <p className="font-bold">
+                <p className="font-bold text-lg">
                   Kích thước sân khấu phù hợp với tính chất sự kiện
                 </p>
               }
@@ -47,7 +47,7 @@ export default function Experience() {
             </Collapse.Panel>
             <Collapse.Panel
               header={
-                <p className="font-bold">
+                <p className="font-bold text-lg">
                   Hệ thống âm thanh - ánh sáng chuyên nghiệp
                 </p>
               }
@@ -57,7 +57,7 @@ export default function Experience() {
             </Collapse.Panel>
             <Collapse.Panel
               header={
-                <p className="font-bold">
+                <p className="font-bold text-lg">
                   Hiểu rõ sự kiện tổ chức và mong muốn của khách hàng
                 </p>
               }

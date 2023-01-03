@@ -79,7 +79,7 @@ export default function Header() {
             {/* Start about */}
             <li className={`${menuStyles.menu__item}`} onClick={() => setShowMenuMobile(false)}>
               <Link
-                href={"/"}
+                href={"/ve-chung-toi"}
                 className={`mr-2 ${menuStyles.menu__item__link}`}
               >
                 {trans.menu.about}
