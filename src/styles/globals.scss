@@ -1,3 +1,4 @@
+@import "antd/dist/antd.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -34,8 +35,9 @@ body {
   background-color: #ffffff;
   font-family: GoogleSans-Regular, sans-serif;
   color: #000000;
+  font-size: 16px;
 }
-body{
+body {
   margin-top: 112px;
 }
 
@@ -150,29 +152,6 @@ body{
   }
 }
 
-/* bt-moving-top-bottom */
-@keyframes moving-top-bottom-one {
-  0% {
-    -webkit-transform: translateX(0) translateY(0);
-    transform: translateX(0) translateY(0);
-  }
-
-  40% {
-    -webkit-transform: translateY(-600px);
-    transform: translateY(-600px);
-  }
-
-  75% {
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
-  }
-
-  100% {
-    -webkit-transform: translateY(0) translateX(0);
-    transform: translateY(0) translateX(0);
-  }
-}
-
 .animation-moving-left-right-one {
   -webkit-animation: moving-left-right-one infinite 60s;
   animation: moving-left-right-one infinite 60s;
@@ -279,5 +258,55 @@ body{
     background-color: #38f9d7;
     border-radius: 100%;
     z-index: -1;
+  }
+}
+
+.service-detail-experience-accordion {
+  .ant-collapse {
+    background: none;
+    font-size: 16px;
+    .ant-collapse-item {
+      border-bottom: none;
+      .ant-collapse-expand-icon .icofont-simple-down {
+        position: absolute;
+        right: 0;
+        transition: 0.4s;
+        transform: rotate(0);
+      }
+      &.ant-collapse-item-active {
+        .ant-collapse-expand-icon .icofont-simple-down {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+  .element.two {
+    top: -100px;
+    right: 300px;
+    width: 280px;
+    height: 280px;
+    background-color: #38f9d7;
+    border-radius: 100%;
+  }
+}
+
+.service-detail-project {
+  .swiper-pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    .swiper-pagination-bullet {
+      height: 5px;
+      width: 18px;
+      background-color: #9da9a7;
+      display: block;
+      cursor: pointer;
+      border-radius: 1px;
+      transition: 0.4s;
+      &.swiper-pagination-bullet-active{
+        width: 30px;
+        background-color: #38f9d7;
+      }
+    }
   }
 }

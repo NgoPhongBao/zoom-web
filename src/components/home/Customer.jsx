@@ -2,7 +2,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
-import "swiper/css/scrollbar";
 
 const settings = {
   slidesPerView: 3,
@@ -12,17 +11,15 @@ const settings = {
   centeredSlides: true,
   spaceBetween: 10,
   autoplay: {
-    delay: 1000,
+    delay: 1500,
     disableOnInteraction: false,
   },
   breakpoints:{
     768: {
-      width: 768,
       slidesPerView: 5,
     },
-    768: {
-      width: 1024,
-      slidesPerView: 7,
+    1024: {
+      slidesPerView: 9,
     },
   }
 };

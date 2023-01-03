@@ -2,9 +2,9 @@ import React from "react";
 
 export default function ServiceValue() {
   return (
-    <section className="mt-10 lg:mt-16">
+    <section className="mt-16 lg:mt-20 ">
       <div className="container mx-auto">
-        <p className="text-lg lg:text-2xl font-bold uppercase text-center">
+        <p className="text-xl lg:text-3xl font-bold uppercase text-center">
           giá trị dịch vụ
         </p>
         <div className="grid lg:grid-cols-3 gap-5 mt-5 lg:mt-10 bg-gray-50 p-4 lg:p-10 rounded-xl lg:rounded-3xl">

@@ -12,6 +12,7 @@ export default function Header() {
   const [isFixedMenu, setIsFixedMenu] = useState(false);
   const headerRef = useRef(null);
 
+
   const toggleMenuMobile = () => {
     setShowMenuMobile(!showMenuMobile);
   };
@@ -68,7 +69,7 @@ export default function Header() {
             }`}
           >
             {/* Start home */}
-            <li className={`${menuStyles.menu__item}`}>
+            <li className={`${menuStyles.menu__item}`} onClick={() => setShowMenuMobile(false)}>
               <Link href={"/"} className={`${menuStyles.menu__item__link}`}>
                 {trans.menu.home}
               </Link>
@@ -76,7 +77,7 @@ export default function Header() {
             {/* End home */}
 
             {/* Start about */}
-            <li className={`${menuStyles.menu__item}`}>
+            <li className={`${menuStyles.menu__item}`} onClick={() => setShowMenuMobile(false)}>
               <Link
                 href={"/"}
                 className={`mr-2 ${menuStyles.menu__item__link}`}
@@ -103,7 +104,7 @@ export default function Header() {
               </p>
 
               <ul className={`${menuStyles.menu__sub}`}>
-                <li className="my-3">
+                <li className="my-3" onClick={() => setShowMenuMobile(false)}>
                   <Link
                     href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                     className="hover:text-blue-400"
@@ -111,7 +112,7 @@ export default function Header() {
                     Tổ Chức Sự Kiện - Sản Xuất Gameshow Trọn Gói
                   </Link>
                 </li>
-                <li className="my-3">
+                <li className="my-3" onClick={() => setShowMenuMobile(false)}>
                   <Link
                     href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                     className="hover:text-blue-400"
@@ -119,7 +120,7 @@ export default function Header() {
                     Sản Xuất TVC - KV - BILLBOARD
                   </Link>
                 </li>
-                <li className="my-3">
+                <li className="my-3" onClick={() => setShowMenuMobile(false)}>
                   <Link
                     href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                     className="hover:text-blue-400"
@@ -127,7 +128,7 @@ export default function Header() {
                     Livestream
                   </Link>
                 </li>
-                <li className="my-3">
+                <li className="my-3" onClick={() => setShowMenuMobile(false)}>
                   <Link
                     href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                     className="hover:text-blue-400"
@@ -136,7 +137,7 @@ export default function Header() {
                     Sáng
                   </Link>
                 </li>
-                <li className="my-3">
+                <li className="my-3" onClick={() => setShowMenuMobile(false)}>
                   <Link
                     href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                     className="hover:text-blue-400"
@@ -149,7 +150,7 @@ export default function Header() {
             {/* End service */}
 
             {/* Start project */}
-            <li className={`${menuStyles.menu__item}`}>
+            <li className={`${menuStyles.menu__item}`} onClick={() => setShowMenuMobile(false)}>
               <Link href={"/"} className={`${menuStyles.menu__item__link}`}>
                 {trans.menu.project}
               </Link>
@@ -157,7 +158,7 @@ export default function Header() {
             {/* End project */}
 
             {/* Start customer */}
-            <li className={`${menuStyles.menu__item}`}>
+            <li className={`${menuStyles.menu__item}`} onClick={() => setShowMenuMobile(false)}>
               <Link href={"/"} className={`${menuStyles.menu__item__link}`}>
                 {trans.menu.customer}
               </Link>
@@ -165,7 +166,7 @@ export default function Header() {
             {/* End customer */}
 
             {/* Start contact */}
-            <li className={`${menuStyles.menu__item}`}>
+            <li className={`${menuStyles.menu__item}`} onClick={() => setShowMenuMobile(false)}>
               <Link href={"/"} className={`${menuStyles.menu__item__link}`}>
                 {trans.menu.contact}
               </Link>
@@ -178,7 +179,7 @@ export default function Header() {
                 <div className="flex items-center">
                   <p className="mr-4">{trans.menu.language}: </p>
                   <div className="flex items-center">
-                    <Link href="/" locale="vi">
+                    <Link href="/" locale="vi" onClick={() => setShowMenuMobile(false)}>
                       <div className="flex items-center">
                         <img
                           src="/images/icons/flag_vietnam.png"
@@ -195,7 +196,7 @@ export default function Header() {
                       </div>
                     </Link>
                     <div className="mx-2">|</div>
-                    <Link href="/" locale="en">
+                    <Link href="/" locale="en" onClick={() => setShowMenuMobile(false)}>
                       <div className="flex items-center">
                         <img
                           src="/images/icons/flag_usa.png"

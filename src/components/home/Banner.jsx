@@ -4,7 +4,6 @@ import { Navigation, Pagination, EffectCoverflow } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import "swiper/css/effect-coverflow";
 
 const settings = {
@@ -16,7 +15,7 @@ const settings = {
     prevEl: ".swiper-btn-prev",
     dynamicBullets: true,
   },
-  pagination: { clickable: true },
+  pagination: true,
   grabCursor: true,
   centeredSlides: true,
   coverflowEffect: {

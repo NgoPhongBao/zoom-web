@@ -41,6 +41,7 @@ header.fixed{
   .menu__item {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1.1rem;
+    font-weight: bold;
     position: relative;
     .menu__item__link {
       padding: 18px 25px;
@@ -94,7 +95,8 @@ header.fixed{
       justify-content: space-between;
       align-items: center;
       border-top: none;
-      font-size: 1.3rem;
+      font-size: 1rem;
+      font-weight: normal;
       .menu__item__link {
         position: relative;
         padding: 5px 20px;

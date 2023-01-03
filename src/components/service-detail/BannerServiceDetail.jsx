@@ -8,7 +8,7 @@ export default function BannerServiceDetail() {
           <img
             src="/images/services/banner-service-detail.jpg"
             alt="Banner service detail"
-            className="h-[200px] max-h-[250px] w-full object-cover"
+            className="h-[100px] lg:h-[200px] max-h-[250px] w-full object-cover"
           />
           <div className="flex items-center justify-center absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)]">
             <p className="text-lg lg:text-2xl text-white text-center font-bold uppercase ">
