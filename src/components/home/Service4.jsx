@@ -11,7 +11,7 @@ export default function Service4() {
             phim trường - thiết bị quay phim - âm thanh - ánh sáng
           </span>
         </p>
-        <div className="flex flex-wrap lg:flex-nowrap gap-2 lg:gap-4 mt-8 lg:mt-16 justify-center">
+        <div className="flex flex-wrap lg:flex-nowrap gap-2 lg:gap-4 mt-4 lg:mt-12 justify-center">
           <div className="w-full lg:w-1/2 flex flex-wrap gap-2 lg:gap-4">
             <div className="w-full hidden lg:block">
               <img
@@ -63,9 +63,9 @@ export default function Service4() {
             />
           </div>
         </div>
-        <div className="text-center">
+        <div className="text-center mt-5 lg:mt-10">
           <button
-            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5 lg:mt-10"
+            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
             data-aos="fade-up"
             data-aos-duration="200"
           >

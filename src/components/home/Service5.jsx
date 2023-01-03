@@ -11,7 +11,7 @@ export default function Service5() {
           <span className="font-bold">thiết kế - thi công </span>
           sân khấu
         </p>
-        <div className="mt-8 lg:mt-16">
+        <div className="mt-4 lg:mt-12">
           <img
             src="/images/services/service-5-1.jpg"
             alt="service"
@@ -19,9 +19,9 @@ export default function Service5() {
             data-aos="fade-up"
           />
         </div>
-        <div className="text-center">
+        <div className="text-center mt-5 lg:mt-10">
           <button
-            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5 lg:mt-10"
+            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
             data-aos="fade-up"
             data-aos-duration="200"
           >
