@@ -17,13 +17,13 @@ export default function Service3() {
           <img
             src="/images/services/service-3-1.jpg"
             alt="service"
-            className="h-[300px] lg:h-auto w-1/2 rounded-xl object-cover"
+            className="h-[200px] lg:h-auto w-1/2 rounded-xl object-cover"
             data-aos="fade-up"
           />
           <img
             src="/images/services/service-3-2.jpg"
             alt="service"
-            className="h-[300px] lg:h-auto w-1/2 rounded-xl object-cover"
+            className="h-[200px] lg:h-auto w-1/2 rounded-xl object-cover"
             data-aos="fade-up"
           />
         </div>

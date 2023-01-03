@@ -15,7 +15,7 @@ export default function Service5() {
           <img
             src="/images/services/service-5-1.jpg"
             alt="service"
-            className="h-[300px] lg:h-auto w-full object-cover rounded-3xl"
+            className="h-[200px] lg:h-auto w-full object-cover rounded-3xl"
             data-aos="fade-up"
           />
         </div>
