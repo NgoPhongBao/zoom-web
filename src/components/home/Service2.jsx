@@ -24,6 +24,7 @@ const settings = {
     slideShadows: true,
   },
   initialSlide: 1,
+  loop: true
 };
 
 export default function Service2() {
@@ -40,7 +41,6 @@ export default function Service2() {
           <Swiper
             {...settings}
             effect={"cards"}
-            className="lg:w-[80%]"
             data-aos="fade-up"
           >
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
