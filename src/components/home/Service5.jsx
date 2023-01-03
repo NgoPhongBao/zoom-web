@@ -5,23 +5,23 @@ export default function Service5() {
     <section className="service5 mb-16 lg:mb-32 relative">
       <div className="container mx-auto">
         <p
-          className="text-xl lg:text-4xl leading-10 uppercase text-center"
+          className="text-xl lg:text-4xl leading-6 lg:leading-[55px] uppercase text-center"
           data-aos="fade-up"
         >
-          <span className="font-bold">thiết kế - thi công</span>
+          <span className="font-bold">thiết kế - thi công </span>
           sân khấu
         </p>
         <div className="mt-8 lg:mt-16">
           <img
             src="/images/services/service-5-1.jpg"
             alt="service"
-            className="w-full object-cover rounded-3xl"
+            className="h-[300px] lg:h-auto w-full object-cover rounded-3xl"
             data-aos="fade-up"
           />
         </div>
         <div className="text-center">
           <button
-            className="bg-red-500 hover:bg-red-400 px-5 py-2 text-white rounded-full mt-5 lg:mt-10"
+            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5 lg:mt-10"
             data-aos="fade-up"
             data-aos-duration="200"
           >

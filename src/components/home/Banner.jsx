@@ -40,7 +40,7 @@ export default function Banner() {
                   <img
                     src="/images/banners/banner-zoom-01.jpg"
                     alt="banner-zoom-01"
-                    className="max-h-[550px] w-full object-cover rounded-3xl"
+                    className="h-[300px] sm:h-auto max-h-[550px] w-full object-cover rounded-3xl"
                   />
                   {/* <div
                     className="absolute text-white text-center contentbanner"
@@ -63,7 +63,7 @@ export default function Banner() {
                   <img
                     src="/images/banners/banner-zoom-02.jpg"
                     alt="banner-zoom-02"
-                    className="max-h-[550px] w-full object-cover rounded-3xl"
+                    className="h-[300px] sm:h-auto max-h-[550px] w-full object-cover rounded-3xl"
                   />
                   {/* <div
                     className="absolute text-white text-center contentbanner"
@@ -83,10 +83,10 @@ export default function Banner() {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div className="swiper-btn-prev cursor-pointer">
+          <div className="swiper-btn-prev cursor-pointer hidden lg:block">
             <i className="icofont-thin-left text-3xl lg:text-[60px] text-red-500"></i>
           </div>
-          <div className="swiper-btn-next cursor-pointer">
+          <div className="swiper-btn-next cursor-pointer hidden lg:block">
             <i className="icofont-thin-right text-3xl lg:text-[60px] text-red-500"></i>
           </div>
         </div>

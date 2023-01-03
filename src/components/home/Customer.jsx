@@ -36,7 +36,7 @@ export default function Customer() {
       >
         đối tác
       </p>
-      <div className="mt-8 lg:mt-16 bg-red-50 px-5 py-20">
+      <div className="mt-8 lg:mt-16 bg-red-50 px-5 py-12">
         <div data-aos="fade-zoom-in">
           <Swiper {...settings} effect={"coverflow"} className="w-full">
             <SwiperSlide>

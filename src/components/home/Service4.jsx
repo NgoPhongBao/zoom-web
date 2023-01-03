@@ -4,7 +4,7 @@ export default function Service4() {
   return (
     <section className="service4 mb-16 lg:mb-32 relative">
       <div className="container mx-auto" >
-        <p className="text-xl lg:text-4xl leading-10 lg:w-1/2" data-aos="fade-up">
+        <p className="text-xl lg:text-4xl lg:w-1/2 leading-6 lg:leading-[55px]" data-aos="fade-up">
           Cho thuê
           <br />
           <span className="font-bold uppercase">
@@ -13,7 +13,7 @@ export default function Service4() {
         </p>
         <div className="flex flex-wrap lg:flex-nowrap gap-2 lg:gap-4 mt-8 lg:mt-16 justify-center">
           <div className="w-full lg:w-1/2 flex flex-wrap gap-2 lg:gap-4">
-            <div className="w-full">
+            <div className="w-full hidden lg:block">
               <img
                 src="/images/services/service-4-1.jpg"
                 alt="service"
@@ -65,7 +65,7 @@ export default function Service4() {
         </div>
         <div className="text-center">
           <button
-            className="bg-red-500 hover:bg-red-400 px-5 py-2 text-white rounded-full mt-5 lg:mt-10"
+            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5 lg:mt-10"
             data-aos="fade-up"
             data-aos-duration="200"
           >

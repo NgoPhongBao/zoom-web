@@ -26,7 +26,7 @@ export default function Footer() {
             <div>
               <p className="font-bold text-lg">Giới thiệu</p>
               <p className="my-1">
-                Zoom Media cung cấp các dịch vụ: livestream chuyên nghiệp, sản
+                ZoOm Media cung cấp các dịch vụ: livestream chuyên nghiệp, sản
                 xuất video quảng cáo, viral, gameshow, giới thiệu doanh nghiệp,
                 video theo yêu cầu, cho thuê phim trường, cho thuê các thiết bị
                 máy quay, âm thanh, ánh sáng.
@@ -88,7 +88,7 @@ export default function Footer() {
             <div>
               <p className="font-bold text-lg">Đội ngũ nhân sự</p>
               <p className="my-1">
-                Đội ngũ nhân viên và kỹ thuật viên của Zoom Media có trình độ kỹ
+                Đội ngũ nhân viên và kỹ thuật viên của ZoOm Media có trình độ kỹ
                 thuật và kinh nghiệm thực hiện các dự án mới tại Việt Nam. Ekip
                 chúng tôi có tinh thần làm việc hăng say, nhiệt huyết không ngại
                 khó khăn, thách thức để có thể cung cấp cho khách hàng những sản
@@ -104,7 +104,7 @@ export default function Footer() {
               <span className="icofont-location-pin text-4xl lg:text-[50px] text-red-500"></span>
             </div>
             <div>
-              <p className="font-bold text-lg">Phim trường Zoom Media</p>
+              <p className="font-bold text-lg">Phim trường ZoOm Media</p>
               <p className="my-1">
                 44/1 Tân Thới Nhất 8, Phường Tân Thới Nhất, Quận 12, TP.HCM
               </p>

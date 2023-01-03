@@ -24,6 +24,7 @@ const settings = {
     slideShadows: true,
   },
   initialSlide: 1,
+  loop: true
 };
 
 export default function Service2() {
@@ -31,7 +32,7 @@ export default function Service2() {
     <section className="service2 mb-16 lg:mb-32">
       <div className="container mx-auto rounded-3xl overflow-hidden">
         <p
-          className="text-xl lg:text-4xl uppercase text-center pt-4"
+          className="text-xl lg:text-4xl uppercase text-center pt-4 leading-6 lg:leading-[55px]"
           data-aos="fade-up"
         >
           Sản xuất <span className="font-bold">TVC - KV - BILLBOARD</span>
@@ -74,7 +75,7 @@ export default function Service2() {
 
         <div className="text-center">
           <button
-            className="bg-red-500 hover:bg-red-400 px-5 py-2 text-white rounded-full lg:mt-5"
+            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full lg:mt-5"
             data-aos="fade-up"
             data-aos-duration="200"
           >

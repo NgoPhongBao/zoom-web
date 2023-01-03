@@ -5,7 +5,7 @@ export default function Service3() {
     <section className="service3 mb-16 lg:mb-32 relative">
       <div className="container mx-auto">
         <p
-          className="text-xl lg:text-4xl uppercase text-center font-bold"
+          className="text-xl lg:text-4xl uppercase text-center font-bold leading-6 lg:leading-[55px]"
           data-aos="fade-up"
         >
           <span className="relative">
@@ -13,23 +13,23 @@ export default function Service3() {
             <span className="absolute i-circle"></span>
           </span>
         </p>
-        <div className="flex justify-center flex-wrap lg:flex-nowrap gap-2 lg:gap-5 mt-8 lg:mt-16">
+        <div className="flex justify-center gap-2 lg:gap-5 mt-8 lg:mt-16">
           <img
             src="/images/services/service-3-1.jpg"
             alt="service"
-            className="w-full lg:w-1/2 rounded-xl object-cover"
+            className="h-[300px] lg:h-auto w-1/2 rounded-xl object-cover"
             data-aos="fade-up"
           />
           <img
             src="/images/services/service-3-2.jpg"
             alt="service"
-            className="w-full lg:w-1/2 rounded-xl object-cover"
+            className="h-[300px] lg:h-auto w-1/2 rounded-xl object-cover"
             data-aos="fade-up"
           />
         </div>
         <div className="text-center">
           <button
-            className="bg-red-500 hover:bg-red-400 px-5 py-2 text-white rounded-full mt-5 lg:mt-10"
+            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5 lg:mt-10"
             data-aos="fade-up"
             data-aos-duration="200"
           >
