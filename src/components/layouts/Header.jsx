@@ -93,40 +93,54 @@ export default function Header() {
               }`}
               onClick={() => toggleServiceMobile()}
             >
-              <Link
-                href={"/"}
+              <p
                 className={`mr-2 ${menuStyles.menu__item__link}`}
               >
                 {trans.menu.service}
                 <span
                   className={`icofont-simple-down pt-1 ${menuStyles.menu__item__arrow}`}
                 ></span>
-              </Link>
+              </p>
 
               <ul className={`${menuStyles.menu__sub}`}>
                 <li className="my-3">
-                  <Link href="/" className="hover:text-blue-400">
+                  <Link
+                    href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+                    className="hover:text-blue-400"
+                  >
                     Tổ Chức Sự Kiện - Sản Xuất Gameshow Trọn Gói
                   </Link>
                 </li>
                 <li className="my-3">
-                  <Link href="/" className="hover:text-blue-400">
+                  <Link
+                    href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+                    className="hover:text-blue-400"
+                  >
                     Sản Xuất TVC - KV - BILLBOARD
                   </Link>
                 </li>
                 <li className="my-3">
-                  <Link href="/" className="hover:text-blue-400">
+                  <Link
+                    href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+                    className="hover:text-blue-400"
+                  >
                     Livestream
                   </Link>
                 </li>
                 <li className="my-3">
-                  <Link href="/" className="hover:text-blue-400">
+                  <Link
+                    href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+                    className="hover:text-blue-400"
+                  >
                     Cho Thuê Phim Trường - Thiết Bị Quay Phim - Âm Thanh - Ánh
                     Sáng
                   </Link>
                 </li>
                 <li className="my-3">
-                  <Link href="/" className="hover:text-blue-400">
+                  <Link
+                    href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+                    className="hover:text-blue-400"
+                  >
                     Thiết kế - Thi công Sân khấu
                   </Link>
                 </li>
