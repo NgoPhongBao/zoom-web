@@ -28,7 +28,7 @@ export default function AboutUs() {
                 src="/images/about/about-2.jpg"
                 alt=""
                 className="w-1/2 rounded-xl"
-                data-aos="fade-left"
+                data-aos="fade-up"
               />
             </div>
             <div className="w-full lg:w-1/2" data-aos="fade-zoom-in">
