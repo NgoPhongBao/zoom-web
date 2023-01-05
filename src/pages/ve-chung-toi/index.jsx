@@ -22,7 +22,7 @@ export default function AboutUs() {
                 src="/images/about/about-1.jpg"
                 alt=""
                 className="w-1/2 rounded-xl"
-                data-aos="fade-right"
+                data-aos="fade-up"
               />
               <img
                 src="/images/about/about-2.jpg"
@@ -211,7 +211,7 @@ export default function AboutUs() {
                   src="/images/about/about-3.jpg "
                   className="w-[220px] rounded-xl object-contain mt-24"
                   alt=""
-                  data-aos="fade-right"
+                  data-aos="fade-up"
                 />
               </div>
               <div>

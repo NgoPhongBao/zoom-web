@@ -29,7 +29,7 @@ export default function Service4() {
                   src="/images/services/service-4-2.jpg"
                   alt="service"
                   className="rounded-xl"
-                  data-aos="fade-right"
+                  data-aos="fade-up"
                   data-aos-duration="500"
                 />
               </div>
