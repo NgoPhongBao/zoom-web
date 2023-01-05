@@ -47,7 +47,7 @@ export default function Header() {
       <div
         className={`${
           isFixedMenu ? menuStyles.fixed : ""
-        } z-30 transition-all duration-1000`}
+        } z-30 transition-all duration-300`}
       >
         <div className={`container mx-auto `}>
           <div
