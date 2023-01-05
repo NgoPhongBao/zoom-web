@@ -179,7 +179,7 @@ export default function Header() {
                 className={`${menuStyles.menu__item}`}
                 onClick={() => setShowMenuMobile(false)}
               >
-                <Link href={"/"} className={`${menuStyles.menu__item__link}`}>
+                <Link href={"/khach-hang"} className={`${menuStyles.menu__item__link}`}>
                   {trans.menu.customer}
                 </Link>
               </li>

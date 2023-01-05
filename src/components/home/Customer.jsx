@@ -40,7 +40,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/samsung.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -49,7 +49,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/adam.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -58,7 +58,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/viettel.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -67,7 +67,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/shopee.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -76,7 +76,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/tiger.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -85,7 +85,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/biasaigon.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -94,7 +94,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/grab.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -103,7 +103,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/vivo.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -112,7 +112,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/mykolor.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -121,7 +121,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/huyndai.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -130,7 +130,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/mbbank.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>
@@ -139,7 +139,7 @@ export default function Customer() {
                 <img
                   src="/images/customers/techcombank.png"
                   alt="banner-zoom-01"
-                  className="h-28 object-contain rounded-3xl"
+                  className="h-28 object-contain"
                 />
               </div>
             </SwiperSlide>

@@ -30,7 +30,7 @@ const settings = {
 export default function Project() {
   return (
     <section
-      className="mt-16 lg:mt-20 relative z-10 bg-cyan-900 text-white py-12 service-detail-project"
+      className="mt-16 lg:mt-20 relative z-10 bg-teal-900 text-white py-12 service-detail-project"
       data-aos="fade-up"
     >
       <div className="container mx-auto">

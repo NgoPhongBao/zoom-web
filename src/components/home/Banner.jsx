@@ -29,7 +29,7 @@ const settings = {
 
 export default function Banner() {
   return (
-    <section className="mainbanner relative mb-20 lg:mb-56">
+    <section className="mainbanner relative mb-20 lg:mb-56 mt-10">
       <div className="container mx-auto">
         <div className="relative z-10" data-aos="fade-zoom-in">
           <div className="rounded-lg lg:rounded-[50px] overflow-hidden">
