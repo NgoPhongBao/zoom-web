@@ -7,7 +7,7 @@ const settings = {
   slidesPerView: 1,
   autoplay: {
     delay: 2000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
   },
   modules: [Pagination, Autoplay],
   loop: true,

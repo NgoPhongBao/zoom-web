@@ -1,20 +1,14 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, EffectCards } from "swiper";
+import { EffectCards } from "swiper";
+import Link from "next/link";
+
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import "swiper/css/effect-coverflow";
 
 const settings = {
   slidesPerView: 1,
   modules: [EffectCards],
-  navigation: {
-    nextEl: ".swiper-btn-next",
-    prevEl: ".swiper-btn-prev",
-    dynamicBullets: true,
-  },
   grabCursor: true,
   centeredSlides: true,
   cardsEffect: {
@@ -24,7 +18,7 @@ const settings = {
     slideShadows: true,
   },
   initialSlide: 1,
-  loop: true
+  loop: true,
 };
 
 export default function Service2() {
@@ -33,16 +27,11 @@ export default function Service2() {
       <div className="container mx-auto rounded-3xl overflow-hidden">
         <p
           className="text-xl lg:text-4xl uppercase text-center pt-4 leading-6 lg:leading-[55px]"
-          data-aos="fade-up"
         >
           Sản xuất <span className="font-bold">TVC - KV - BILLBOARD</span>
         </p>
         <div className="lg:mt-12">
-          <Swiper
-            {...settings}
-            effect={"cards"}
-            data-aos="fade-up"
-          >
+          <Swiper {...settings} effect={"cards"} data-aos="fade-up">
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
               <img
                 src="/images/banners/banner-zoom-01.jpg"
@@ -73,13 +62,15 @@ export default function Service2() {
         </div>
 
         <div className="text-center">
-          <button
-            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
-            data-aos="fade-up"
-            data-aos-duration="200"
-          >
-            Xem chi tiết
-          </button>
+          <Link href="/dich-vu-thiet-ke-thi-cong-san-khau">
+            <button
+              className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
+              data-aos="fade-up"
+              data-aos-duration="200"
+            >
+              Xem chi tiết
+            </button>
+          </Link>
         </div>
       </div>
     </section>

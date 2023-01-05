@@ -4,7 +4,7 @@ export default function Footer() {
   const trans = useTrans();
 
   return (
-    <footer className="pb-10 h-auto mt-10 lg:mt-20">
+    <footer className="pb-10 h-auto mt-14 lg:mt-32">
       <div className="container mx-auto">
         <div>
           <img

@@ -29,7 +29,6 @@ export default function Customer() {
     <section className="service5 mb-16 lg:mb-20 relative">
       <p
         className="text-xl lg:text-4xl leading-10 uppercase text-center font-bold"
-        data-aos="fade-up"
       >
         đối tác
       </p>

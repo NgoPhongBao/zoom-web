@@ -32,35 +32,35 @@ export default function Header() {
         }
       });
 
-      // const headerHeight = headerRef.current.offsetHeight;
-      // window.addEventListener("scroll", () => {
-      //   if (window.pageYOffset > headerHeight) {
-      //     setIsFixedMenu(true);
-      //   } else {
-      //     setIsFixedMenu(false);
-      //   }
-      // });
+      const headerHeight = headerRef.current.offsetHeight;
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > headerHeight) {
+          setIsFixedMenu(true);
+        } else {
+          setIsFixedMenu(false);
+        }
+      });
     }
   }, []);
 
   return (
     <header
       ref={headerRef}
-      className={`${menuStyles.fixed} transition-all duration-500`}
+      className={`${isFixedMenu ? menuStyles.fixed : ""} transition-all duration-500 mb-5`}
     >
-      <div className="container mx-auto py-4 relative z-30">
+      <div className="container mx-auto relative z-30">
         <div
           className={`${menuStyles.overlaybg} ${
             showMenuMobile ? menuStyles.show : ""
           }`}
           onClick={() => toggleMenuMobile()}
         ></div>
-        <div className="flex justify-between items-center ">
+        <div className={`${isFixedMenu ? "py-2" : "py-4"} flex justify-between items-center`}>
           <Link href={"/"}>
             <img
               src="/images/quang-cao-zoom-logo.png"
               alt="logo"
-              className="h-16 object-cover z-10 relative"
+              className={`${isFixedMenu ? "h-10" : "h-16"} object-cover z-10 relative transition-all`}
             />
           </Link>
           <ul
@@ -151,7 +151,7 @@ export default function Header() {
 
             {/* Start project */}
             <li className={`${menuStyles.menu__item}`} onClick={() => setShowMenuMobile(false)}>
-              <Link href={"/"} className={`${menuStyles.menu__item__link}`}>
+              <Link href={"/du-an"} className={`${menuStyles.menu__item__link}`}>
                 {trans.menu.project}
               </Link>
             </li>

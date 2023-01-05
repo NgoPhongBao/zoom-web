@@ -1,10 +1,11 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Service4() {
   return (
     <section className="service4 mb-16 lg:mb-32 relative">
       <div className="container mx-auto" >
-        <p className="text-xl lg:text-4xl lg:w-1/2 leading-6 lg:leading-[55px]" data-aos="fade-up">
+        <p className="text-xl lg:text-4xl lg:w-1/2 leading-6 lg:leading-[55px]">
           Cho thuê
           <br />
           <span className="font-bold uppercase">
@@ -28,7 +29,7 @@ export default function Service4() {
                   src="/images/services/service-4-2.jpg"
                   alt="service"
                   className="rounded-xl"
-                  data-aos="fade-up"
+                  data-aos="fade-right"
                   data-aos-duration="500"
                 />
               </div>
@@ -37,7 +38,7 @@ export default function Service4() {
                   src="/images/services/service-4-3.jpg"
                   alt="service"
                   className="rounded-xl"
-                  data-aos="fade-up"
+                  data-aos="fade-left"
                   data-aos-duration="500"
                 />
               </div>
@@ -64,6 +65,7 @@ export default function Service4() {
           </div>
         </div>
         <div className="text-center mt-5 lg:mt-10">
+        <Link href="/dich-vu-thiet-ke-thi-cong-san-khau">
           <button
             className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
             data-aos="fade-up"
@@ -71,6 +73,7 @@ export default function Service4() {
           >
             Xem chi tiết
           </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Service3() {
   return (
@@ -6,7 +7,6 @@ export default function Service3() {
       <div className="container mx-auto">
         <p
           className="text-xl lg:text-4xl uppercase text-center font-bold leading-6 lg:leading-[55px]"
-          data-aos="fade-up"
         >
           <span className="relative">
             livestream
@@ -28,13 +28,15 @@ export default function Service3() {
           />
         </div>
         <div className="text-center mt-5 lg:mt-10">
-          <button
-            className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
-            data-aos="fade-up"
-            data-aos-duration="200"
-          >
-            Xem chi tiết
-          </button>
+          <Link href="/dich-vu-thiet-ke-thi-cong-san-khau">
+            <button
+              className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
+              data-aos="fade-up"
+              data-aos-duration="200"
+            >
+              Xem chi tiết
+            </button>
+          </Link>
         </div>
       </div>
       <div className="element two animation-moving-left-right-two z-[-1] absolute hidden lg:block"></div>
