@@ -397,3 +397,15 @@ body {
     z-index: 0;
   }
 }
+
+
+.contact-form {
+  .element.two {
+    top: -100px;
+    right: 300px;
+    width: 280px;
+    height: 280px;
+    background-color: #38f9d7;
+    border-radius: 100%;
+  }
+}

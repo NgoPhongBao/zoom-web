@@ -195,7 +195,7 @@ export default function AboutUs() {
               nhất ở thời điểm hiện tại.{" "}
             </p>
             <div className="mt-5 lg:mt-10 text-center lg:text-left">
-              <Link href="/lien he">
+              <Link href="/lien-he">
                 <button
                   className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
                   data-aos="fade-up"
