@@ -39,7 +39,7 @@ export default function Banner() {
                   <img
                     src="/images/banners/banner-zoom-01.jpg"
                     alt="banner-zoom-01"
-                    className="h-[300px] sm:h-auto max-h-[550px] w-full object-cover rounded-3xl"
+                    className=" max-h-[550px] w-full object-cover rounded-xl lg:rounded-3xl"
                   />
                   {/* <div
                     className="absolute text-white text-center contentbanner"
@@ -62,7 +62,7 @@ export default function Banner() {
                   <img
                     src="/images/banners/banner-zoom-02.jpg"
                     alt="banner-zoom-02"
-                    className="h-[300px] sm:h-auto max-h-[550px] w-full object-cover rounded-3xl"
+                    className=" max-h-[550px] w-full object-cover rounded-xl lg:rounded-3xl"
                   />
                   {/* <div
                     className="absolute text-white text-center contentbanner"

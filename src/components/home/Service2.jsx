@@ -36,7 +36,7 @@ export default function Service2() {
               <img
                 src="/images/banners/banner-zoom-01.jpg"
                 alt="banner-zoom-01"
-                className="h-[200px] lg:h-auto w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300"
+                className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300"
               />
               <p className="font-bold lg:text-2xl uppercase text-center">TVC</p>
             </SwiperSlide>
@@ -44,7 +44,7 @@ export default function Service2() {
               <img
                 src="/images/banners/banner-zoom-02.jpg"
                 alt="banner-zoom-02"
-                className="h-[200px] lg:h-auto w-full object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
+                className=" w-full object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
               />
               <p className="font-bold lg:text-2xl uppercase text-center">KV</p>
             </SwiperSlide>
@@ -52,7 +52,7 @@ export default function Service2() {
               <img
                 src="/images/banners/banner-zoom-03.jpg"
                 alt="banner-zoom-03"
-                className="h-[200px] lg:h-auto w-full object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
+                className=" w-full object-cover rounded-lg lg:rounded-[40px]  transition-all duration-300"
               />
               <p className="font-bold lg:text-2xl uppercase text-center">
                 BILLBOARD
@@ -64,7 +64,7 @@ export default function Service2() {
         <div className="text-center">
           <Link href="/dich-vu-thiet-ke-thi-cong-san-khau">
             <button
-              className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
+              className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
               data-aos="fade-up"
               data-aos-duration="200"
             >

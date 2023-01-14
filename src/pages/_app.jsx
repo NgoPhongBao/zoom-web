@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
     AOS.init({
       once: false,
       offset: 50,
-      duration: 1000
+      duration: 500
     });
     setTimeout(() => {
       AOS.refresh()

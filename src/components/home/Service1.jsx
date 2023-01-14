@@ -19,7 +19,7 @@ export default function Service1() {
             </p>
             <Link href="/dich-vu-thiet-ke-thi-cong-san-khau">
               <button
-                className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5"
+                className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >

@@ -67,7 +67,7 @@ export default function Service4() {
         <div className="text-center mt-5 lg:mt-10">
           <Link href="/dich-vu-thiet-ke-thi-cong-san-khau">
             <button
-              className="bg-red-500 hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
+              className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
               data-aos="fade-up"
               data-aos-duration="200"
             >
