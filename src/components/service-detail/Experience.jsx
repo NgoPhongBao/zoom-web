@@ -28,6 +28,7 @@ export default function Experience() {
                 style={{ fontSize: "20px" }}
               ></span>
             )}
+            accordion
           >
             <Collapse.Panel
               header={<p className="font-bold text-lg">An toàn là trên hết</p>}

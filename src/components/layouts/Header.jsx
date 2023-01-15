@@ -120,15 +120,7 @@ export default function Header() {
                       href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                       className="hover:text-blue-400"
                     >
-                      Tổ Chức Sự Kiện - Sản Xuất Gameshow Trọn Gói
-                    </Link>
-                  </li>
-                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
-                    <Link
-                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
-                      className="hover:text-blue-400"
-                    >
-                      Sản Xuất TVC - KV - BILLBOARD
+                      Sản Xuất Video
                     </Link>
                   </li>
                   <li className="my-3" onClick={() => setShowMenuMobile(false)}>
@@ -144,8 +136,7 @@ export default function Header() {
                       href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                       className="hover:text-blue-400"
                     >
-                      Cho Thuê Phim Trường - Thiết Bị Quay Phim - Âm Thanh - Ánh
-                      Sáng
+                      Thiết Kế Thi Công Sân Khấu
                     </Link>
                   </li>
                   <li className="my-3" onClick={() => setShowMenuMobile(false)}>
@@ -153,7 +144,23 @@ export default function Header() {
                       href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
                       className="hover:text-blue-400"
                     >
-                      Thiết kế - Thi công Sân khấu
+                      Cho Thuê Phim Trường
+                    </Link>
+                  </li>
+                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
+                    <Link
+                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+                      className="hover:text-blue-400"
+                    >
+                      Cho Thuê Thiết Bị Quay Phim
+                    </Link>
+                  </li>
+                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
+                    <Link
+                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+                      className="hover:text-blue-400"
+                    >
+                      Cho Thuê Thiết Bị Âm Thanh - Ánh Sáng
                     </Link>
                   </li>
                 </ul>
@@ -179,7 +186,10 @@ export default function Header() {
                 className={`${menuStyles.menu__item}`}
                 onClick={() => setShowMenuMobile(false)}
               >
-                <Link href={"/khach-hang"} className={`${menuStyles.menu__item__link}`}>
+                <Link
+                  href={"/khach-hang"}
+                  className={`${menuStyles.menu__item__link}`}
+                >
                   {trans.menu.customer}
                 </Link>
               </li>
@@ -190,7 +200,10 @@ export default function Header() {
                 className={`${menuStyles.menu__item}`}
                 onClick={() => setShowMenuMobile(false)}
               >
-                <Link href={"/lien-he"} className={`${menuStyles.menu__item__link}`}>
+                <Link
+                  href={"/lien-he"}
+                  className={`${menuStyles.menu__item__link}`}
+                >
                   {trans.menu.contact}
                 </Link>
               </li>

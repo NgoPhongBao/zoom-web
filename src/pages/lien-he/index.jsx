@@ -52,6 +52,7 @@ export default function index() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.786232811723!2d106.60995521533442!3d10.827664661205297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175297f6cc22d45%3A0x24fca86008a24801!2zUGhpbSB0csaw4budbmcgWm9vbW1lZGlh!5e0!3m2!1svi!2s!4v1577181901817!5m2!1svi!2s"
             className="w-full h-80 lg:h-[500px] rounded-xl lg:rounded-3xl"
+            data-aos="fade-zoom-in"
           />
         </div>
       </section>
