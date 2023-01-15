@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Menu from "./Menu";
 
-export default function Header() {
+export default function Header({ services }) {
   const { locale } = useRouter();
   const [showMenuMobile, setShowMenuMobile] = useState(false);
   const [isFixedMenu, setIsFixedMenu] = useState(false);
@@ -63,7 +63,12 @@ export default function Header() {
                 } object-cover z-10 relative transition-all`}
               />
             </Link>
-            <Menu showMenuMobile={showMenuMobile} setShowMenuMobile={setShowMenuMobile} locale={locale}/>
+            <Menu
+              showMenuMobile={showMenuMobile}
+              setShowMenuMobile={setShowMenuMobile}
+              locale={locale}
+              services={services}
+            />
             <div className="hidden items-center justify-between lg:flex">
               <Link href="/" locale="vi">
                 <div className="flex items-center">

@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import api from "../../service/apiService";
 
 const settings = {
   slidesPerView: 1,
@@ -15,7 +16,7 @@ const settings = {
     prevEl: ".swiper-btn-prev",
     dynamicBullets: true,
   },
-  pagination: true,
+  pagination: { clickable: true },
   grabCursor: true,
   centeredSlides: true,
   coverflowEffect: {
@@ -27,59 +28,26 @@ const settings = {
   },
 };
 
-export default function Banner() {
+function Banner({ banners }) {
   return (
     <section className="mainbanner relative mb-20 lg:mb-56 mt-10">
       <div className="container mx-auto">
         <div className="relative z-10" data-aos="fade-zoom-in">
           <div className="rounded-lg lg:rounded-[50px] overflow-hidden">
             <Swiper {...settings} effect={"coverflow"} className="w-full">
-              <SwiperSlide>
-                <div className="relative">
-                  <img
-                    src="/images/banners/banner-zoom-01.jpg"
-                    alt="banner-zoom-01"
-                    className=" max-h-[550px] w-full object-cover rounded-xl lg:rounded-3xl"
-                  />
-                  {/* <div
-                    className="absolute text-white text-center contentbanner"
-                    style={{
-                      top: "50%",
-                      transform: "translate(-50%, -50%)",
-                      left: "50%",
-                    }}
-                  >
-                    <p className="uppercase text-2xl">Công ty</p>
-                    <p className="uppercase text-3xl font-bold">
-                      Sản xuất video, livestream và cho thuê thiết bị
-                    </p>
-                    <p className="uppercase text-2xl">Hàng đầu việt nam</p>
-                  </div> */}
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative">
-                  <img
-                    src="/images/banners/banner-zoom-02.jpg"
-                    alt="banner-zoom-02"
-                    className=" max-h-[550px] w-full object-cover rounded-xl lg:rounded-3xl"
-                  />
-                  {/* <div
-                    className="absolute text-white text-center contentbanner"
-                    style={{
-                      top: "50%",
-                      transform: "translate(-50%, -50%)",
-                      left: "50%",
-                    }}
-                  >
-                    <p className="uppercase text-2xl">Công ty</p>
-                    <p className="uppercase text-3xl font-bold">
-                      Sản xuất video, livestream và cho thuê thiết bị
-                    </p>
-                    <p className="uppercase text-2xl">Hàng đầu việt nam</p>
-                  </div> */}
-                </div>
-              </SwiperSlide>
+              {banners.map((banner) => {
+                return (
+                  <SwiperSlide key={banner.id}>
+                    <div className="relative h-full max-h-[550px]">
+                      <img
+                        src={banner.imageUrl}
+                        alt="banner-zoom-01"
+                        className="h-full w-full object-cover rounded-xl lg:rounded-3xl"
+                      />
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           </div>
           <div className="swiper-btn-prev cursor-pointer hidden lg:block">
@@ -90,7 +58,8 @@ export default function Banner() {
           </div>
         </div>
       </div>
-     
     </section>
   );
 }
+
+export default Banner

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import useTrans from "../../hooks/useTrans";
 import { useRouter } from "next/router";
+import { services as services_const } from "../../utils/constants";
 
 export default function Menu(props) {
-  const { showMenuMobile, locale, isMenuFooter } = props;
+  const { showMenuMobile, locale, isMenuFooter, services } = props;
   const trans = useTrans();
   const { asPath } = useRouter();
   const [showServiceMobile, setShowServiceMobile] = useState(false);
@@ -76,54 +77,23 @@ export default function Menu(props) {
         </p>
 
         <ul className={`menu__sub`}>
-          <li className="py-2 px-5">
-            <Link
-              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
-              className="hover:text-blue-400"
-            >
-              Sản Xuất Video
-            </Link>
-          </li>
-          <li className="py-2 px-5">
-            <Link
-              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
-              className="hover:text-blue-400"
-            >
-              Livestream
-            </Link>
-          </li>
-          <li className="py-2 px-5">
-            <Link
-              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
-              className="hover:text-blue-400"
-            >
-              Thiết Kế Thi Công Sân Khấu
-            </Link>
-          </li>
-          <li className="py-2 px-5">
-            <Link
-              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
-              className="hover:text-blue-400"
-            >
-              Cho Thuê Phim Trường
-            </Link>
-          </li>
-          <li className="py-2 px-5">
-            <Link
-              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
-              className="hover:text-blue-400"
-            >
-              Cho Thuê Thiết Bị Quay Phim
-            </Link>
-          </li>
-          <li className="py-2 px-5">
-            <Link
-              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
-              className="hover:text-blue-400"
-            >
-              Cho Thuê Thiết Bị Âm Thanh - Ánh Sáng
-            </Link>
-          </li>
+          {services.map((service) => {
+            return (
+              <li className="py-2 px-5" key={service.id}>
+                <Link
+                  href={`/dich-vu/${
+                    services_const.find((el) => el.type === service.type)?.url
+                  }`}
+                >
+                  {locale === "vi"
+                    ? services_const.find((el) => el.type === service.type)
+                        ?.name_VN
+                    : services_const.find((el) => el.type === service.type)
+                        ?.name_EN}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </li>
       {/* End service */}

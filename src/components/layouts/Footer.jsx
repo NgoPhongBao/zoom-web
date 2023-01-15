@@ -2,9 +2,10 @@ import useTrans from "../../hooks/useTrans";
 import Menu from "./Menu";
 import { useRouter } from "next/router";
 
-export default function Footer() {
+export default function Footer({ services, store }) {
   const trans = useTrans();
   const { locale } = useRouter();
+  console.log(store);
   return (
     <footer className="footer pb-10 h-auto mt-14 lg:mt-32">
       <div className="container mx-auto">
@@ -15,7 +16,7 @@ export default function Footer() {
             className="h-16 lg:h-20 object-contain mx-auto"
           />
           <p className="text-center mt-4">
-            {trans.footer.let_us_make_your_success}
+            {locale === "vi" ? store.slogan_VN : store.slogan_EN}
           </p>
         </div>
 
@@ -28,10 +29,7 @@ export default function Footer() {
             <div>
               <p className="font-bold text-lg">Giới thiệu</p>
               <p className="my-1">
-                ZoOm Media cung cấp các dịch vụ: livestream chuyên nghiệp, sản
-                xuất video quảng cáo, viral, gameshow, giới thiệu doanh nghiệp,
-                video theo yêu cầu, cho thuê phim trường, cho thuê các thiết bị
-                máy quay, âm thanh, ánh sáng.
+                {locale === "vi" ? store.intro_VN : store.intro_EN}
               </p>
             </div>
           </div>
@@ -46,25 +44,25 @@ export default function Footer() {
                 <span className="font-bold underline underline-offset-4">
                   Hotline:
                 </span>{" "}
-                0919 833 441 - 0974 57 1018 - (028) 7307 8887
+                {store.hotLine}
               </p>
               <p className="my-1">
                 <span className="font-bold underline underline-offset-4">
                   Email:
                 </span>{" "}
-                info@quangcaozoom.com
+                {store.email}
               </p>
               <p className="my-1">
                 <span className="font-bold underline underline-offset-4">
                   Facebook:
                 </span>{" "}
-                Zoommediavn
+                {store.faceBook}
               </p>
               <p className="my-1">
                 <span className="font-bold underline underline-offset-4">
                   Giờ làm việc:
                 </span>{" "}
-                Mon - Sun / 9:00 AM - 5:30 PM
+                {store.openTime}
               </p>
             </div>
           </div>
@@ -76,9 +74,7 @@ export default function Footer() {
             <div>
               <p className="font-bold text-lg">Công việc</p>
               <p className="my-1">
-                Khi làm việc, chúng tôi phối hợp nhịp nhàng, xây dựng lòng tin
-                và tạo nên sự gắn kết tuyệt đối để có thể sản xuất ra những
-                thành phẩm khiến khách hàng hài lòng.
+                {locale === "vi" ? store.jobInfo_VN : store.jobInfo_EN}
               </p>
             </div>
           </div>
@@ -90,11 +86,7 @@ export default function Footer() {
             <div>
               <p className="font-bold text-lg">Đội ngũ nhân sự</p>
               <p className="my-1">
-                Đội ngũ nhân viên và kỹ thuật viên của ZoOm Media có trình độ kỹ
-                thuật và kinh nghiệm thực hiện các dự án mới tại Việt Nam. Ekip
-                chúng tôi có tinh thần làm việc hăng say, nhiệt huyết không ngại
-                khó khăn, thách thức để có thể cung cấp cho khách hàng những sản
-                phẩm chất lượng và những shoot quay hoàn mỹ nhất.
+                {locale === "vi" ? store.teamInfo_VN : store.teamInfo_EN}
               </p>
             </div>
           </div>
@@ -108,10 +100,10 @@ export default function Footer() {
             <div>
               <p className="font-bold text-lg">Phim trường ZoOm Media</p>
               <p className="my-1">
-                44/1 Tân Thới Nhất 8, Phường Tân Thới Nhất, Quận 12, TP.HCM
+                {locale === "vi" ? store.address1_VN : store.address1_EN}
               </p>
               <p className="my-1">
-                221/3 Phan Huy Ích, Phường 14, Quận Gò Vấp, TP.HCM
+                {locale === "vi" ? store.address2_VN : store.address2_EN}
               </p>
             </div>
           </div>
@@ -121,9 +113,7 @@ export default function Footer() {
               <span className="icofont-email text-4xl lg:text-[50px] text-red-500"></span>
             </div>
             <div>
-              <p className="font-bold text-lg mt-1">
-                Zoommediaviethnam@gmail.com
-              </p>
+              <p className="font-bold text-lg mt-1">{store.email}</p>
             </div>
           </div>
           {/* sdt */}
@@ -132,12 +122,12 @@ export default function Footer() {
               <span className="icofont-phone text-4xl lg:text-[50px] text-red-500"></span>
             </div>
             <div>
-              <p className="font-bold text-lg mt-1">0919-833-441</p>
+              <p className="font-bold text-lg mt-1">{store.hotLine}</p>
             </div>
           </div>
         </div>
         <div className="mt-10">
-          <Menu locale={locale} isMenuFooter/>
+          <Menu locale={locale} isMenuFooter services={services} />
         </div>
       </div>
     </footer>

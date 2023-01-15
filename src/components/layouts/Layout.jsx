@@ -3,12 +3,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Layout(props) {
-  const { children } = props;
+  const { children, services, store } = props;
   return (
     <>
-      <Header />
+      <Header services={services} />
       {children}
-      <Footer />
+      <Footer services={services} store={store} />
     </>
   );
 }
