@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import useTrans from "../../hooks/useTrans";
+import { useRouter } from "next/router";
 
 export default function Menu(props) {
   const { showMenuMobile, locale, isMenuFooter } = props;
   const trans = useTrans();
+  console.log(useRouter());
+  const { asPath } = useRouter();
   const [showServiceMobile, setShowServiceMobile] = useState(false);
+  const [showAboutMobile, setShowAboutMobile] = useState(false);
   const toggleServiceMobile = () => {
-    if (showMenuMobile && setShowServiceMobile)
-      setShowServiceMobile(!showServiceMobile);
+    if (showMenuMobile) setShowServiceMobile(!showServiceMobile);
+  };
+
+  const toggleAboutMobile = () => {
+    if (showMenuMobile) setShowAboutMobile(!showAboutMobile);
   };
 
   return (
@@ -18,7 +25,7 @@ export default function Menu(props) {
       }`}
     >
       {/* Start home */}
-      <li className={`menu__item`}>
+      <li className={`menu__item ${asPath === "/" ? "active-link" : ""}`}>
         <Link href={"/"} className={`menu__item__link`}>
           {trans.menu.home}
         </Link>
@@ -26,16 +33,41 @@ export default function Menu(props) {
       {/* End home */}
 
       {/* Start about */}
-      <li className={`menu__item`}>
-        <Link href={"/ve-chung-toi"} className={`mr-2 menu__item__link`}>
+      <li
+        className={`menu__item ${showAboutMobile ? "active" : ""} ${
+          asPath === "/ve-chung-toi" ? "active-link" : ""
+        }`}
+        onClick={() => toggleAboutMobile()}
+      >
+        <p className={`mr-2 menu__item__link`}>
           {trans.menu.about}
-        </Link>
+          <span className={`icofont-simple-down pt-1 menu__item__arrow`}></span>
+        </p>
+
+        <ul className={`menu__sub`}>
+          <li className="py-2 px-5">
+            <Link href={`/ve-chung-toi`} className="hover:text-blue-400">
+              Về Chúng Tôi
+            </Link>
+          </li>
+          <li className="py-2 px-5">
+            <Link
+              href={`/files/Portfolio-ZoomMedia.pdf`}
+              className="hover:text-blue-400"
+              target={"_blank"}
+            >
+              Hồ Sơ Năng Lực
+            </Link>
+          </li>
+        </ul>
       </li>
       {/* End about */}
 
       {/* Start service */}
       <li
-        className={`menu__item ${showServiceMobile ? "active" : ""}`}
+        className={`menu__item ${showServiceMobile ? "active" : ""} ${
+          asPath.includes("/dich-vu/") ? "active-link" : ""
+        }`}
         onClick={() => toggleServiceMobile()}
       >
         <p className={`mr-2 menu__item__link`}>
@@ -44,49 +76,49 @@ export default function Menu(props) {
         </p>
 
         <ul className={`menu__sub`}>
-          <li className="my-3">
+          <li className="py-2 px-5">
             <Link
-              href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
               className="hover:text-blue-400"
             >
               Sản Xuất Video
             </Link>
           </li>
-          <li className="my-3">
+          <li className="py-2 px-5">
             <Link
-              href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
               className="hover:text-blue-400"
             >
               Livestream
             </Link>
           </li>
-          <li className="my-3">
+          <li className="py-2 px-5">
             <Link
-              href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
               className="hover:text-blue-400"
             >
               Thiết Kế Thi Công Sân Khấu
             </Link>
           </li>
-          <li className="my-3">
+          <li className="py-2 px-5">
             <Link
-              href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
               className="hover:text-blue-400"
             >
               Cho Thuê Phim Trường
             </Link>
           </li>
-          <li className="my-3">
+          <li className="py-2 px-5">
             <Link
-              href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
               className="hover:text-blue-400"
             >
               Cho Thuê Thiết Bị Quay Phim
             </Link>
           </li>
-          <li className="my-3">
+          <li className="py-2 px-5">
             <Link
-              href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
+              href={`/dich-vu/dich-vu-thiet-ke-thi-cong-san-khau`}
               className="hover:text-blue-400"
             >
               Cho Thuê Thiết Bị Âm Thanh - Ánh Sáng
@@ -97,7 +129,7 @@ export default function Menu(props) {
       {/* End service */}
 
       {/* Start project */}
-      <li className={`menu__item`}>
+      <li className={`menu__item ${asPath === "/du-an" ? "active-link" : ""}`}>
         <Link href={"/du-an"} className={`menu__item__link`}>
           {trans.menu.project}
         </Link>
@@ -105,7 +137,11 @@ export default function Menu(props) {
       {/* End project */}
 
       {/* Start customer */}
-      <li className={`menu__item`}>
+      <li
+        className={`menu__item ${
+          asPath === "/khach-hang" ? "active-link" : ""
+        }`}
+      >
         <Link href={"/khach-hang"} className={`menu__item__link`}>
           {trans.menu.customer}
         </Link>
@@ -113,7 +149,9 @@ export default function Menu(props) {
       {/* End customer */}
 
       {/* Start contact */}
-      <li className={`menu__item`}>
+      <li
+        className={`menu__item ${asPath === "/lien-he" ? "active-link" : ""}`}
+      >
         <Link href={"/lien-he"} className={`menu__item__link`}>
           {trans.menu.contact}
         </Link>
