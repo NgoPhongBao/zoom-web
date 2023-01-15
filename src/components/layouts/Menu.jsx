@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 export default function Menu(props) {
   const { showMenuMobile, locale, isMenuFooter } = props;
   const trans = useTrans();
-  console.log(useRouter());
   const { asPath } = useRouter();
   const [showServiceMobile, setShowServiceMobile] = useState(false);
   const [showAboutMobile, setShowAboutMobile] = useState(false);
@@ -53,6 +52,7 @@ export default function Menu(props) {
           <li className="py-2 px-5">
             <Link
               href={`/files/Portfolio-ZoomMedia.pdf`}
+              locale="vi"
               className="hover:text-blue-400"
               target={"_blank"}
             >
