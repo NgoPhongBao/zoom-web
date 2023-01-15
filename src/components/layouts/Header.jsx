@@ -1,23 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import menuStyles from "../../styles/Menu.module.scss";
-import useTrans from "../../hooks/useTrans";
+import Menu from "./Menu";
 
 export default function Header() {
-  const trans = useTrans();
   const { locale } = useRouter();
   const [showMenuMobile, setShowMenuMobile] = useState(false);
-  const [showServiceMobile, setShowServiceMobile] = useState(false);
   const [isFixedMenu, setIsFixedMenu] = useState(false);
   const headerRef = useRef(null);
-
   const toggleMenuMobile = () => {
     setShowMenuMobile(!showMenuMobile);
-  };
-
-  const toggleServiceMobile = () => {
-    if (showMenuMobile) setShowServiceMobile(!showServiceMobile);
   };
 
   useEffect(() => {
@@ -43,17 +35,18 @@ export default function Header() {
   }, []);
 
   return (
-    <header ref={headerRef} className={`mb-5 ${isFixedMenu ? "mb-24" : ""}`}>
+    <header
+      ref={headerRef}
+      className={`header mb-5 ${isFixedMenu ? "mb-24" : ""}`}
+    >
       <div
         className={`${
-          isFixedMenu ? menuStyles.fixed : ""
+          isFixedMenu ? "fixed" : ""
         } z-30 transition-all duration-300`}
       >
         <div className={`container mx-auto `}>
           <div
-            className={`${menuStyles.overlaybg} ${
-              showMenuMobile ? menuStyles.show : ""
-            }`}
+            className={`overlaybg ${showMenuMobile ? "show" : ""}`}
             onClick={() => toggleMenuMobile()}
           ></div>
           <div
@@ -70,198 +63,7 @@ export default function Header() {
                 } object-cover z-10 relative transition-all`}
               />
             </Link>
-            <ul
-              className={`items-center ${menuStyles.menu} ${
-                showMenuMobile ? menuStyles.menu__mobile_show : ""
-              }`}
-            >
-              {/* Start home */}
-              <li
-                className={`${menuStyles.menu__item}`}
-                onClick={() => setShowMenuMobile(false)}
-              >
-                <Link href={"/"} className={`${menuStyles.menu__item__link}`}>
-                  {trans.menu.home}
-                </Link>
-              </li>
-              {/* End home */}
-
-              {/* Start about */}
-              <li
-                className={`${menuStyles.menu__item}`}
-                onClick={() => setShowMenuMobile(false)}
-              >
-                <Link
-                  href={"/ve-chung-toi"}
-                  className={`mr-2 ${menuStyles.menu__item__link}`}
-                >
-                  {trans.menu.about}
-                </Link>
-              </li>
-              {/* End about */}
-
-              {/* Start service */}
-              <li
-                className={`${menuStyles.menu__item} ${
-                  showServiceMobile ? menuStyles.active : ""
-                }`}
-                onClick={() => toggleServiceMobile()}
-              >
-                <p className={`mr-2 ${menuStyles.menu__item__link}`}>
-                  {trans.menu.service}
-                  <span
-                    className={`icofont-simple-down pt-1 ${menuStyles.menu__item__arrow}`}
-                  ></span>
-                </p>
-
-                <ul className={`${menuStyles.menu__sub}`}>
-                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
-                    <Link
-                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
-                      className="hover:text-blue-400"
-                    >
-                      Sản Xuất Video
-                    </Link>
-                  </li>
-                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
-                    <Link
-                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
-                      className="hover:text-blue-400"
-                    >
-                      Livestream
-                    </Link>
-                  </li>
-                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
-                    <Link
-                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
-                      className="hover:text-blue-400"
-                    >
-                      Thiết Kế Thi Công Sân Khấu
-                    </Link>
-                  </li>
-                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
-                    <Link
-                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
-                      className="hover:text-blue-400"
-                    >
-                      Cho Thuê Phim Trường
-                    </Link>
-                  </li>
-                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
-                    <Link
-                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
-                      className="hover:text-blue-400"
-                    >
-                      Cho Thuê Thiết Bị Quay Phim
-                    </Link>
-                  </li>
-                  <li className="my-3" onClick={() => setShowMenuMobile(false)}>
-                    <Link
-                      href={`/dich-vu-thiet-ke-thi-cong-san-khau`}
-                      className="hover:text-blue-400"
-                    >
-                      Cho Thuê Thiết Bị Âm Thanh - Ánh Sáng
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              {/* End service */}
-
-              {/* Start project */}
-              <li
-                className={`${menuStyles.menu__item}`}
-                onClick={() => setShowMenuMobile(false)}
-              >
-                <Link
-                  href={"/du-an"}
-                  className={`${menuStyles.menu__item__link}`}
-                >
-                  {trans.menu.project}
-                </Link>
-              </li>
-              {/* End project */}
-
-              {/* Start customer */}
-              <li
-                className={`${menuStyles.menu__item}`}
-                onClick={() => setShowMenuMobile(false)}
-              >
-                <Link
-                  href={"/khach-hang"}
-                  className={`${menuStyles.menu__item__link}`}
-                >
-                  {trans.menu.customer}
-                </Link>
-              </li>
-              {/* End customer */}
-
-              {/* Start contact */}
-              <li
-                className={`${menuStyles.menu__item}`}
-                onClick={() => setShowMenuMobile(false)}
-              >
-                <Link
-                  href={"/lien-he"}
-                  className={`${menuStyles.menu__item__link}`}
-                >
-                  {trans.menu.contact}
-                </Link>
-              </li>
-              {/* End contact */}
-
-              {/* Start lang mobile */}
-              <li className={` ${menuStyles.menu__item} lg:hidden`}>
-                <div className={`${menuStyles.menu__item__link}`}>
-                  <div className="flex items-center">
-                    <p className="mr-4">{trans.menu.language}: </p>
-                    <div className="flex items-center">
-                      <Link
-                        href="/"
-                        locale="vi"
-                        onClick={() => setShowMenuMobile(false)}
-                      >
-                        <div className="flex items-center">
-                          <img
-                            src="/images/icons/flag_vietnam.png"
-                            alt="vi"
-                            className="h-3 mr-1"
-                          />
-                          <span
-                            className={`${
-                              locale === "vi" ? "font-bold text-red-500" : ""
-                            }`}
-                          >
-                            VI
-                          </span>
-                        </div>
-                      </Link>
-                      <div className="mx-2">|</div>
-                      <Link
-                        href="/"
-                        locale="en"
-                        onClick={() => setShowMenuMobile(false)}
-                      >
-                        <div className="flex items-center">
-                          <img
-                            src="/images/icons/flag_usa.png"
-                            alt="en"
-                            className="h-3 mr-1"
-                          />
-                          <span
-                            className={`${
-                              locale === "en" ? "font-bold text-red-500" : ""
-                            }`}
-                          >
-                            EN
-                          </span>
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              {/* End lang mobile  */}
-            </ul>
+            <Menu showMenuMobile={showMenuMobile} setShowMenuMobile={setShowMenuMobile} locale={locale}/>
             <div className="hidden items-center justify-between lg:flex">
               <Link href="/" locale="vi">
                 <div className="flex items-center">
@@ -298,9 +100,7 @@ export default function Header() {
               </Link>
             </div>
             <div
-              className={`${menuStyles.hambuger__menu} ${
-                showMenuMobile ? menuStyles.active : ""
-              }`}
+              className={`hambuger__menu ${showMenuMobile ? "active" : ""}`}
               onClick={() => toggleMenuMobile()}
             >
               <span></span>

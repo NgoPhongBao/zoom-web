@@ -1,10 +1,12 @@
 import useTrans from "../../hooks/useTrans";
+import Menu from "./Menu";
+import { useRouter } from "next/router";
 
 export default function Footer() {
   const trans = useTrans();
-
+  const { locale } = useRouter();
   return (
-    <footer className="pb-10 h-auto mt-14 lg:mt-32">
+    <footer className="footer pb-10 h-auto mt-14 lg:mt-32">
       <div className="container mx-auto">
         <div>
           <img
@@ -133,6 +135,9 @@ export default function Footer() {
               <p className="font-bold text-lg mt-1">0919-833-441</p>
             </div>
           </div>
+        </div>
+        <div className="mt-10">
+          <Menu locale={locale} isMenuFooter/>
         </div>
       </div>
     </footer>
