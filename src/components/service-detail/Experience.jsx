@@ -1,13 +1,10 @@
 import React from "react";
 import { Collapse } from "antd";
 
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
+export default function Experience({ trans, service, locale }) {
+  const collapseContentEN = JSON.parse(service.contentCollapse_EN);
+  const collapseContentVI = JSON.parse(service.contentCollapse_VN);
 
-export default function Experience() {
   return (
     <section className="mt-16 lg:mt-20 relative service-detail-experience-accordion z-10">
       <div className="container mx-auto">
@@ -15,7 +12,9 @@ export default function Experience() {
           className="font-bold uppercase text-xl lg:text-3xl lg:w-[40%] leading-6 lg:leading-[55px]"
           data-aos="fade-up"
         >
-          kinh nghiệm thiết kế sân khấu chuẩn
+          {locale === "vi"
+            ? service.collapseTitle_VN
+            : service.collapseTitle_EN}
         </p>
         <div className="mt-4 lg:mt-8" data-aos="fade-up">
           <Collapse
@@ -30,42 +29,18 @@ export default function Experience() {
             )}
             accordion
           >
-            <Collapse.Panel
-              header={<p className="font-bold text-lg">An toàn là trên hết</p>}
-              key="1"
-            >
-              <p>{text}</p>
-            </Collapse.Panel>
-            <Collapse.Panel
-              header={
-                <p className="font-bold text-lg">
-                  Kích thước sân khấu phù hợp với tính chất sự kiện
-                </p>
+            {(locale === "vi" ? collapseContentVI : collapseContentEN).map(
+              (el) => {
+                return (
+                  <Collapse.Panel
+                    header={<p className="font-bold text-lg">{el.title}</p>}
+                    key={el.title}
+                  >
+                    <p>{el.content}</p>
+                  </Collapse.Panel>
+                );
               }
-              key="2"
-            >
-              <p>{text}</p>
-            </Collapse.Panel>
-            <Collapse.Panel
-              header={
-                <p className="font-bold text-lg">
-                  Hệ thống âm thanh - ánh sáng chuyên nghiệp
-                </p>
-              }
-              key="3"
-            >
-              <p>{text}</p>
-            </Collapse.Panel>
-            <Collapse.Panel
-              header={
-                <p className="font-bold text-lg">
-                  Hiểu rõ sự kiện tổ chức và mong muốn của khách hàng
-                </p>
-              }
-              key="4"
-            >
-              <p>{text}</p>
-            </Collapse.Panel>
+            )}
           </Collapse>
         </div>
       </div>

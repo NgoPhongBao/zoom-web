@@ -32,7 +32,6 @@
 html,
 body {
   height: 100%;
-  background-color: #ffffff;
   font-family: GoogleSans-Regular, sans-serif;
   color: #333333;
   font-size: 16px;
@@ -333,7 +332,7 @@ body {
     font-size: 1rem !important;
     .ant-tabs-nav {
       .ant-tabs-tab {
-        margin-left: 15px;
+        margin-left:10px;
         .ant-tabs-tab-btn {
           font-size: 1.2rem !important;
           color: #333333;
@@ -444,13 +443,12 @@ body {
     transition: all 0.3s;
     transform: translateX(-100%);
     z-index: 30;
-    color: white;
+    color: rgba(255, 255, 255, 0.6);
     &.menu__mobile_show {
       transform: translateX(0);
     }
     .menu__item {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 1.1rem;
       font-weight: bold;
       position: relative;
       .menu__item__link {
@@ -488,6 +486,11 @@ body {
           padding: 10px 0;
         }
       }
+      &.active-link {
+        .menu__item__link {
+          color: #ffffff;
+        }
+      }
     }
 
     @media screen and (min-width: 1024px) {
@@ -498,9 +501,9 @@ body {
       height: auto;
       display: flex;
       background: none;
-      color: #000000;
       transform: translateX(0);
       z-index: 20;
+      color: #333333;
       .menu__item {
         display: flex;
         justify-content: space-between;
@@ -516,7 +519,7 @@ body {
             content: "";
             width: 0;
             height: 3px;
-            background-color: #000000;
+            background-color: #e40900;
             bottom: -3px;
             transform: translate(-50%, 100%);
             left: 50%;
@@ -557,7 +560,7 @@ body {
         }
         &.active-link {
           .menu__item__link {
-            color: #40a9ff;
+            color: #333333;
           }
           .menu__item__link:after {
             width: 30px;
@@ -615,12 +618,28 @@ body {
       padding: 5px 16px;
       cursor: pointer;
       position: relative;
-      .menu__item__arrow {
-        transform: rotate(-180deg);
-        position: absolute;
-        top: 8px;
-        right: 0;
+      .menu__item__link {
+        position: relative;
+        padding: 5px 20px;
+        &::after {
+          transition: 0.2s;
+          position: absolute;
+          content: "";
+          width: 0;
+          height: 3px;
+          background-color: #e40900;
+          bottom: -3px;
+          transform: translate(-50%, 100%);
+          left: 50%;
+        }
+        .menu__item__arrow {
+          transform: rotate(-180deg);
+          position: absolute;
+          top: 9px;
+          right: -5px;
+        }
       }
+      
       .menu__sub {
         display: none;
         position: absolute;
@@ -639,8 +658,8 @@ body {
         }
       }
       &.active-link {
-        .menu__item__link {
-          color: #40a9ff;
+        .menu__item__link:after {
+          width: 30px;
         }
       }
     }

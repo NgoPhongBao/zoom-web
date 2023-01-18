@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { services as services_const } from "../../utils/constants";
 
-export default function Livestream({ data }) {
+export default function Livestream({ data, trans, services }) {
   const newData = { ...data, content: JSON.parse(data.content) };
   
   return (
@@ -31,13 +30,13 @@ export default function Livestream({ data }) {
         <div className="text-center mt-5 lg:mt-10">
           <Link
             href={`/dich-vu/${
-              services_const.find((el) => el.type === "livetream")?.url
+              services.find((el) => el.type === "livetream")?.url
             }`}
           >
             <button
               className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
             >
-              Xem chi tiết
+              {trans.see_detail}
             </button>
           </Link>
         </div>

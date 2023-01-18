@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import Head from "next/head";
 import Layout from "../components/layouts/Layout";
+import LayoutAdmin from "../admin-components/LayoutAdmin";
 import AOS from "aos";
 import App from "next/app";
 import "aos/dist/aos.css";
 import "../styles/globals.scss";
 import api from "../service/apiService";
+import ContextProviver from "../context";
 
 function MyApp({ Component, pageProps, services, store }) {
   useEffect(function () {
@@ -25,9 +27,17 @@ function MyApp({ Component, pageProps, services, store }) {
         <title>Quảng Cáo Zoom</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Layout services={services} store={store}>
-        <Component {...pageProps} services={services} />
-      </Layout>
+      {Component.isAdmin ? (
+        <ContextProviver>
+          <LayoutAdmin>
+            <Component {...pageProps} />
+          </LayoutAdmin>
+        </ContextProviver>
+      ) : (
+        <Layout services={services} store={store}>
+          <Component {...pageProps} services={services} store={store}/>
+        </Layout>
+      )}
     </>
   );
 }

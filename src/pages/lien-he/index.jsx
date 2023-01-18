@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input } from "antd";
+import { useRouter } from "next/router";
+import useTrans from "../../hooks/useTrans";
 
 const initialVal = {
   fullName: "",
@@ -11,17 +13,19 @@ const initialVal = {
   content: "",
 };
 
-export default function index() {
+export default function index({ store }) {
+  const { locale } = useRouter();
+  const trans = useTrans();
   const formik = useFormik({
     initialValues: initialVal,
     validationSchema: Yup.object({
       fullName: Yup.string()
-        .required(`Vui lòng nhập họ và tên`)
-        .typeError(`ui lòng nhập họ và tên`),
+        .required(trans.vui_long_nhap_ho_va_ten)
+        .typeError(trans.vui_long_nhap_ho_va_ten),
       email: Yup.string()
-        .required(`Vui lòng nhập email`)
-        .typeError(`Vui lòng nhập email`)
-        .email(`Email không đúng định dạng`),
+        .required(trans.vui_long_nhap_email)
+        .typeError(trans.vui_long_nhap_email)
+        .email(trans.email_khong_hop_le),
     }),
     validateOnBlur: false,
     validateOnChange: false,
@@ -36,13 +40,13 @@ export default function index() {
     resetForm,
   } = formik;
   return (
-    <>
+    <main>
       {/* breadcrumb */}
       <section>
         <div className="container mx-auto my-10">
           <div className="flex gap-2">
-            <Link href={"/"}>Trang chủ</Link>/
-            <span className="opacity-60">Liên hệ</span>
+            <Link href={"/"}>{trans.home}</Link>/
+            <span className="opacity-60">{trans.contact}</span>
           </div>
         </div>
       </section>
@@ -60,7 +64,7 @@ export default function index() {
         <div className="container mx-auto relative z-[2]">
           <div className="flex items-center justify-center gap-2">
             <p className="text-2xl lg:text-4xl font-bold uppercase text-center">
-              liên hệ trực tiếp với
+              {trans.truc_tiep_lien_he_voi}
             </p>
             <img
               src="/images/quang-cao-zoom-logo.png"
@@ -69,9 +73,9 @@ export default function index() {
             />
           </div>
           <p className="text-center mt-5">
-            Hãy để chúng tôi làm nên thành công của bạn!
+            {locale === "vi" ? store.slogan_VN : store.slogan_EN}!
           </p>
-          <p className="text-center">Vui lòng để lại thông tin ở đây</p>
+          <p className="text-center">{trans.vui_long_de_lai_thong_tin_o_day}</p>
           <form
             autoComplete="off"
             onSubmit={handleSubmit}
@@ -79,11 +83,11 @@ export default function index() {
           >
             <div>
               <label htmlFor="fullname">
-                {`Họ và tên`}
+                {trans.ho_va_ten}
                 <span className="text-red-500">*</span>
               </label>
               <Input
-                placeholder={`Họ và tên`}
+                placeholder={trans.ho_va_ten}
                 name="fullName"
                 id="fullName"
                 value={values.fullName}
@@ -110,9 +114,9 @@ export default function index() {
               <p className="text-red-500 text-xs">{errors?.email}</p>
             </div>
             <div className="mt-5">
-              <label htmlFor="phoneNumber">{`Số điện thoại`}</label>
+              <label htmlFor="phoneNumber">{trans.so_dien_thoai}</label>
               <Input
-                placeholder={`Số điện thoại`}
+                placeholder={trans.so_dien_thoai}
                 name="phoneNumber"
                 id="phoneNumber"
                 value={values.phoneNumber}
@@ -121,9 +125,9 @@ export default function index() {
               />
             </div>
             <div className="mt-5">
-              <label htmlFor="content">{`Nội dung`}</label>
+              <label htmlFor="content">{trans.noi_dung}</label>
               <Input.TextArea
-                placeholder={`Nội dung`}
+                placeholder={trans.noi_dung}
                 name="content"
                 id="content"
                 value={values.content}
@@ -136,13 +140,13 @@ export default function index() {
                 className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
                 type="submit"
               >
-                Gửi thông tin
+                {trans.gui_thong_tin}
               </button>
             </div>
           </form>
         </div>
         <div className="element two animation-moving-left-right-two z-[1] absolute hidden lg:block"></div>
       </section>
-    </>
+    </main>
   );
 }

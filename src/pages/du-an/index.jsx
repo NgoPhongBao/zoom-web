@@ -1,17 +1,57 @@
-import React, {useState} from "react";
+import React, { use, useState } from "react";
 import Link from "next/link";
 import { Tabs } from "antd";
+import useTrans from "../../hooks/useTrans";
+import { useRouter } from "next/router";
 
-export default function index() {
-  const [activeKey, setActiveKey] = useState(1)
+export default function index({ services }) {
+  const [activeKey, setActiveKey] = useState("0");
+  const trans = useTrans();
+  const { locale } = useRouter();
+
+  const allImg = [];
+  services.forEach((el, index) => {
+    const projectImgs = JSON.parse(el.projectImg);
+    projectImgs.map((img) => {
+      allImg.push(img);
+    });
+  });
+
+  const projects = services.map((el, index) => {
+    const projectImgs = JSON.parse(el.projectImg);
+    return {
+      label: (
+        <p className="px-3 py-2">{locale === "vi" ? el.name_VN : el.name_EN}</p>
+      ),
+      key: (index + 1).toString(),
+      children: (
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+          {projectImgs.map((img, index) => {
+            return (
+              <div>
+                <img
+                  key={img}
+                  src={img}
+                  alt=""
+                  className="rounded-xl object-cover h-full w-full"
+                  data-aos="fade-up"
+                  data-aos-delay={100 * index}
+                />
+              </div>
+            );
+          })}
+        </div>
+      ),
+    };
+  });
 
   return (
-    <>
+    <main>
       <section>
         <div className="container mx-auto my-10">
           <div className="flex gap-2">
-            <Link href={"/"}>Trang chủ</Link>/
-            <span className="opacity-60">Dự án</span>
+            <Link href={"/"}>{trans.home}</Link>/
+            <span className="opacity-60">{trans.project}</span>
           </div>
         </div>
       </section>
@@ -28,7 +68,7 @@ export default function index() {
             />
             <div className="flex items-center justify-center absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)]">
               <p className="text-lg lg:text-2xl text-white text-center font-bold uppercase ">
-                các dự án zoom media tham gia và hợp tác
+                {trans.cac_du_an_media_da_tham_gia_va_hop_tac}
               </p>
             </div>
           </div>
@@ -37,290 +77,37 @@ export default function index() {
       <section className="mt-16 lg:mt-20 project-project">
         <div className="container mx-auto">
           <Tabs
-            centered
+            // centered
             activeKey={activeKey}
-            onChange={(key) => setActiveKey(key)}
+            onChange={(key) => {
+              setActiveKey(key);
+            }}
             items={[
               {
-                label: <p className="px-5 py-2">Tất cả</p>,
-                key: 1,
+                label: <p className="px-3 py-2">{trans.tat_ca}</p>,
+                key: "0",
                 children: (
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-1.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-2.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-3.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-4.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-5.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-6.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                    <div className="grid grid-cols-2 lg:flex gap-4 flex-wrap col-span-2 lg:col-span-1">
-                      <img
-                        src="/images/project/project-7.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-8.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-9.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
+                    {allImg.map((img, index) => (
+                      <div>
+                        <img
+                          key={img}
+                          src={img}
+                          alt=""
+                          className="rounded-xl object-cover h-full w-full"
+                          data-aos="fade-up"
+                          data-aos-delay={100 * index}
+                        />
+                      </div>
+                    ))}
                   </div>
                 ),
               },
-              {
-                label: (
-                  <p className="px-5 py-2">Cho thuê phim trường - thiết bị</p>
-                ),
-                key: 2,
-                children: (
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-1.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-2.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-3.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-7.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-8.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-9.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                    <div className="grid grid-cols-2 lg:flex gap-4 flex-wrap col-span-2 lg:col-span-1">
-                      <img
-                        src="/images/project/project-4.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-5.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-6.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                  </div>
-                ),
-              },
-              {
-                label: <p className="px-5 py-2">Livestreaming</p>,
-                key: 3,
-                children: (
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-7.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-8.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-9.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-1.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-2.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-3.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 lg:flex gap-4 flex-wrap col-span-2 lg:col-span-1">
-                      <img
-                        src="/images/project/project-4.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-5.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-6.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                  </div>
-                ),
-              },
-              {
-                label: <p className="px-5 py-2">Sản xuất video</p>,
-                key: 4,
-                children: (
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-1.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-2.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-3.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                    <div className="flex gap-4 flex-wrap">
-                      <img
-                        src="/images/project/project-7.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-8.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-9.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 lg:flex gap-4 flex-wrap col-span-2 lg:col-span-1">
-                      <img
-                        src="/images/project/project-4.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-5.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                      <img
-                        src="/images/project/project-6.jpg"
-                        alt=""
-                        className="rounded-xl object-cover w-full"
-                        data-aos="fade-up"
-                      />
-                    </div>
-                  </div>
-                ),
-              },
+              ...projects,
             ]}
           />
         </div>
       </section>
-    </>
+    </main>
   );
 }

@@ -8,34 +8,41 @@ import Livestream from "../components/home/Livestream";
 import Rental from "../components/home/Rental";
 import Design from "../components/home/Design";
 import Customer from "../components/home/Customer";
+import useTrans from "../hooks/useTrans";
 
-export default function Home({ banners, homeServices, customers }) {
+export default function Home({ banners, homeServices, customers, services }) {
   const { locale } = useRouter();
+  const trans = useTrans();
   return (
-    <>
-      <Banner banners={banners} locale={locale} />
+    <main>
+      <Banner banners={banners} />
       <Gameshow
         data={homeServices.find((el) => el.kind === "GAMESHOW") || {}}
-        locale={locale}
+        trans={trans}
+        services={services}
       />
       <TVC
         data={homeServices.find((el) => el.kind === "TVC") || {}}
-        locale={locale}
+        trans={trans}
+        services={services}
       />
       <Livestream
         data={homeServices.find((el) => el.kind === "LIVETREAM") || {}}
-        locale={locale}
+        trans={trans}
+        services={services}
       />
       <Rental
         data={homeServices.find((el) => el.kind === "RENTAL") || {}}
-        locale={locale}
+        trans={trans}
+        services={services}
       />
       <Design
         data={homeServices.find((el) => el.kind === "DESIGN") || {}}
-        locale={locale}
+        trans={trans}
+        services={services}
       />
-      <Customer locale={locale} customers={customers}/>
-    </>
+      <Customer customers={customers} trans={trans} />
+    </main>
   );
 }
 

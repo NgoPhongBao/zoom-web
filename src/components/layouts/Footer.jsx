@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 export default function Footer({ services, store }) {
   const trans = useTrans();
   const { locale } = useRouter();
-  console.log(store);
   return (
     <footer className="footer pb-10 h-auto mt-14 lg:mt-32">
       <div className="container mx-auto">
@@ -24,10 +23,10 @@ export default function Footer({ services, store }) {
           {/* gioi thieu */}
           <div className="flex gap-4">
             <div>
-              <span className="icofont-street-view text-4xl lg:text-[60px] text-red-500"></span>
+              <span className="icofont-street-view text-4xl lg:text-[60px] text-[#e40900]"></span>
             </div>
             <div>
-              <p className="font-bold text-lg">Giới thiệu</p>
+              <p className="font-bold text-lg">{trans.introduction}</p>
               <p className="my-1">
                 {locale === "vi" ? store.intro_VN : store.intro_EN}
               </p>
@@ -36,10 +35,10 @@ export default function Footer({ services, store }) {
           {/* lien he */}
           <div className="flex gap-4">
             <div>
-              <span className="icofont-phone text-4xl lg:text-[50px] text-red-500"></span>
+              <span className="icofont-phone text-4xl lg:text-[50px] text-[#e40900]"></span>
             </div>
             <div>
-              <p className="font-bold text-lg">Liên hệ</p>
+              <p className="font-bold text-lg">{trans.contact}</p>
               <p className="my-1">
                 <span className="font-bold underline underline-offset-4">
                   Hotline:
@@ -60,7 +59,7 @@ export default function Footer({ services, store }) {
               </p>
               <p className="my-1">
                 <span className="font-bold underline underline-offset-4">
-                  Giờ làm việc:
+                  {trans.gio_lam_viec}:
                 </span>{" "}
                 {store.openTime}
               </p>
@@ -69,10 +68,10 @@ export default function Footer({ services, store }) {
           {/* cong viec */}
           <div className="flex gap-4">
             <div>
-              <span className="icofont-computer text-4xl lg:text-[50px] text-red-500"></span>
+              <span className="icofont-computer text-4xl lg:text-[50px] text-[#e40900]"></span>
             </div>
             <div>
-              <p className="font-bold text-lg">Công việc</p>
+              <p className="font-bold text-lg">{trans.cong_viec}</p>
               <p className="my-1">
                 {locale === "vi" ? store.jobInfo_VN : store.jobInfo_EN}
               </p>
@@ -81,10 +80,10 @@ export default function Footer({ services, store }) {
           {/* doi ngu nhan su */}
           <div className="flex gap-4">
             <div>
-              <span className="icofont-people text-4xl lg:text-[50px] text-red-500"></span>
+              <span className="icofont-people text-4xl lg:text-[50px] text-[#e40900]"></span>
             </div>
             <div>
-              <p className="font-bold text-lg">Đội ngũ nhân sự</p>
+              <p className="font-bold text-lg">{trans.doi_ngu_nhan_su}</p>
               <p className="my-1">
                 {locale === "vi" ? store.teamInfo_VN : store.teamInfo_EN}
               </p>
@@ -95,10 +94,12 @@ export default function Footer({ services, store }) {
           {/* phim truong */}
           <div className="flex gap-4">
             <div>
-              <span className="icofont-location-pin text-4xl lg:text-[50px] text-red-500"></span>
+              <span className="icofont-location-pin text-4xl lg:text-[50px] text-[#e40900]"></span>
             </div>
             <div>
-              <p className="font-bold text-lg">Phim trường ZoOm Media</p>
+              <p className="font-bold text-lg">
+                {trans.phim_truong_zoom_media}
+              </p>
               <p className="my-1">
                 {locale === "vi" ? store.address1_VN : store.address1_EN}
               </p>
@@ -110,7 +111,7 @@ export default function Footer({ services, store }) {
           {/* email */}
           <div className="flex gap-4">
             <div>
-              <span className="icofont-email text-4xl lg:text-[50px] text-red-500"></span>
+              <span className="icofont-email text-4xl lg:text-[50px] text-[#e40900]"></span>
             </div>
             <div>
               <p className="font-bold text-lg mt-1">{store.email}</p>
@@ -119,16 +120,15 @@ export default function Footer({ services, store }) {
           {/* sdt */}
           <div className="flex gap-4">
             <div>
-              <span className="icofont-phone text-4xl lg:text-[50px] text-red-500"></span>
+              <span className="icofont-phone text-4xl lg:text-[50px] text-[#e40900]"></span>
             </div>
             <div>
               <p className="font-bold text-lg mt-1">{store.hotLine}</p>
             </div>
           </div>
         </div>
-        <div className="mt-10">
-          <Menu locale={locale} isMenuFooter services={services} />
-        </div>
+        <div className="h-[1px] my-5 border-b"></div>
+        <Menu locale={locale} isMenuFooter services={services} />
       </div>
     </footer>
   );

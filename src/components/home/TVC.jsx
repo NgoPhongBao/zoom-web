@@ -2,7 +2,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper";
 import Link from "next/link";
-import { services as services_const } from "../../utils/constants";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -22,21 +21,21 @@ const settings = {
   loop: true,
 };
 
-export default function TVC({ data }) {
+export default function TVC({ data, trans, services }) {
   const newData = { ...data, content: JSON.parse(data.content) };
   
   return (
     <section className="service2 mb-16 lg:mb-32">
       <div className="container mx-auto rounded-3xl overflow-hidden">
         <p className="text-xl lg:text-4xl uppercase text-center pt-4 leading-6 lg:leading-[55px]">
-          Sản xuất <span className="font-bold">TVC - KV - BILLBOARD</span>
+          {trans.produce} <span className="font-bold">TVC - KV - BILLBOARD</span>
         </p>
         <div className="lg:mt-12">
           <Swiper {...settings} effect={"cards"} data-aos="fade-up">
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
               <Link
                 href={`/dich-vu/${
-                  services_const.find((el) => el.type === "video")?.url
+                  services.find((el) => el.type === "video")?.url
                 }`}
               >
                 <div>
@@ -54,7 +53,7 @@ export default function TVC({ data }) {
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
               <Link
                 href={`/dich-vu/${
-                  services_const.find((el) => el.type === "video")?.url
+                  services.find((el) => el.type === "video")?.url
                 }`}
               >
                 <div>
@@ -72,7 +71,7 @@ export default function TVC({ data }) {
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
               <Link
                 href={`/dich-vu/${
-                  services_const.find((el) => el.type === "video")?.url
+                  services.find((el) => el.type === "video")?.url
                 }`}
               >
                 <div>
@@ -97,7 +96,7 @@ export default function TVC({ data }) {
               data-aos="fade-up"
               data-aos-duration="200"
             >
-              Xem chi tiết
+              {trans.see_detail}
             </button>
           </Link>
         </div> */}

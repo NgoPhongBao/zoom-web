@@ -1,16 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { services as services_const } from "../../utils/constants";
 
-export default function Design({ data }) {
+export default function Design({ data, trans, services }) {
   const newData = { ...data, content: JSON.parse(data.content) };
-  
+
   return (
     <section className="service5 mb-16 lg:mb-32 relative">
       <div className="container mx-auto">
         <p className="text-xl lg:text-4xl leading-6 lg:leading-[55px] uppercase text-center">
-          <span className="font-bold">thiết kế - thi công </span>
-          sân khấu
+          <span className="font-bold">{trans.thiet_ke_thi_cong}</span>{" "}
+          {trans.san_khau}
         </p>
         <div className="mt-4 lg:mt-12">
           <img
@@ -23,11 +22,11 @@ export default function Design({ data }) {
         <div className="text-center mt-5 lg:mt-10">
           <Link
             href={`/dich-vu/${
-              services_const.find((el) => el.type === "design")?.url
+              services.find((el) => el.type === "design")?.url
             }`}
           >
             <button className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full">
-              Xem chi tiết
+              {trans.see_detail}
             </button>
           </Link>
         </div>

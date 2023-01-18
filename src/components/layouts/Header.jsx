@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import Menu from "./Menu";
 
 export default function Header({ services }) {
-  const { locale } = useRouter();
+  const { locale, asPath } = useRouter();
+  const router = useRouter();
   const [showMenuMobile, setShowMenuMobile] = useState(false);
   const [isFixedMenu, setIsFixedMenu] = useState(false);
   const headerRef = useRef(null);
@@ -70,39 +71,51 @@ export default function Header({ services }) {
               services={services}
             />
             <div className="hidden items-center justify-between lg:flex">
-              <Link href="/" locale="vi">
-                <div className="flex items-center">
-                  <img
-                    src="/images/icons/flag_vietnam.png"
-                    alt="vi"
-                    className="h-4 mr-1"
-                  />
-                  <span
-                    className={`${
-                      locale === "vi" ? "font-bold text-red-400" : ""
-                    }`}
-                  >
-                    VI
-                  </span>
-                </div>
-              </Link>
+              <div
+                className="flex items-center cursor-pointer"
+                onClick={() =>
+                  router.push(asPath, asPath, {
+                    locale: "vi",
+                    scroll: false,
+                  })
+                }
+              >
+                <img
+                  src="/images/icons/flag_vietnam.png"
+                  alt="vi"
+                  className="h-4 mr-1"
+                />
+                <span
+                  className={`${
+                    locale === "vi" ? "font-bold text-[#e40900]" : ""
+                  }`}
+                >
+                  VI
+                </span>
+              </div>
               <div className="mx-2">|</div>
-              <Link href="/" locale="en">
-                <div className="flex items-center">
-                  <img
-                    src="/images/icons/flag_usa.png"
-                    alt="en"
-                    className="h-4 mr-1"
-                  />
-                  <span
-                    className={`${
-                      locale === "en" ? "font-bold text-red-400" : ""
-                    }`}
-                  >
-                    EN
-                  </span>
-                </div>
-              </Link>
+              <div
+                className="flex items-center cursor-pointer"
+                onClick={() =>
+                  router.push(asPath, asPath, {
+                    locale: "en",
+                    scroll: false,
+                  })
+                }
+              >
+                <img
+                  src="/images/icons/flag_usa.png"
+                  alt="en"
+                  className="h-4 mr-1"
+                />
+                <span
+                  className={`${
+                    locale === "en" ? "font-bold text-[#e40900]" : ""
+                  }`}
+                >
+                  EN
+                </span>
+              </div>
             </div>
             <div
               className={`hambuger__menu ${showMenuMobile ? "active" : ""}`}

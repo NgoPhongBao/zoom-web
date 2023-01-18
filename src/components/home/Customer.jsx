@@ -24,7 +24,7 @@ const settings = {
   },
 };
 
-export default function Customer({ customers }) {
+export default function Customer({ customers, trans }) {
   const newData = {
     ...customers[0],
     imageUrl: JSON.parse(customers[0].imageUrl),
@@ -32,7 +32,7 @@ export default function Customer({ customers }) {
   return (
     <section className="service5 mb-16 lg:mb-20 relative">
       <p className="text-xl lg:text-4xl leading-10 uppercase text-center font-bold">
-        đối tác
+        {trans.doi_tac}
       </p>
       <div className="mt-4 lg:mt-12 bg-red-50 px-5 py-12">
         <div data-aos="fade-zoom-in">
