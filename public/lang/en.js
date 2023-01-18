@@ -46,5 +46,6 @@ export default {
   vui_long_de_lai_thong_tin_o_day: "Please leave information here",
   tat_ca: "All",
   gia_tri_dich_vu: "Service values",
-  du_an_thuc_te_thi_cong_boi: "Actual project built by"
+  du_an_thuc_te_thi_cong_boi: "Actual project built by",
+  cam_on_ban_da_lien_he: "Thank you for contacting! We will contact you soon."
 };

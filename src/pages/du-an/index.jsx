@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Tabs } from "antd";
 import useTrans from "../../hooks/useTrans";
 import { useRouter } from "next/router";
+import { Masonry } from "masonic";
 
 export default function index({ services }) {
   const [activeKey, setActiveKey] = useState("0");
@@ -11,36 +12,40 @@ export default function index({ services }) {
 
   const allImg = [];
   services.forEach((el, index) => {
-    const projectImgs = JSON.parse(el.projectImg);
-    projectImgs.map((img) => {
-      allImg.push(img);
+    const projectImgs = JSON.parse(el.projectImg) || [];
+    projectImgs.forEach((img, idx) => {
+      allImg.push({ id: index + idx, img });
     });
   });
 
   const projects = services.map((el, index) => {
-    const projectImgs = JSON.parse(el.projectImg);
+    const elImgs = (JSON.parse(el.projectImg) || []).map((img) => {
+      return { id: index + img, img };
+    });
     return {
       label: (
         <p className="px-3 py-2">{locale === "vi" ? el.name_VN : el.name_EN}</p>
       ),
       key: (index + 1).toString(),
       children: (
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-          {projectImgs.map((img, index) => {
+        <Masonry
+          items={elImgs}
+          columnGutter={20}
+          columnWidth={350}
+          overscanBy={20}
+          render={(props) => {
             return (
-              <div>
-                <img
-                  key={img}
-                  src={img}
-                  alt=""
-                  className="rounded-xl object-cover h-full w-full"
-                  data-aos="fade-up"
-                  data-aos-delay={100 * index}
-                />
-              </div>
+              <img
+                key={props.data.img}
+                src={props.data.img}
+                alt=""
+                className="rounded-xl object-cover h-full w-full"
+                data-aos="fade-up"
+                // data-aos-delay={100 * index}
+              />
             );
-          })}
-        </div>
+          }}
+        />
       ),
     };
   });
@@ -84,23 +89,27 @@ export default function index({ services }) {
             }}
             items={[
               {
-                label: <p className="px-3 py-2">{trans.tat_ca}</p>,
+                label: <p className="px-5 py-2">{trans.tat_ca}</p>,
                 key: "0",
                 children: (
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                    {allImg.map((img, index) => (
-                      <div>
+                  <Masonry
+                    items={allImg}
+                    columnGutter={20}
+                    columnWidth={350}
+                    overscanBy={20}
+                    render={(props) => {
+                      return (
                         <img
-                          key={img}
-                          src={img}
+                          key={props.data.img}
+                          src={props.data.img}
                           alt=""
                           className="rounded-xl object-cover h-full w-full"
                           data-aos="fade-up"
-                          data-aos-delay={100 * index}
+                          // data-aos-delay={100 * index}
                         />
-                      </div>
-                    ))}
-                  </div>
+                      );
+                    }}
+                  />
                 ),
               },
               ...projects,

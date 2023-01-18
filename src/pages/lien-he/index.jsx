@@ -2,9 +2,10 @@ import React from "react";
 import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Input } from "antd";
+import { Input, message } from "antd";
 import { useRouter } from "next/router";
 import useTrans from "../../hooks/useTrans";
+import api from "../../service/apiService";
 
 const initialVal = {
   fullName: "",
@@ -29,8 +30,17 @@ export default function index({ store }) {
     }),
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit(values) {},
+    onSubmit(values) {
+      sendForm(values);
+    },
   });
+
+  const sendForm = async (data) => {
+    await api.post("/customer", data);
+    message.success(trans.cam_on_ban_da_lien_he);
+    resetForm();
+  };
+
   const {
     values,
     errors,
