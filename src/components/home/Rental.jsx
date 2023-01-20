@@ -94,7 +94,7 @@ export default function Rental({ data, trans, services }) {
               <img
                 src={newData.content[4]?.img}
                 alt="service"
-                className="rounded-xl h-full"
+                className="rounded-xl h-full object-cover"
                 data-aos="fade-up"
               />
             </Link>

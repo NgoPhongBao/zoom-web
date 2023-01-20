@@ -4,10 +4,16 @@ const baseURL = process.browser
   ? process.env.NEXT_PUBLIC_API
   : process.env.NEXT_SERVER_API;
 
+let jwt = process.browser ? localStorage.getItem("accessToken") : "";
+
 const api = {
-  request: function (config) {
+  request: function (config, isFormData) {
     return new Promise((resolve, reject) => {
-      axios({ baseURL, ...config })
+      const headers = {
+        Authorization: `Bearer ${jwt}`,
+        "Content-Type": isFormData ? "multipart/form-data" : "application/json"
+      };
+      axios({ baseURL, headers, ...config })
         .then((res) => {
           resolve(res.data);
         })
@@ -24,12 +30,12 @@ const api = {
       params,
     });
   },
-  post: function (url, data) {
+  post: function (url, data, isFormData) {
     return this.request({
       url,
       method: "post",
       data,
-    });
+    }, isFormData);
   },
   put: function (url, data) {
     let config = {

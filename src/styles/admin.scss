@@ -1,0 +1,94 @@
+.ant-popconfirm .ant-btn-primary{
+  background-color: #1890ff;
+}
+
+.single-image-uploader {
+  width: 150px;
+
+  .ant-upload-list.ant-upload-list-picture-card {
+    display: flex;
+    // justify-content: center;
+    margin: 0;
+    align-items: center;
+    .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+      width: 150px;
+      height: 150px;
+      margin: 0;
+    }
+  }
+  .ant-upload-list-picture-card-container {
+    width: 150px;
+    height: 150px;
+
+    margin: 0;
+    .ant-upload-list-item {
+      padding: 0;
+      border: 0;
+    }
+  }
+  .ant-upload-list-picture-card .ant-upload-list-item-thumbnail {
+    opacity: 1;
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &.ngang {
+    .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+      height: 100px !important;
+    }
+    .ant-upload-list-picture-card-container {
+      height: 100px !important;
+    }
+    &.large {
+      width: 300px !important;
+      .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+        width: 300px !important;
+        height: 200px !important;
+      }
+      .ant-upload-list-picture-card-container {
+        width: 300px !important;
+        height: 200px !important;
+      }
+    }
+  }
+  &.doc {
+    .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+      height: 200px !important;
+    }
+    .ant-upload-list-picture-card-container {
+      height: 200px !important;
+    }
+    &.large {
+      width: 300px !important;
+      .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+        width: 300px !important;
+        height: 400px !important;
+      }
+      .ant-upload-list-picture-card-container {
+        width: 300px !important;
+        height: 400px !important;
+      }
+    }
+  }
+  &.banner {
+    width: 250px !important;
+    .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+      width: 250px !important;
+      height: 100px !important;
+    }
+    .ant-upload-list-picture-card-container {
+      width: 250px !important;
+      height: 100px !important;
+    }
+    &.large {
+      width: 300px !important;
+      .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+        width: 300px !important;
+      }
+      .ant-upload-list-picture-card-container {
+        width: 300px !important;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import AOS from "aos";
 import App from "next/app";
 import "aos/dist/aos.css";
 import "../styles/globals.scss";
+import "../styles/admin.scss";
 import api from "../service/apiService";
 import ContextProviver from "../context";
 
@@ -27,15 +28,20 @@ function MyApp({ Component, pageProps, services, store }) {
         <title>Quảng Cáo Zoom</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+
       {Component.isAdmin ? (
         <ContextProviver>
-          <LayoutAdmin>
+          {Component.isLogin ? (
             <Component {...pageProps} />
-          </LayoutAdmin>
+          ) : (
+            <LayoutAdmin>
+              <Component {...pageProps} />
+            </LayoutAdmin>
+          )}
         </ContextProviver>
       ) : (
         <Layout services={services} store={store}>
-          <Component {...pageProps} services={services} store={store}/>
+          <Component {...pageProps} services={services} store={store} />
         </Layout>
       )}
     </>

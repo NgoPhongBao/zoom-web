@@ -13,11 +13,13 @@
     "antd": "^4.22.5",
     "aos": "^2.3.4",
     "axios": "^1.2.2",
+    "browser-image-compression": "^2.0.0",
     "formik": "^2.2.9",
     "masonic": "^3.7.0",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "shortid": "^2.2.16",
     "swiper": "^8.4.5",
     "yup": "^0.32.11"
   },

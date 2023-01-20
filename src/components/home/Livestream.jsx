@@ -30,7 +30,7 @@ export default function Livestream({ data, trans, services }) {
         <div className="text-center mt-5 lg:mt-10">
           <Link
             href={`/dich-vu/${
-              services.find((el) => el.type === "livetream")?.url
+              services.find((el) => el.type === "livestream")?.url
             }`}
           >
             <button

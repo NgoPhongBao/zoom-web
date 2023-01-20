@@ -42,7 +42,7 @@ function Banner({ banners }) {
                       <img
                         src={banner.imageUrl}
                         alt="banner-zoom-01"
-                        className="h-full w-full object-cover rounded-xl lg:rounded-3xl"
+                        className="h-full object-cover rounded-xl lg:rounded-3xl"
                       />
                     </div>
                   </SwiperSlide>

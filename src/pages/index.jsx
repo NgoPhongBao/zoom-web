@@ -27,7 +27,7 @@ export default function Home({ banners, homeServices, customers, services }) {
         services={services}
       />
       <Livestream
-        data={homeServices.find((el) => el.kind === "LIVETREAM") || {}}
+        data={homeServices.find((el) => el.kind === "LIVESTREAM") || {}}
         trans={trans}
         services={services}
       />
