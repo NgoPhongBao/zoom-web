@@ -16,6 +16,7 @@
     "browser-image-compression": "^2.0.0",
     "formik": "^2.2.9",
     "masonic": "^3.7.0",
+    "moment": "^2.29.4",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

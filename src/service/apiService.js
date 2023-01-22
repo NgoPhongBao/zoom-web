@@ -11,7 +11,7 @@ const api = {
     return new Promise((resolve, reject) => {
       const headers = {
         Authorization: `Bearer ${jwt}`,
-        "Content-Type": isFormData ? "multipart/form-data" : "application/json"
+        "Content-Type": isFormData ? "multipart/form-data" : "application/json",
       };
       axios({ baseURL, headers, ...config })
         .then((res) => {
@@ -19,6 +19,11 @@ const api = {
         })
         .catch((err) => {
           if (!err.response) reject(err);
+          if (err.response.status === 401 || err.response.status === 403) {
+            if (process.browser) {
+              window.location.href = "/admin/login";
+            }
+          }
           reject(err.response.data);
         });
     });
@@ -31,11 +36,14 @@ const api = {
     });
   },
   post: function (url, data, isFormData) {
-    return this.request({
-      url,
-      method: "post",
-      data,
-    }, isFormData);
+    return this.request(
+      {
+        url,
+        method: "post",
+        data,
+      },
+      isFormData
+    );
   },
   put: function (url, data) {
     let config = {

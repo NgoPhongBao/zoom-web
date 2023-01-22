@@ -37,7 +37,7 @@ export default function Gameshow({ data, trans, services }) {
             <img
               src={newData.content[1]?.img}
               alt="service-2"
-              className="w-1/2 object-cover rounded-xl h-[400px]"
+              className="w-1/2 object-cover rounded-xl h-[200px] md:h-[400px]"
               data-aos="fade-up"
             />
           </div>

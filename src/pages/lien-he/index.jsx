@@ -37,7 +37,7 @@ export default function index({ store }) {
 
   const sendForm = async (data) => {
     await api.post("/customer", data);
-    message.success(trans.cam_on_ban_da_lien_he);
+    message.success(trans.cam_on_ban_da_de_lai_thong_tin);
     resetForm();
   };
 

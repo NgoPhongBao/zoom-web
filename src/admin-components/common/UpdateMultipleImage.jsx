@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Upload, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import { t } from "@lingui/macro";
 import uploadFile from "../../service/uploadService";
 import { message } from "antd";
 import imageCompression from "browser-image-compression";
 
-
-const handleUploadFile = async (file, folder) => {
+const handleUploadFile = async (file, folder = "") => {
   try {
     let url = "";
     if (file) {
@@ -24,7 +22,7 @@ const handleUploadFile = async (file, folder) => {
 };
 
 export default function UploadMultipleImage(props) {
-  const [fileList, setFileList] = useState < any > [];
+  const [fileList, setFileList] = useState([]);
 
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
@@ -53,8 +51,7 @@ export default function UploadMultipleImage(props) {
 
     if (info.file.status === "uploading") {
       const url = await handleUploadFile(
-        info.file.originFileObj,
-        props.folderUpload
+        info.file.originFileObj
       );
       _fileList.push({
         uid: Math.floor(Math.random() * 100000).toString(),
@@ -71,7 +68,7 @@ export default function UploadMultipleImage(props) {
   const uploadButton = (
     <div>
       <PlusOutlined />
-      <div style={{ marginTop: 8 }}>{t`Upload`}</div>
+      <div style={{ marginTop: 8 }}>{`Tải lên`}</div>
     </div>
   );
 
@@ -89,19 +86,12 @@ export default function UploadMultipleImage(props) {
   function beforeUpload(file) {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
     if (!isJpgOrPng) {
-      props.beforeUpload(t`Invalid image format`);
+      // props.beforeUpload(`Invalid image format`);
+      message.error(`Hình ảnh không đúng định dạng`);
       return false;
     }
-    if (isJpgOrPng)
       if (isJpgOrPng) {
-        // const isValidSize = file.size / 1024 / 1024 <= props.maxSize;
-        // if (!isValidSize) {
-        //   props.beforeUpload(
-        //     t`Image size should not be larger than` + " " + props.maxSize + "MB"
-        //   );
-        //   return false;
-        // }
-        props.beforeUpload("");
+        // props.beforeUpload("");
       }
     return isJpgOrPng;
   }
@@ -120,7 +110,7 @@ export default function UploadMultipleImage(props) {
         onPreview={handlePreview}
         beforeUpload={beforeUpload}
       >
-        {fileList.length >= (props.maxItem || 10) ? null : uploadButton}
+        {fileList.length >= (props.maxItem || 100) ? null : uploadButton}
       </Upload>
       <Modal
         open={previewVisible}

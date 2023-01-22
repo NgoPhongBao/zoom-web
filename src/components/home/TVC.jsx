@@ -23,12 +23,13 @@ const settings = {
 
 export default function TVC({ data, trans, services }) {
   const newData = { ...data, content: JSON.parse(data.content) };
-  
+
   return (
     <section className="service2 mb-16 lg:mb-32">
       <div className="container mx-auto rounded-3xl overflow-hidden">
         <p className="text-xl lg:text-4xl uppercase text-center pt-4 leading-6 lg:leading-[55px]">
-          {trans.produce} <span className="font-bold">TVC - KV - BILLBOARD</span>
+          {trans.produce}{" "}
+          <span className="font-bold">TVC - KV - BILLBOARD</span>
         </p>
         <div className="lg:mt-12">
           <Swiper {...settings} effect={"cards"} data-aos="fade-up">
@@ -42,7 +43,7 @@ export default function TVC({ data, trans, services }) {
                   <img
                     src={newData.content[0]?.img}
                     alt="banner-zoom-01"
-                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300"
+                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 max-h-[500px]"
                   />
                   <p className="font-bold lg:text-2xl uppercase text-center">
                     TVC
@@ -60,7 +61,7 @@ export default function TVC({ data, trans, services }) {
                   <img
                     src={newData.content[1]?.img}
                     alt="banner-zoom-01"
-                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300"
+                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 max-h-[500px]"
                   />
                   <p className="font-bold lg:text-2xl uppercase text-center">
                     KV
@@ -78,7 +79,7 @@ export default function TVC({ data, trans, services }) {
                   <img
                     src={newData.content[2]?.img}
                     alt="banner-zoom-01"
-                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300"
+                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 max-h-[500px]"
                   />
                   <p className="font-bold lg:text-2xl uppercase text-center">
                     BILLBOARD

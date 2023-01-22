@@ -13,9 +13,9 @@ export default function Design({ data, trans, services }) {
         </p>
         <div className="mt-4 lg:mt-12">
           <img
-            src="/images/services/service-5-1.jpg"
+            src={newData.content[0].img}
             alt="service"
-            className="w-full object-cover rounded-xl lg:rounded-3xl"
+            className="w-full object-cover rounded-xl lg:rounded-3xl max-h-[500px]"
             data-aos="fade-up"
           />
         </div>

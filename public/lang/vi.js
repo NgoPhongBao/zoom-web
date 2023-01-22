@@ -47,5 +47,5 @@ export default {
   tat_ca: "Tất cả",
   gia_tri_dich_vu: "Giá trị dịch vụ",
   du_an_thuc_te_thi_cong_boi: "Dự án thực tế thi công bởi",
-  cam_on_ban_da_lien_he: "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ sớm liên hệ với bạn."
+  cam_on_ban_da_de_lai_thong_tin: "Cảm ơn bạn đã để lại thông tin! Chúng tôi sẽ sớm liên hệ với bạn."
 };

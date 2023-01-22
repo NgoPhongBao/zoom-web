@@ -32,6 +32,7 @@ function Login() {
       const res = await api.post("/admin/auth/login", data);
       localStorage.setItem("accessToken", res.data.accessToken);
       Router.push("/admin");
+      message.success("Đăng nhập thành công")
     } catch (error) {
       message.error(error.message);
     }

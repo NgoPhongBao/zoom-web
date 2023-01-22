@@ -36,13 +36,13 @@ export default function index({ customers }) {
               <img
                 src={customersParsed.aboutImg[0]}
                 alt="service-1"
-                className="w-1/2 object-contain rounded-xl"
+                className="w-1/2 object-cover rounded-xl"
                 data-aos="fade-up"
               />
               <img
                 src={customersParsed.aboutImg[1]}
                 alt="service-2"
-                className="w-1/2 object-contain rounded-xl"
+                className="w-1/2 object-cover rounded-xl h-[200px] md:h-[400px]"
                 data-aos="fade-up"
                 data-aos-delay="100"
               />
@@ -58,7 +58,7 @@ export default function index({ customers }) {
             {trans.doi_tac}
           </p>
           <div
-            className="grid grid-cols-3 lg:grid-cols-4 gap-4 mt-10 lg:mt-20"
+            className="grid grid-cols-3 lg:grid-cols-4 gap-5 mt-10 lg:mt-20"
             data-aos="fade-up"
           >
             {customersParsed.imageUrl.map((img, index) => {
@@ -67,7 +67,7 @@ export default function index({ customers }) {
                   <img
                     src={img}
                     alt="banner-zoom-01"
-                    className="h-24 lg:h-36 object-contain mx-auto"
+                    className="h-30 lg:h-36 object-contain mx-auto"
                   />
                 </div>
               );

@@ -51,7 +51,7 @@ MyApp.getInitialProps = async (appContext) => {
   try {
     const appProps = await App.getInitialProps(appContext);
     const res = await Promise.all([api.get("/service"), api.get("/store")]);
-    return { ...appProps, services: res[0].data || [], store: res[1].data };
+    return { ...appProps, services: res[0].data || [], store: res[1].data || {} };
   } catch (error) {
     return {
       notFound: true,
