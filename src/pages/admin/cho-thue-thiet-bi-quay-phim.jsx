@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import ServiceDetail from "../../admin-components/ServiceDetail";
 
 export default function Cp() {
-  return (
-    <div>san-xuat-video</div>
-  )
+  return <ServiceDetail serviceType={"camera_rental"} />;
 }
 
 Cp.isAdmin = true

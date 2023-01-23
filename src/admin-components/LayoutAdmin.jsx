@@ -56,7 +56,7 @@ const LayoutAdmin = ({ children }) => {
       "1",
       <PictureOutlined />
     ),
-    getItem("Dịch vụ", "sub1", <BorderOutlined />, [
+    getItem("Nội dung trang chi tiết dịch vụ", "sub1", <BorderOutlined />, [
       getItem(
         <p onClick={() => Router.push("/admin/san-xuat-video")}>
           Sản xuất video

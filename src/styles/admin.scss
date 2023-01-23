@@ -91,4 +91,15 @@
       }
     }
   }
+  &.icon {
+    width: 60px !important;
+    .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+      width: 60px !important;
+      height: 60px !important;
+    }
+    .ant-upload-list-picture-card-container {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }
 }

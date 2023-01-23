@@ -15,7 +15,7 @@ export default function Design({ data, trans, services }) {
           <img
             src={newData.content[0].img}
             alt="service"
-            className="w-full object-cover rounded-xl lg:rounded-3xl max-h-[500px]"
+            className="w-full object-cover rounded-xl lg:rounded-3xl h-full lg:h-[500px]"
             data-aos="fade-up"
           />
         </div>

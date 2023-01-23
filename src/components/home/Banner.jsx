@@ -38,11 +38,11 @@ function Banner({ banners }) {
               {banners.map((banner) => {
                 return (
                   <SwiperSlide key={banner.id}>
-                    <div className="relative h-full max-h-[550px]">
+                    <div className="relative h-full lg:h-[550px]">
                       <img
                         src={banner.imageUrl}
                         alt="banner-zoom-01"
-                        className="h-full object-cover rounded-xl lg:rounded-3xl"
+                        className="w-full object-cover rounded-xl lg:rounded-3xl"
                       />
                     </div>
                   </SwiperSlide>

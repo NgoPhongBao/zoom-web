@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import ServiceDetail from "../../admin-components/ServiceDetail";
 
 export default function Cp() {
-  return (
-    <div>thiet-ke-thi-cong-san-khau</div>
-  )
+  return <ServiceDetail serviceType={"design"} />;
 }
 
 Cp.isAdmin = true

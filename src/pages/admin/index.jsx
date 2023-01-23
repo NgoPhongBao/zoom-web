@@ -59,10 +59,10 @@ const Admin = () => {
       <div data-aos="fade-up" className="h-full">
         <Breadcrumb>
           <Breadcrumb.Item>
-            <Link href="/admin" className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <HomeOutlined />
               <span>Nội dung trang chủ</span>
-            </Link>
+            </div>
           </Breadcrumb.Item>
         </Breadcrumb>
         <div className="mt-4 p-5 bg-white h-full">
