@@ -348,7 +348,7 @@ export default function Cp() {
                 <div>
                   <span className="icofont-location-pin text-xl text-[#e40900]"></span>
                 </div>
-                <div>
+                <div className="flex-auto">
                   <p className="font-bold text-lg">Phim trường ZoOm media</p>
                   <p className="text-center font-semibold mt-4">Địa chỉ 1</p>
                   <Tabs
@@ -359,7 +359,6 @@ export default function Cp() {
                         label: "Việt",
                         children: (
                           <Input.TextArea
-                            rows={4}
                             className="w-full"
                             value={store.address1_VN}
                             onChange={(e) => {
@@ -376,7 +375,6 @@ export default function Cp() {
                         label: "Anh",
                         children: (
                           <Input.TextArea
-                            rows={4}
                             className="w-full"
                             value={store.address1_EN}
                             onChange={(e) => {
@@ -399,7 +397,6 @@ export default function Cp() {
                         label: "Việt",
                         children: (
                           <Input.TextArea
-                            rows={4}
                             className="w-full"
                             value={store.address2_VN}
                             onChange={(e) => {
@@ -416,7 +413,6 @@ export default function Cp() {
                         label: "Anh",
                         children: (
                           <Input.TextArea
-                            rows={4}
                             className="w-full"
                             value={store.address2_EN}
                             onChange={(e) => {
@@ -437,7 +433,7 @@ export default function Cp() {
                 <div>
                   <span className="icofont-email text-xl text-[#e40900]"></span>
                 </div>
-                <div>
+                <div className="flex-auto">
                   <Input
                     className="font-semibold text-lg"
                     value={store.email}
@@ -455,7 +451,7 @@ export default function Cp() {
                 <div>
                   <span className="icofont-phone text-xl text-[#e40900]"></span>
                 </div>
-                <div>
+                <div className="flex-auto">
                   <Input
                     className="font-semibold text-lg"
                     value={store.hotLine}

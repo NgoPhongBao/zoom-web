@@ -41,13 +41,14 @@ function Login() {
       const res = await api.post("/admin/auth/login", data);
       localStorage.setItem("accessToken", res.data.accessToken);
       setTimeout(() => {
+        message.success("Đăng nhập thành công");
         Router.push("/admin");
         setIsLoading(false);
-        message.success("Đăng nhập thành công");
       }, 1000);
     } catch (error) {
       message.error(error.message);
       setIsLoading(false);
+    } finally {
     }
   };
 

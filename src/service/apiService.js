@@ -4,11 +4,10 @@ const baseURL = process.browser
   ? process.env.NEXT_PUBLIC_API
   : process.env.NEXT_SERVER_API;
 
-let jwt = process.browser ? localStorage.getItem("accessToken") : "";
-
 const api = {
   request: function (config, isFormData) {
     return new Promise((resolve, reject) => {
+      let jwt = process.browser ? localStorage.getItem("accessToken") : "";
       const headers = {
         Authorization: jwt ? `Bearer ${jwt}` : "",
         "Content-Type": isFormData ? "multipart/form-data" : "application/json",
