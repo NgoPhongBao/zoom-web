@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, Row, Input, Form, message } from "antd";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -6,6 +6,7 @@ import { EyeTwoTone, EyeInvisibleOutlined } from "@ant-design/icons";
 import ErrorMessage from "../../admin-components/common/ErrorMessage";
 import api from "../../service/apiService";
 import Router from "next/router";
+import Loading from "../../admin-components/common/Loading";
 
 const initialVal = {
   username: "",
@@ -13,7 +14,14 @@ const initialVal = {
 };
 
 function Login() {
-  useEffect(() => {}, []);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      Router.push("/admin");
+    }
+  }, []);
+
   const formik = useFormik({
     initialValues: initialVal,
     validationSchema: Yup.object({
@@ -28,16 +36,18 @@ function Login() {
   });
 
   const handleLogin = async (data) => {
+    setIsLoading(true);
     try {
       const res = await api.post("/admin/auth/login", data);
       localStorage.setItem("accessToken", res.data.accessToken);
       setTimeout(() => {
         Router.push("/admin");
-      }, 500);
-
-      message.success("Đăng nhập thành công");
+        setIsLoading(false);
+        message.success("Đăng nhập thành công");
+      }, 1000);
     } catch (error) {
       message.error(error.message);
+      setIsLoading(false);
     }
   };
 
@@ -45,6 +55,7 @@ function Login() {
 
   return (
     <div>
+      {isLoading ? <Loading /> : null}
       <div
         className="w-10/12 md:w-[500px] mx-auto border rounded-2xl p-5 lg:p-10 fixed top-1/2 left-1/2 shadow-2xl"
         style={{ transform: "translate(-50%, -50%)" }}
