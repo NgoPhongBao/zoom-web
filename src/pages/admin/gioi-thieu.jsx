@@ -477,7 +477,7 @@ export default function Cp() {
                     children: (
                       <Input.TextArea
                         value={store?.abouttitle_2?.title_VN}
-                        className="w-[600px] font-semibold text-lg"
+                        className="w-1/2 font-semibold text-lg"
                         onChange={(e) => {
                           setStore({
                             ...store,
@@ -496,7 +496,7 @@ export default function Cp() {
                     children: (
                       <Input.TextArea
                         value={store?.abouttitle_2?.title_EN}
-                        className="w-[600px] font-semibold text-lg"
+                        className="w-1/2 font-semibold text-lg"
                         onChange={(e) => {
                           setStore({
                             ...store,
@@ -521,7 +521,7 @@ export default function Cp() {
                       <Input.TextArea
                         rows={4}
                         value={store?.aboutcontent_2?.content_VN}
-                        className="w-[600px]"
+                        className="w-1/2"
                         onChange={(e) => {
                           setStore({
                             ...store,
@@ -541,7 +541,7 @@ export default function Cp() {
                       <Input.TextArea
                         rows={4}
                         value={store?.aboutcontent_2?.content_EN}
-                        className="w-[600px]"
+                        className="w-1/2"
                         onChange={(e) => {
                           setStore({
                             ...store,
@@ -561,13 +561,14 @@ export default function Cp() {
                   {"Liên hệ với chúng tôi"}
                 </button>
               </div>
-              <div className="absolute right-[2%] top-[30%] hidden lg:flex items-center gap-3">
+              <div className="absolute right-[2%] top-[30%] flex items-center gap-3">
                 <UploadSingleImage
                   extraClass="ngang"
                   image={store.aboutImg_2 ? store.aboutImg_2[0] : ""}
                   onChangeUpload={(img) => {
+                    console.log(img)
                     if (img) {
-                      const _aboutImg_2 = [...store.abouItmg_2];
+                      const _aboutImg_2 = [...store.aboutImg_2];
                       _aboutImg_2[0] = img;
                       setStore({
                         ...store,
