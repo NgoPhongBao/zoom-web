@@ -10,7 +10,7 @@ const api = {
   request: function (config, isFormData) {
     return new Promise((resolve, reject) => {
       const headers = {
-        Authorization: `Bearer ${jwt}`,
+        Authorization: jwt ? `Bearer ${jwt}` : "",
         "Content-Type": isFormData ? "multipart/form-data" : "application/json",
       };
       axios({ baseURL, headers, ...config })
