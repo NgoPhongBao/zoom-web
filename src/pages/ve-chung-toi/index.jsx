@@ -39,7 +39,7 @@ export default function AboutUs({ store }) {
               <img
                 src={aboutImg_1[1]}
                 alt=""
-                className="w-1/2 rounded-xl"
+                className="w-1/2 rounded-xl h-[200px] md:h-[400px] object-cover"
                 data-aos="fade-up"
               />
             </div>
@@ -181,7 +181,7 @@ export default function AboutUs({ store }) {
               <div>
                 <img
                   src={aboutImg_2[0]}
-                  className="w-[220px] rounded-xl object-contain mt-24"
+                  className="w-[220px] rounded-xl object-cover mt-24"
                   alt=""
                   data-aos="fade-up"
                 />
@@ -189,7 +189,7 @@ export default function AboutUs({ store }) {
               <div>
                 <img
                   src={aboutImg_2[1]}
-                  className="w-[220px] rounded-xl object-contain"
+                  className="w-[220px] rounded-xl object-cover h-[200px] md:h-[340px]"
                   alt=""
                   data-aos="fade-up"
                 />
