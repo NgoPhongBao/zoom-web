@@ -39,7 +39,7 @@ export default function index({ services }) {
                 key={props.data.img}
                 src={props.data.img}
                 alt=""
-                className="rounded-xl object-cover h-full w-full"
+                className="rounded-xl object-contain w-full"
                 data-aos="fade-up"
                 // data-aos-delay={100 * index}
               />

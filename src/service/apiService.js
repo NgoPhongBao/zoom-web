@@ -22,6 +22,7 @@ const api = {
           if (err.response.status === 401 || err.response.status === 403) {
             if (process.browser) {
               window.location.href = "/admin/login";
+              localStorage.removeItem("accessToken");
             }
           }
           reject(err.response.data);

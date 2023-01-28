@@ -6,6 +6,9 @@ import {
   BorderOutlined,
   ContactsOutlined,
   MessageOutlined,
+  DeploymentUnitOutlined,
+  InfoOutlined,
+  BorderBottomOutlined 
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { useState, useEffect } from "react";
@@ -47,15 +50,17 @@ const LayoutAdmin = ({ children }) => {
 
   const items = [
     getItem(
-      <p onClick={() => Router.push("/admin")}>Nội dung trang chủ</p>,
-      "2",
-      <HomeOutlined />
-    ),
-    getItem(
       <p onClick={() => Router.push("/admin/banner")}>Banner trang chủ</p>,
       "1",
       <PictureOutlined />
     ),
+    getItem(
+      <p onClick={() => Router.push("/admin")}>Nội dung trang chủ</p>,
+      "2",
+      <HomeOutlined />
+    ),
+  
+
     getItem("Nội dung trang chi tiết dịch vụ", "sub1", <BorderOutlined />, [
       getItem(
         <p onClick={() => Router.push("/admin/san-xuat-video")}>
@@ -102,17 +107,36 @@ const LayoutAdmin = ({ children }) => {
       <ContactsOutlined />
     ),
     getItem(
+      <p onClick={() => Router.push("/admin/du-an")}>Nội dung trang Dự Án</p>,
+      "10",
+      <DeploymentUnitOutlined />
+    ),
+    getItem(
+      <p onClick={() => Router.push("/admin/gioi-thieu")}>
+        Nội dung trang Về Chúng Tôi
+      </p>,
+      "22",
+      <InfoOutlined />
+    ),
+    getItem(
+      <p onClick={() => Router.push("/admin/footer")}>
+        Nội dung Footer
+      </p>,
+      "eqwe",
+      <BorderBottomOutlined />
+    ),
+    getItem(
       <p onClick={() => Router.push("/admin/danh-sach-lien-he")}>
         Danh sách liên hệ
       </p>,
-      "10",
+      "11",
       <MessageOutlined />
     ),
     getItem(
       <p onClick={() => Router.push("/admin/tai-khoan-admin")}>
         Tài khoản admin
       </p>,
-      "11",
+      "12",
       <UserOutlined />
     ),
   ];
