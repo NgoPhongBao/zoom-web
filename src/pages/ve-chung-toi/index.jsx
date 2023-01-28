@@ -33,13 +33,13 @@ export default function AboutUs({ store }) {
               <img
                 src={aboutImg_1[0]}
                 alt=""
-                className="w-1/2 rounded-xl"
+                className="w-1/2 rounded-xl h-[200px] md:h-[400px] "
                 data-aos="fade-up"
               />
               <img
                 src={aboutImg_1[1]}
                 alt=""
-                className="w-1/2 rounded-xl h-[200px] md:h-[400px] object-cover"
+                className="w-1/2 rounded-xl object-cover"
                 data-aos="fade-up"
               />
             </div>
