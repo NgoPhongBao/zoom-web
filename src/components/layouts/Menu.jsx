@@ -53,7 +53,9 @@ export default function Menu(props) {
             <Link
               href={`/ve-chung-toi`}
               onClick={() => setShowMenuMobile(false)}
-              // className="menu__sub__link"
+              className={`menu__sub__link inline-block ${
+                asPath === "/ve-chung-toi" ? "active-link" : ""
+              }`}
             >
               {trans.about_us}
             </Link>
@@ -64,7 +66,7 @@ export default function Menu(props) {
               locale="vi"
               target={"_blank"}
               onClick={() => setShowMenuMobile(false)}
-              // className="menu__sub__link"
+              className="menu__sub__link inline-block"
             >
               {trans.capacity_profile}
             </Link>
@@ -85,13 +87,16 @@ export default function Menu(props) {
           <span className={`icofont-simple-down menu__item__arrow`}></span>
         </p>
 
-        <ul className={`menu__sub`}>
+        <ul className={`menu__sub min-400`}>
           {services.map((service) => {
             return (
               <li className="py-2 px-5" key={service.id}>
                 <Link
                   href={`/dich-vu/${service.url}`}
                   onClick={() => setShowMenuMobile(false)}
+                  className={`menu__sub__link inline-block ${
+                    asPath === "/dich-vu/" + service.url ? "active-link" : ""
+                  }`}
                 >
                   {locale === "vi" ? service.name_VN : service.name_EN}
                 </Link>

@@ -34,69 +34,49 @@ export default function TVC({ data, trans, services }) {
         <div className="lg:mt-12">
           <Swiper {...settings} effect={"cards"} data-aos="fade-up">
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
-              <Link
-                href={`/dich-vu/${
-                  services.find((el) => el.type === "video")?.url
-                }`}
-              >
-                <div>
-                  <img
-                    src={newData.content[0]?.img}
-                    alt="banner-zoom-01"
-                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 h-full lg:h-[500px]"
-                  />
-                  <p className="font-bold lg:text-2xl uppercase text-center">
-                    TVC
-                  </p>
-                </div>
-              </Link>
+              <div>
+                <img
+                  src={newData.content[0]?.img}
+                  alt="banner-zoom-01"
+                  className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 h-full lg:h-[500px]"
+                />
+                <p className="font-bold lg:text-2xl uppercase text-center">
+                  TVC
+                </p>
+              </div>
             </SwiperSlide>
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
-              <Link
-                href={`/dich-vu/${
-                  services.find((el) => el.type === "video")?.url
-                }`}
-              >
-                <div>
-                  <img
-                    src={newData.content[1]?.img}
-                    alt="banner-zoom-01"
-                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 h-full lg:h-[500px]"
-                  />
-                  <p className="font-bold lg:text-2xl uppercase text-center">
-                    KV
-                  </p>
-                </div>
-              </Link>
+              <div>
+                <img
+                  src={newData.content[1]?.img}
+                  alt="banner-zoom-01"
+                  className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 h-full lg:h-[500px]"
+                />
+                <p className="font-bold lg:text-2xl uppercase text-center">
+                  KV
+                </p>
+              </div>
             </SwiperSlide>
             <SwiperSlide className="p-8 sm:px-16 lg:px-24 pt-10">
-              <Link
-                href={`/dich-vu/${
-                  services.find((el) => el.type === "video")?.url
-                }`}
-              >
-                <div>
-                  <img
-                    src={newData.content[2]?.img}
-                    alt="banner-zoom-01"
-                    className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 h-full lg:h-[500px]"
-                  />
-                  <p className="font-bold lg:text-2xl uppercase text-center">
-                    BILLBOARD
-                  </p>
-                </div>
-              </Link>
+              <div>
+                <img
+                  src={newData.content[2]?.img}
+                  alt="banner-zoom-01"
+                  className=" w-full object-cover rounded-lg lg:rounded-[40px] transition-all duration-300 h-full lg:h-[500px]"
+                />
+                <p className="font-bold lg:text-2xl uppercase text-center">
+                  BILLBOARD
+                </p>
+              </div>
             </SwiperSlide>
           </Swiper>
         </div>
 
         <div className="text-center">
-          <Link  href={`/dich-vu/${
-                services.find((el) => el.type === "tvc")?.url
-              }`}>
-            <button
-              className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
-            >
+          <Link
+            href={`/dich-vu/${services.find((el) => el.type === "tvc")?.url}`}
+          >
+            <button className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full">
               {trans.see_detail}
             </button>
           </Link>
