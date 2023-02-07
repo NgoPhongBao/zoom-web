@@ -100,15 +100,17 @@ export default function Rental({ data, trans, services }) {
             </Link>
           </div>
         </div>
-        {/* <div className="text-center mt-5 lg:mt-10">
-          <Link href="/dich-vu-thiet-ke-thi-cong-san-khau">
+        <div className="text-center mt-5 lg:mt-10">
+          <Link  href={`/dich-vu/${
+                services.find((el) => el.type === "movie_rental")?.url
+              }`}>
             <button
               className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
             >
               {trans.see_detail}
             </button>
           </Link>
-        </div> */}
+        </div>
       </div>
     </section>
   );

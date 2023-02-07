@@ -1,5 +1,4 @@
 import useTrans from "../../hooks/useTrans";
-import Menu from "./Menu";
 import { useRouter } from "next/router";
 
 export default function Footer({ services, store }) {
@@ -127,8 +126,6 @@ export default function Footer({ services, store }) {
             </div>
           </div>
         </div>
-        <div className="h-[1px] my-5 border-b"></div>
-        <Menu locale={locale} isMenuFooter services={services} />
       </div>
     </footer>
   );

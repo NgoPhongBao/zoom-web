@@ -19,7 +19,7 @@ export default {
     "studio - filming equipment - sound - light",
   thiet_ke_thi_cong: "Design - Construction",
   san_khau: "stage",
-  doi_tac: "partner",
+  doi_tac: "partners",
   cong_viec: "Works",
   doi_ngu_nhan_su: "Staffs",
   phim_truong_zoom_media: "Film stadio ZoOm media",

@@ -19,7 +19,7 @@ export default function Gameshow({ data, trans, services }) {
             </p>
             <Link
               href={`/dich-vu/${
-                services.find((el) => el.type === "video")?.url
+                services.find((el) => el.type === "gameshow")?.url
               }`}
             >
               <button className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full mt-5">

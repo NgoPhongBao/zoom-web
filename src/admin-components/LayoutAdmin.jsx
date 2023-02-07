@@ -63,6 +63,16 @@ const LayoutAdmin = ({ children }) => {
 
     getItem("Nội dung trang chi tiết dịch vụ", "sub1", <BorderOutlined />, [
       getItem(
+        <p onClick={() => Router.push("/admin/to-chuc-su-kien-gameshow")}>
+          Tổ chức sự kiện - sản xuất gameshow
+        </p>,
+        "33"
+      ),
+      getItem(
+        <p onClick={() => Router.push("/admin/san-xuat-tvc-kv-billboard")}>Sản xuất TVC-KV-BILLBOARD</p>,
+        "44"
+      ),
+      getItem(
         <p onClick={() => Router.push("/admin/san-xuat-video")}>
           Sản xuất video
         </p>,

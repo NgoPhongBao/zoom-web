@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import useTrans from "../../hooks/useTrans";
 import { useRouter } from "next/router";
-import { services as services_const } from "../../utils/constants";
 
 export default function Menu(props) {
-  const { showMenuMobile, locale, isMenuFooter, services, setShowMenuMobile } =
-    props;
+  const { showMenuMobile, locale, services, setShowMenuMobile } = props;
   const trans = useTrans();
   const { asPath } = useRouter();
   const router = useRouter();
@@ -31,7 +29,7 @@ export default function Menu(props) {
         <Link
           href={"/"}
           className={`menu__item__link`}
-          onClick={() => !isMenuFooter && setShowMenuMobile(false)}
+          onClick={() => setShowMenuMobile(false)}
         >
           {trans.home}
         </Link>
@@ -54,8 +52,8 @@ export default function Menu(props) {
           <li className="py-2 px-5">
             <Link
               href={`/ve-chung-toi`}
-              className="hover:text-blue-400"
-              onClick={() => !isMenuFooter && setShowMenuMobile(false)}
+              onClick={() => setShowMenuMobile(false)}
+              // className="menu__sub__link"
             >
               {trans.about_us}
             </Link>
@@ -64,9 +62,9 @@ export default function Menu(props) {
             <Link
               href={`/files/Portfolio-ZoomMedia.pdf`}
               locale="vi"
-              className="hover:text-blue-400"
               target={"_blank"}
-              onClick={() => !isMenuFooter && setShowMenuMobile(false)}
+              onClick={() => setShowMenuMobile(false)}
+              // className="menu__sub__link"
             >
               {trans.capacity_profile}
             </Link>
@@ -93,7 +91,7 @@ export default function Menu(props) {
               <li className="py-2 px-5" key={service.id}>
                 <Link
                   href={`/dich-vu/${service.url}`}
-                  onClick={() => !isMenuFooter && setShowMenuMobile(false)}
+                  onClick={() => setShowMenuMobile(false)}
                 >
                   {locale === "vi" ? service.name_VN : service.name_EN}
                 </Link>
@@ -109,7 +107,7 @@ export default function Menu(props) {
         <Link
           href={"/du-an"}
           className={`menu__item__link`}
-          onClick={() => !isMenuFooter && setShowMenuMobile(false)}
+          onClick={() => setShowMenuMobile(false)}
         >
           {trans.project}
         </Link>
@@ -125,7 +123,7 @@ export default function Menu(props) {
         <Link
           href={"/khach-hang"}
           className={`menu__item__link`}
-          onClick={() => !isMenuFooter && setShowMenuMobile(false)}
+          onClick={() => setShowMenuMobile(false)}
         >
           {trans.customer}
         </Link>
@@ -139,7 +137,7 @@ export default function Menu(props) {
         <Link
           href={"/lien-he"}
           className={`menu__item__link`}
-          onClick={() => !isMenuFooter && setShowMenuMobile(false)}
+          onClick={() => setShowMenuMobile(false)}
         >
           {trans.contact}
         </Link>
@@ -147,64 +145,62 @@ export default function Menu(props) {
       {/* End contact */}
 
       {/* Start lang mobile */}
-      {!isMenuFooter ? (
-        <li className={` menu__item lg:hidden`}>
-          <div className={`menu__item__link`}>
+      <li className={` menu__item lg:hidden`}>
+        <div className={`menu__item__link`}>
+          <div className="flex items-center">
+            <p className="mr-4">{trans.language}: </p>
             <div className="flex items-center">
-              <p className="mr-4">{trans.language}: </p>
-              <div className="flex items-center">
-                <div
-                  className="flex items-center cursor-pointer"
-                  onClick={() => {
-                    router.push(asPath, asPath, {
-                      locale: "vi",
-                      scroll: false,
-                    });
-                    setShowMenuMobile(false);
-                  }}
+              <div
+                className="flex items-center cursor-pointer"
+                onClick={() => {
+                  router.push(asPath, asPath, {
+                    locale: "vi",
+                    scroll: false,
+                  });
+                  setShowMenuMobile(false);
+                }}
+              >
+                <img
+                  src="/images/icons/flag_vietnam.png"
+                  alt="vi"
+                  className="h-3 mr-1"
+                />
+                <span
+                  className={`${
+                    locale === "vi" ? "font-bold text-[#e40900]" : ""
+                  }`}
                 >
-                  <img
-                    src="/images/icons/flag_vietnam.png"
-                    alt="vi"
-                    className="h-3 mr-1"
-                  />
-                  <span
-                    className={`${
-                      locale === "vi" ? "font-bold text-[#e40900]" : ""
-                    }`}
-                  >
-                    VI
-                  </span>
-                </div>
-                <div className="mx-2">|</div>
-                <div
-                  className="flex items-center cursor-pointer"
-                  onClick={() => {
-                    router.push(asPath, asPath, {
-                      locale: "en",
-                      scroll: false,
-                    });
-                    setShowMenuMobile(false);
-                  }}
+                  VI
+                </span>
+              </div>
+              <div className="mx-2">|</div>
+              <div
+                className="flex items-center cursor-pointer"
+                onClick={() => {
+                  router.push(asPath, asPath, {
+                    locale: "en",
+                    scroll: false,
+                  });
+                  setShowMenuMobile(false);
+                }}
+              >
+                <img
+                  src="/images/icons/flag_usa.png"
+                  alt="en"
+                  className="h-3 mr-1"
+                />
+                <span
+                  className={`${
+                    locale === "en" ? "font-bold text-[#e40900]" : ""
+                  }`}
                 >
-                  <img
-                    src="/images/icons/flag_usa.png"
-                    alt="en"
-                    className="h-3 mr-1"
-                  />
-                  <span
-                    className={`${
-                      locale === "en" ? "font-bold text-[#e40900]" : ""
-                    }`}
-                  >
-                    EN
-                  </span>
-                </div>
+                  EN
+                </span>
               </div>
             </div>
           </div>
-        </li>
-      ) : null}
+        </div>
+      </li>
 
       {/* End lang mobile  */}
     </ul>

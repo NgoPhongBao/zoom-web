@@ -19,7 +19,7 @@ export default {
     "phim trường - thiết bị quay phim - âm thanh - ánh sáng",
   thiet_ke_thi_cong: "Thiết kế - Thi công",
   san_khau: "Sân khấu",
-  doi_tac: "partner",
+  doi_tac: "Đối tác",
   cong_viec: "Công việc",
   doi_ngu_nhan_su: "Đội ngũ nhân sự",
   phim_truong_zoom_media: "Phim trường ZoOm media",
