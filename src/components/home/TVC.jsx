@@ -96,8 +96,6 @@ export default function TVC({ data, trans, services }) {
               }`}>
             <button
               className="bg-[#e40900] hover:bg-red-400 px-3 py-1 lg:px-5 lg:py-2 text-white rounded-full"
-              data-aos="fade-up"
-              data-aos-duration="200"
             >
               {trans.see_detail}
             </button>
