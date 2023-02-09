@@ -94,7 +94,7 @@ export default function Menu(props) {
                 <Link
                   href={`/dich-vu/${service.url}`}
                   onClick={() => setShowMenuMobile(false)}
-                  className={`menu__sub__link inline-block ${
+                  className={`menu__sub__link inline-block hover:text-[#e40900] ${
                     asPath === "/dich-vu/" + service.url ? "active-link" : ""
                   }`}
                 >

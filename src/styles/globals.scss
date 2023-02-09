@@ -576,10 +576,13 @@ a:hover {
               transform: translate(-50%, 100%);
               left: 50%;
             }
-            &.active-link, &:hover {
-              &:after {
-                width: 30px;
-              }
+            // &.active-link, &:hover {
+            //   &:after {
+            //     width: 30px;
+            //   }
+            // }
+            &:hover{
+              color: #e40900;
             }
           }
           &.min-400 {
