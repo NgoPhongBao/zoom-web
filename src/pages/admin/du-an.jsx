@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Breadcrumb, message, Button, Tabs } from "antd";
-import Link from "next/link";
-import { DeploymentUnitOutlined } from "@ant-design/icons";
+import { Breadcrumb, message, Button, Tabs, Input } from "antd";
+import {
+  DeploymentUnitOutlined,
+  PlusOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import UploadSingleImage from "../../admin-components/common/UploadSingleImage";
-import UploadMultipleImage from "../../admin-components/common/UpdateMultipleImage";
 import Loading from "../../admin-components/common/Loading";
 import api from "../../service/apiService";
 
@@ -19,7 +21,10 @@ export default function Cp() {
     try {
       const res = await api.get("/admin/service");
       const _services = res.data.map((el) => {
-        return { ...el, projectImg: JSON.parse(el.projectImg) };
+        return {
+          ...el,
+          projectImg: el.projectImg ? JSON.parse(el.projectImg) : [],
+        };
       });
       setServices(_services);
     } catch (error) {
@@ -44,19 +49,72 @@ export default function Cp() {
     }
   };
 
+  const addProjectImg = (serviceIndex) => {
+    const _services = [...services];
+    _services[serviceIndex].projectImg.push({ img: "", description: "" });
+    setServices(_services);
+  };
+
+  const deleteProjectImg = (serviceIndex, projectImgIndex) => {
+    const _services = [...services];
+    _services[serviceIndex].projectImg.splice(projectImgIndex, 1);
+    setServices(_services);
+  };
+
   const renderTabItems = services.map((el, index) => {
     return {
       key: index,
       label: <p className="font-semibold">{el.name_VN}</p>,
       children: (
-        <UploadMultipleImage
-          fileList={el.projectImg}
-          onChange={(images) => {
-            const _services = [...services];
-            _services[index].projectImg = images;
-            setServices(_services);
-          }}
-        />
+        <div className="flex flex-wrap gap-4">
+          {el.projectImg.map((item, idx) => {
+            return (
+              <div className="relative">
+                <div className="absolute right-[-10px] top-[-10px] z-10">
+                  <Button
+                    className=""
+                    type="primary"
+                    danger
+                    size="small"
+                    shape="circle"
+                    icon={<DeleteOutlined />}
+                    onClick={() => deleteProjectImg(index, idx)}
+                  ></Button>
+                </div>
+                <UploadSingleImage
+                  extraClass="ngang large"
+                  image={item.img}
+                  onChangeUpload={(img) => {
+                    const _services = [...services];
+                    _services[index].projectImg[idx].img = img;
+                    setServices(_services);
+                  }}
+                />
+                <Input.TextArea
+                  className="w-[300px] mt-2 block"
+                  placeholder="Mô tả"
+                  value={item.description}
+                  onChange={(e) => {
+                    const _services = [...services];
+                    _services[index].projectImg[idx].description =
+                      e.target.value;
+                    setServices(_services);
+                  }}
+                />
+              </div>
+            );
+          })}
+          <div>
+            <Button
+              icon={<PlusOutlined />}
+              type="primary"
+              className="border-0 bg-green-500 hover:bg-green-400 focus:bg-green-400 flex items-center"
+              onClick={() => addProjectImg(index)}
+            >
+              Thêm hình ảnh
+            </Button>
+          </div>
+        </div>
       ),
     };
   });
@@ -79,6 +137,7 @@ export default function Cp() {
             centered
             items={renderTabItems}
             size="small"
+            tabPosition="left"
           />
           <div className="mt-16 flex justify-end">
             <Button

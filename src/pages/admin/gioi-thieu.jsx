@@ -7,10 +7,11 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 import UploadSingleImage from "../../admin-components/common/UploadSingleImage";
-import UploadMultipleImage from "../../admin-components/common/UpdateMultipleImage";
 import Loading from "../../admin-components/common/Loading";
 import api from "../../service/apiService";
 import { Editor } from "@tinymce/tinymce-react";
+import imageCompression from "browser-image-compression";
+import uploadFile from "../../service/uploadService";
 
 export default function Cp() {
   const [store, setStore] = useState({});
@@ -85,6 +86,22 @@ export default function Cp() {
     });
   };
 
+  const handleUploadFile = async (file, folder = "") => {
+    let url = "";
+    try {
+      if (file) {
+        const _file = await imageCompression(file, {
+          maxSizeMB: 0.5,
+          maxWidthOrHeight: 1500,
+        });
+        url = await uploadFile(_file, folder);
+      }
+      return url;
+    } catch (error) {
+      message.error(error.message);
+    }
+  };
+
   return (
     <>
       {loading ? <Loading /> : null}
@@ -154,17 +171,30 @@ export default function Cp() {
                         init={{
                           height: 400,
                           menubar: false,
-                          plugins: [
-                            "advlist autolink lists link image charmap print preview anchor",
-                            "searchreplace visualblocks code fullscreen",
-                            "insertdatetime media table paste code help wordcount",
-                          ],
+                          selector: "textarea#file-picker",
+                          plugins: "image code link",
                           toolbar:
-                            "undo redo | formatselect | " +
+                            "undo redo | formatselect | link image | " +
                             "bold italic backcolor | alignleft aligncenter " +
                             "alignright alignjustify | bullist numlist outdent indent | ",
+                          image_title: true,
+                          automatic_uploads: true,
+                          file_picker_types: "image",
+                          file_picker_callback: function (cb, value, meta) {
+                            var input = document.createElement("input");
+                            input.setAttribute("type", "file");
+                            input.setAttribute("accept", "image/*");
+                            input.onchange = async function () {
+                              var file = this.files[0];
+
+                              const url = await handleUploadFile(file, "");
+                              cb(url, { title: file.name });
+                            };
+
+                            input.click();
+                          },
                           content_style:
-                            "body { font-family: GoogleSans-Regular, sans-serif; font-size:14px }",
+                            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                         }}
                         onEditorChange={(newValue) => {
                           setStore({
@@ -190,17 +220,30 @@ export default function Cp() {
                         init={{
                           height: 400,
                           menubar: false,
-                          plugins: [
-                            "advlist autolink lists link image charmap print preview anchor",
-                            "searchreplace visualblocks code fullscreen",
-                            "insertdatetime media table paste code help wordcount",
-                          ],
+                          selector: "textarea#file-picker",
+                          plugins: "image code link",
                           toolbar:
-                            "undo redo | formatselect | " +
+                            "undo redo | formatselect | link image | " +
                             "bold italic backcolor | alignleft aligncenter " +
                             "alignright alignjustify | bullist numlist outdent indent | ",
+                          image_title: true,
+                          automatic_uploads: true,
+                          file_picker_types: "image",
+                          file_picker_callback: function (cb, value, meta) {
+                            var input = document.createElement("input");
+                            input.setAttribute("type", "file");
+                            input.setAttribute("accept", "image/*");
+                            input.onchange = async function () {
+                              var file = this.files[0];
+
+                              const url = await handleUploadFile(file, "");
+                              cb(url, { title: file.name });
+                            };
+
+                            input.click();
+                          },
                           content_style:
-                            "body { font-family: GoogleSans-Regular, sans-serif; font-size:14px }",
+                            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                         }}
                         onEditorChange={(newValue) => {
                           setStore({
@@ -566,7 +609,7 @@ export default function Cp() {
                   extraClass="ngang"
                   image={store.aboutImg_2 ? store.aboutImg_2[0] : ""}
                   onChangeUpload={(img) => {
-                    console.log(img)
+                    console.log(img);
                     if (img) {
                       const _aboutImg_2 = [...store.aboutImg_2];
                       _aboutImg_2[0] = img;

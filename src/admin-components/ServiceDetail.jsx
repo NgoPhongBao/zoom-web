@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Breadcrumb, message, Button, Tabs, Input } from "antd";
-import Link from "next/link";
 import {
   BorderOutlined,
   PlusOutlined,
@@ -11,6 +10,8 @@ import Loading from "./common/Loading";
 import api from "../service/apiService";
 import shortid from "shortid";
 import { changeToSlug } from "../utils/fn";
+import uploadFile from "../service/uploadService";
+import { Editor } from "@tinymce/tinymce-react";
 
 export default function ServiceDetail({ serviceType }) {
   const [serviceData, setServiceData] = useState({});
@@ -79,6 +80,22 @@ export default function ServiceDetail({ serviceType }) {
       ...serviceData,
       valueService: [..._valueService],
     });
+  };
+
+  const handleUploadFile = async (file, folder = "") => {
+    let url = "";
+    try {
+      if (file) {
+        const _file = await imageCompression(file, {
+          maxSizeMB: 0.5,
+          maxWidthOrHeight: 1500,
+        });
+        url = await uploadFile(_file, folder);
+      }
+      return url;
+    } catch (error) {
+      message.error(error.message);
+    }
   };
 
   return (
@@ -475,16 +492,59 @@ export default function ServiceDetail({ serviceType }) {
                                       />
                                     </div>
                                     <div className="m-1 flex justify-center">
-                                      <Input.TextArea
-                                        rows={3}
-                                        placeholder="Nội dung"
+                                      <Editor
+                                        apiKey={
+                                          "4l0v88s9tb22jxc1ina8zg7puwaa00q9uiq7wsu3melv2z65"
+                                        }
                                         value={el.content}
-                                        onChange={(e) => {
+                                        placeholder="Nội dung"
+                                        init={{
+                                          height: 300,
+                                          width:"100%",
+                                          menubar: false,
+                                          selector: "textarea#file-picker",
+                                          plugins: "image code link",
+                                          toolbar:
+                                            "undo redo | formatselect | link image | " +
+                                            "bold italic backcolor | alignleft aligncenter " +
+                                            "alignright alignjustify | bullist numlist outdent indent | ",
+                                          image_title: true,
+                                          automatic_uploads: true,
+                                          file_picker_types: "image",
+                                          file_picker_callback: function (
+                                            cb,
+                                            value,
+                                            meta
+                                          ) {
+                                            var input =
+                                              document.createElement("input");
+                                            input.setAttribute("type", "file");
+                                            input.setAttribute(
+                                              "accept",
+                                              "image/*"
+                                            );
+                                            input.onchange = async function () {
+                                              var file = this.files[0];
+
+                                              const url =
+                                                await handleUploadFile(
+                                                  file,
+                                                  ""
+                                                );
+                                              cb(url, { title: file.name });
+                                            };
+
+                                            input.click();
+                                          },
+                                          content_style:
+                                            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                                        }}
+                                        onEditorChange={(newValue) => {
                                           const _contentCollapse_VN = [
                                             ...serviceData.contentCollapse_VN,
                                           ];
                                           _contentCollapse_VN[index].content =
-                                            e.target.value;
+                                            newValue;
                                           setServiceData({
                                             ...serviceData,
                                             contentCollapse_VN: [
@@ -586,16 +646,59 @@ export default function ServiceDetail({ serviceType }) {
                                       />
                                     </div>
                                     <div className="m-1 flex justify-center">
-                                      <Input.TextArea
-                                        rows={3}
-                                        placeholder="Nội dung"
+                                      <Editor
+                                        apiKey={
+                                          "4l0v88s9tb22jxc1ina8zg7puwaa00q9uiq7wsu3melv2z65"
+                                        }
                                         value={el.content}
-                                        onChange={(e) => {
+                                        placeholder="Nội dung"
+                                        init={{
+                                          height: 300,
+                                          width:"100%",
+                                          menubar: false,
+                                          selector: "textarea#file-picker",
+                                          plugins: "image code link",
+                                          toolbar:
+                                            "undo redo | formatselect | link image | " +
+                                            "bold italic backcolor | alignleft aligncenter " +
+                                            "alignright alignjustify | bullist numlist outdent indent | ",
+                                          image_title: true,
+                                          automatic_uploads: true,
+                                          file_picker_types: "image",
+                                          file_picker_callback: function (
+                                            cb,
+                                            value,
+                                            meta
+                                          ) {
+                                            var input =
+                                              document.createElement("input");
+                                            input.setAttribute("type", "file");
+                                            input.setAttribute(
+                                              "accept",
+                                              "image/*"
+                                            );
+                                            input.onchange = async function () {
+                                              var file = this.files[0];
+
+                                              const url =
+                                                await handleUploadFile(
+                                                  file,
+                                                  ""
+                                                );
+                                              cb(url, { title: file.name });
+                                            };
+
+                                            input.click();
+                                          },
+                                          content_style:
+                                            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                                        }}
+                                        onEditorChange={(newValue) => {
                                           const _contentCollapse_EN = [
                                             ...serviceData.contentCollapse_EN,
                                           ];
                                           _contentCollapse_EN[index].content =
-                                            e.target.value;
+                                            newValue;
                                           setServiceData({
                                             ...serviceData,
                                             contentCollapse_EN: [
@@ -644,10 +747,66 @@ export default function ServiceDetail({ serviceType }) {
             </div>
           </div>
           <div className="mt-12">
-            <p className="font-semibold mb-2">
-              URL video dự án<span className="text-red-500">*</span>
-            </p>
-            <div>
+            <p className="font-semibold mb-2">Dự án</p>
+            <p className="text-center">Tiêu đề các dự án</p>
+            <Tabs
+              defaultActiveKey="1"
+              centered
+              items={[
+                {
+                  key: "1",
+                  label: (
+                    <p className="font-semibold">
+                      Tiêu đề dự án tiếng Việt
+                      <span className="text-red-500">*</span>
+                    </p>
+                  ),
+                  children: (
+                    <div className="flex justify-center">
+                      <Input
+                        placeholder="Tiêu đề dự án tiếng Việt"
+                        className="w-[500px]"
+                        value={serviceData.projectTitle_VN}
+                        onChange={(e) => {
+                          setServiceData({
+                            ...serviceData,
+                            projectTitle_VN: e.target.value,
+                          });
+                        }}
+                      />
+                    </div>
+                  ),
+                },
+                {
+                  key: "2",
+                  label: (
+                    <p className="font-semibold">
+                      Tiêu đề dự án tiếng Anh
+                      <span className="text-red-500">*</span>
+                    </p>
+                  ),
+                  children: (
+                    <div className="flex justify-center">
+                      <Input
+                        placeholder="Tiêu đề dự án tiếng Anh"
+                        className="w-[500px]"
+                        value={serviceData.projectTitle_EN}
+                        onChange={(e) => {
+                          setServiceData({
+                            ...serviceData,
+                            projectTitle_EN: e.target.value,
+                          });
+                        }}
+                      />
+                    </div>
+                  ),
+                },
+              ]}
+            />
+            <div className="mt-10">
+              <p className="mb-2">
+                URL video dự án<span className="text-red-500">*</span>
+              </p>
               {serviceData.videoUrl
                 ? serviceData.videoUrl.map((el, index) => {
                     return (

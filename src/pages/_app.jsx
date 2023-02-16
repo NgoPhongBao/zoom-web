@@ -25,7 +25,14 @@ function MyApp({ Component, pageProps, services, store }) {
   return (
     <>
       <Head>
-        <title>Quảng Cáo Zoom</title>
+        <title>
+          Công ty Zoom Media | Sản xuất video – Livestream – Cho thuê phim
+          trường và thiết bị
+        </title>
+        <meta
+          name="description"
+          content="Zoom Media cung cấp các dịch vụ: livestream chuyên nghiệp, sản xuất video quảng cáo, viral, gameshow, giới thiệu doanh nghiệp, video theo yêu cầu,....."
+        ></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -51,7 +58,11 @@ MyApp.getInitialProps = async (appContext) => {
   try {
     const appProps = await App.getInitialProps(appContext);
     const res = await Promise.all([api.get("/service"), api.get("/store")]);
-    return { ...appProps, services: res[0].data || [], store: res[1].data || {} };
+    return {
+      ...appProps,
+      services: res[0].data || [],
+      store: res[1].data || {},
+    };
   } catch (error) {
     return {
       notFound: true,

@@ -36,7 +36,7 @@ export default function Experience({ trans, service, locale }) {
                     header={<p className="font-bold text-lg">{el.title}</p>}
                     key={el.title}
                   >
-                    <p>{el.content}</p>
+                    <div dangerouslySetInnerHTML={{__html: el.content}} />
                   </Collapse.Panel>
                 );
               }
