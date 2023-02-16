@@ -17,15 +17,22 @@ export default function index({ services }) {
       allImg.push({
         id: index + idx,
         img: img.img,
-        description: img.description,
+        description: locale === "vi" ? img.description_VN : img.description_EN,
       });
     });
   });
 
   const projects = services.map((el, index) => {
-    const elImgs = (el.projectImg  ? JSON.parse(el.projectImg) : []).map((img) => {
-      return { id: index + img, img: img.img, description: img.description };
-    });
+    const elImgs = (el.projectImg ? JSON.parse(el.projectImg) : []).map(
+      (img) => {
+        return {
+          id: index + img,
+          img: img.img,
+          description:
+            locale === "vi" ? img.description_VN : img.description_EN,
+        };
+      }
+    );
     return {
       label: (
         <p className="px-3 py-2">{locale === "vi" ? el.name_VN : el.name_EN}</p>
@@ -39,15 +46,18 @@ export default function index({ services }) {
           overscanBy={20}
           render={(props) => {
             return (
-              <div key={props.data.img}  data-aos="fade-up">
+              <div key={props.data.img} data-aos="fade-up">
                 <img
                   src={props.data.img}
                   alt=""
                   className="rounded-xl object-contain w-full"
-                 
+
                   // data-aos-delay={100 * index}
                 />
-                <p className="font-semibold text-lg text-center"> {props.data.description}</p>
+                <p className="font-semibold text-lg text-center">
+                  {" "}
+                  {props.data.description}
+                </p>
               </div>
             );
           }}
@@ -105,15 +115,18 @@ export default function index({ services }) {
                     overscanBy={20}
                     render={(props) => {
                       return (
-                        <div key={props.data.img}  data-aos="fade-up">
+                        <div key={props.data.img} data-aos="fade-up">
                           <img
                             src={props.data.img}
                             alt=""
                             className="rounded-xl object-contain w-full"
-                           
+
                             // data-aos-delay={100 * index}
                           />
-                          <p className="font-semibold text-lg text-center"> {props.data.description}</p>
+                          <p className="font-semibold text-lg text-center">
+                            {" "}
+                            {props.data.description}
+                          </p>
                         </div>
                       );
                     }}

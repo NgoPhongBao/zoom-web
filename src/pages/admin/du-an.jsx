@@ -51,7 +51,7 @@ export default function Cp() {
 
   const addProjectImg = (serviceIndex) => {
     const _services = [...services];
-    _services[serviceIndex].projectImg.push({ img: "", description: "" });
+    _services[serviceIndex].projectImg.push({ img: "", description_VN: "", description_EN: "" });
     setServices(_services);
   };
 
@@ -90,16 +90,59 @@ export default function Cp() {
                     setServices(_services);
                   }}
                 />
-                <Input.TextArea
-                  className="w-[300px] mt-2 block"
-                  placeholder="Mô tả"
-                  value={item.description}
-                  onChange={(e) => {
-                    const _services = [...services];
-                    _services[index].projectImg[idx].description =
-                      e.target.value;
-                    setServices(_services);
-                  }}
+                <Tabs
+                  centered
+                  defaultActiveKey="1"
+                  items={[
+                    {
+                      key: "1",
+                      label: (
+                        <p className="font-semibold">
+                          Mô tả tiếng Việt
+                          <span className="text-red-500">*</span>
+                        </p>
+                      ),
+                      children: (
+                        <div className="flex justify-center">
+                          <Input.TextArea
+                            className="w-[300px] mt-2 block"
+                            placeholder="Mô tả tiếng Việt"
+                            value={item.description_VN}
+                            onChange={(e) => {
+                              const _services = [...services];
+                              _services[index].projectImg[idx].description_VN =
+                                e.target.value;
+                              setServices(_services);
+                            }}
+                          />
+                        </div>
+                      ),
+                    },
+                    {
+                      key: "2",
+                      label: (
+                        <p className="font-semibold">
+                          Mô tả tiếng Anh
+                          <span className="text-red-500">*</span>
+                        </p>
+                      ),
+                      children: (
+                        <div className="flex justify-center">
+                          <Input.TextArea
+                            className="w-[300px] mt-2 block"
+                            placeholder="Mô tả tiếng Anh"
+                            value={item.description_EN}
+                            onChange={(e) => {
+                              const _services = [...services];
+                              _services[index].projectImg[idx].description_EN =
+                                e.target.value;
+                              setServices(_services);
+                            }}
+                          />
+                        </div>
+                      ),
+                    },
+                  ]}
                 />
               </div>
             );
