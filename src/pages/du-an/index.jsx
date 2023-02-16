@@ -12,7 +12,7 @@ export default function index({ services }) {
 
   const allImg = [];
   services.forEach((el, index) => {
-    const projectImgs = JSON.parse(el.projectImg) || [];
+    const projectImgs = el.projectImg ? JSON.parse(el.projectImg) : [];
     projectImgs.forEach((img, idx) => {
       allImg.push({
         id: index + idx,
@@ -23,7 +23,7 @@ export default function index({ services }) {
   });
 
   const projects = services.map((el, index) => {
-    const elImgs = (JSON.parse(el.projectImg) || []).map((img) => {
+    const elImgs = (el.projectImg  ? JSON.parse(el.projectImg) : []).map((img) => {
       return { id: index + img, img: img.img, description: img.description };
     });
     return {
@@ -39,12 +39,12 @@ export default function index({ services }) {
           overscanBy={20}
           render={(props) => {
             return (
-              <div key={props.data.img}>
+              <div key={props.data.img}  data-aos="fade-up">
                 <img
                   src={props.data.img}
                   alt=""
                   className="rounded-xl object-contain w-full"
-                  data-aos="fade-up"
+                 
                   // data-aos-delay={100 * index}
                 />
                 <p className="font-semibold text-lg text-center"> {props.data.description}</p>
@@ -105,12 +105,12 @@ export default function index({ services }) {
                     overscanBy={20}
                     render={(props) => {
                       return (
-                        <div key={props.data.img}>
+                        <div key={props.data.img}  data-aos="fade-up">
                           <img
                             src={props.data.img}
                             alt=""
                             className="rounded-xl object-contain w-full"
-                            data-aos="fade-up"
+                           
                             // data-aos-delay={100 * index}
                           />
                           <p className="font-semibold text-lg text-center"> {props.data.description}</p>
