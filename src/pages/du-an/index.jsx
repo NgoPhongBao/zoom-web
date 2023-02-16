@@ -14,13 +14,17 @@ export default function index({ services }) {
   services.forEach((el, index) => {
     const projectImgs = JSON.parse(el.projectImg) || [];
     projectImgs.forEach((img, idx) => {
-      allImg.push({ id: index + idx, img });
+      allImg.push({
+        id: index + idx,
+        img: img.img,
+        description: img.description,
+      });
     });
   });
 
   const projects = services.map((el, index) => {
     const elImgs = (JSON.parse(el.projectImg) || []).map((img) => {
-      return { id: index + img, img };
+      return { id: index + img, img: img.img, description: img.description };
     });
     return {
       label: (
@@ -35,14 +39,16 @@ export default function index({ services }) {
           overscanBy={20}
           render={(props) => {
             return (
-              <img
-                key={props.data.img}
-                src={props.data.img}
-                alt=""
-                className="rounded-xl object-contain w-full"
-                data-aos="fade-up"
-                // data-aos-delay={100 * index}
-              />
+              <div key={props.data.img}>
+                <img
+                  src={props.data.img}
+                  alt=""
+                  className="rounded-xl object-contain w-full"
+                  data-aos="fade-up"
+                  // data-aos-delay={100 * index}
+                />
+                <p className="font-semibold text-lg text-center"> {props.data.description}</p>
+              </div>
             );
           }}
         />
@@ -99,14 +105,16 @@ export default function index({ services }) {
                     overscanBy={20}
                     render={(props) => {
                       return (
-                        <img
-                          key={props.data.img}
-                          src={props.data.img}
-                          alt=""
-                          className="rounded-xl object-cover h-full w-full"
-                          data-aos="fade-up"
-                          // data-aos-delay={100 * index}
-                        />
+                        <div key={props.data.img}>
+                          <img
+                            src={props.data.img}
+                            alt=""
+                            className="rounded-xl object-contain w-full"
+                            data-aos="fade-up"
+                            // data-aos-delay={100 * index}
+                          />
+                          <p className="font-semibold text-lg text-center"> {props.data.description}</p>
+                        </div>
                       );
                     }}
                   />
