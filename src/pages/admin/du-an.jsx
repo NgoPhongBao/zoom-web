@@ -12,10 +12,22 @@ import api from "../../service/apiService";
 export default function Cp() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [store, setStore] = useState({});
 
   useEffect(() => {
+    getStore();
     getServices();
   }, []);
+
+  const getStore = async () => {
+    try {
+      const res = await api.get("/admin/store");
+      const store = res.data;
+      setStore(store);
+    } catch (error) {
+      message.error("Có lỗi xảy ra");
+    }
+  };
 
   const getServices = async () => {
     try {
@@ -35,6 +47,7 @@ export default function Cp() {
   const updateServices = async () => {
     setLoading(true);
     try {
+      await api.put("/admin/store", store);
       for (let i = 0; i < services.length; i++) {
         await api.put("/admin/service/" + services[i].id, {
           ...services[i],
@@ -51,7 +64,11 @@ export default function Cp() {
 
   const addProjectImg = (serviceIndex) => {
     const _services = [...services];
-    _services[serviceIndex].projectImg.push({ img: "", description_VN: "", description_EN: "" });
+    _services[serviceIndex].projectImg.push({
+      img: "",
+      description_VN: "",
+      description_EN: "",
+    });
     setServices(_services);
   };
 
@@ -175,13 +192,97 @@ export default function Cp() {
           </Breadcrumb.Item>
         </Breadcrumb>
         <div className="mt-4 p-5 bg-white h-full">
-          <Tabs
-            defaultActiveKey="1"
-            centered
-            items={renderTabItems}
-            size="small"
-            tabPosition="left"
-          />
+          <div>
+            <p className="font-semibold mb-2">
+              Tiêu đề trang dự án<span className="text-red-500">*</span>
+            </p>
+            <div className="ml-5">
+              <Tabs
+                defaultActiveKey="1"
+                centered
+                items={[
+                  {
+                    key: "1",
+                    label: (
+                      <p className="font-semibold">
+                        Tiếng Việt<span className="text-red-500">*</span>
+                      </p>
+                    ),
+                    children: (
+                      <div className="flex justify-center">
+                        <Input
+                          placeholder="Tiếng Việt"
+                          className="w-96"
+                          value={store.projectTitle_VN}
+                          onChange={(e) => {
+                            setStore({
+                              ...store,
+                              projectTitle_VN: e.target.value,
+                            });
+                          }}
+                        />
+                      </div>
+                    ),
+                  },
+                  {
+                    key: "2",
+                    label: (
+                      <p className="font-semibold">
+                        Tiếng Anh<span className="text-red-500">*</span>
+                      </p>
+                    ),
+                    children: (
+                      <div className="flex justify-center">
+                        <Input
+                          placeholder="Tiếng Anh"
+                          className="w-96"
+                          value={store.projectTitle_EN}
+                          onChange={(e) => {
+                            setStore({
+                              ...store,
+                              projectTitle_EN: e.target.value,
+                            });
+                          }}
+                        />
+                      </div>
+                    ),
+                  },
+                ]}
+              />
+            </div>
+          </div>
+          <div>
+            <p className="font-semibold mb-2">
+              Banner<span className="text-red-500">*</span>
+            </p>
+            <div className="flex justify-center">
+              <UploadSingleImage
+                extraClass="banner large"
+                image={store.projectBanner}
+                onChangeUpload={(img) => {
+                  if (img)
+                    setStore({
+                      ...store,
+                      projectBanner: img,
+                    });
+                }}
+              />
+            </div>
+          </div>
+          <div className="mt-16">
+            <p className="font-semibold mb-2">
+              Hình ảnh dịch vụ<span className="text-red-500">*</span>
+            </p>
+            <Tabs
+              defaultActiveKey="1"
+              centered
+              items={renderTabItems}
+              size="small"
+              tabPosition="left"
+              className="mt-5"
+            />
+          </div>
+
           <div className="mt-16 flex justify-end">
             <Button
               type="primary"

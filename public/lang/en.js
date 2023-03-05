@@ -7,7 +7,7 @@ export default {
   contact: "Contact",
   language: "Language",
   let_us_make_your_success: "Let us make your success",
-  see_detail: "See detail",
+  see_detail: "See Details",
   about_us: "About us",
   capacity_profile: "Capacity profile",
   organization: "organization",

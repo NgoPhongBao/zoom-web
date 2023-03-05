@@ -10,7 +10,6 @@ import UploadSingleImage from "../../admin-components/common/UploadSingleImage";
 import Loading from "../../admin-components/common/Loading";
 import api from "../../service/apiService";
 import { Editor } from "@tinymce/tinymce-react";
-import imageCompression from "browser-image-compression";
 import uploadFile from "../../service/uploadService";
 
 export default function Cp() {
@@ -90,11 +89,7 @@ export default function Cp() {
     let url = "";
     try {
       if (file) {
-        const _file = await imageCompression(file, {
-          maxSizeMB: 0.5,
-          maxWidthOrHeight: 1500,
-        });
-        url = await uploadFile(_file, folder);
+        url = await uploadFile(file, folder);
       }
       return url;
     } catch (error) {

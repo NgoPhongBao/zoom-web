@@ -2,9 +2,11 @@ import React from "react";
 import Link from "next/link";
 import useTrans from "../../hooks/useTrans";
 import api from "../../service/apiService";
+import { useRouter } from "next/router";
 
 export default function index({ customers }) {
   const trans = useTrans();
+  const { locale } = useRouter();
   const customersParsed = {
     ...customers[0],
     imageUrl: JSON.parse(customers[0].imageUrl),
@@ -26,10 +28,8 @@ export default function index({ customers }) {
         <div className="container mx-auto">
           <div className="flex justify-center lg:justify-between flex-wrap lg:flex-nowrap lg:gap-6">
             <div className="service1-content w-full lg:w-1/2">
-              <p className="text-2xl lg:text-4xl uppercase leading-6 lg:leading-[55px] mx-auto mb-4">
-                <span className="font-bold">{trans.truc_tiep_gian_tiep}</span>{" "}
-                {trans.thuc_hien_cac_du_an_cho_cac_doi_tac}
-                <span className="font-bold"> {trans.trong_va_ngoai_nuoc}</span>
+              <p className="text-2xl font-bold lg:text-4xl uppercase leading-6 lg:leading-[55px] mx-auto mb-4">
+                {locale === "vi" ? customersParsed.abouttitle_VN : customersParsed.abouttitle_EN}
               </p>
             </div>
             <div className="service1-image flex items-center justify-center lg:w-1/2 gap-3 lg:gap-5">

@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Breadcrumb, message, Button, Tabs, Input } from "antd";
-import Link from "next/link";
-import {
-  PlusOutlined,
-  DeploymentUnitOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
-import UploadSingleImage from "../../admin-components/common/UploadSingleImage";
-import UploadMultipleImage from "../../admin-components/common/UpdateMultipleImage";
+import { DeploymentUnitOutlined } from "@ant-design/icons";
 import Loading from "../../admin-components/common/Loading";
 import api from "../../service/apiService";
-import { Editor } from "@tinymce/tinymce-react";
+import UploadSingleImage from "../../admin-components/common/UploadSingleImage";
 
 export default function Cp() {
   const [store, setStore] = useState({});
@@ -130,7 +123,18 @@ export default function Cp() {
               {/* gioi thieu */}
               <div className="flex gap-4 w-full">
                 <div>
-                  <span className="icofont-street-view text-xl text-[#e40900]"></span>
+                  <UploadSingleImage
+                    extraClass="icon"
+                    image={store.iconIntro}
+                    onChangeUpload={(img) => {
+                      if (img) {
+                        setStore({
+                          ...store,
+                          iconIntro: img,
+                        });
+                      }
+                    }}
+                  />
                 </div>
                 <div className="flex-auto">
                   <p className="font-bold text-lg">Giới thiệu</p>
@@ -178,7 +182,18 @@ export default function Cp() {
               {/* lien he */}
               <div className="flex gap-4">
                 <div>
-                  <span className="icofont-phone text-xl text-[#e40900]"></span>
+                  <UploadSingleImage
+                    extraClass="icon"
+                    image={store.iconContact}
+                    onChangeUpload={(img) => {
+                      if (img) {
+                        setStore({
+                          ...store,
+                          iconContact: img,
+                        });
+                      }
+                    }}
+                  />
                 </div>
                 <div>
                   <p className="font-bold text-lg">Liên hệ</p>
@@ -247,7 +262,18 @@ export default function Cp() {
               {/* cong viec */}
               <div className="flex gap-4">
                 <div>
-                  <span className="icofont-computer text-xl text-[#e40900]"></span>
+                  <UploadSingleImage
+                    extraClass="icon"
+                    image={store.iconJobInfo}
+                    onChangeUpload={(img) => {
+                      if (img) {
+                        setStore({
+                          ...store,
+                          iconJobInfo: img,
+                        });
+                      }
+                    }}
+                  />
                 </div>
                 <div className="flex-auto">
                   <p className="font-bold text-lg">Công việc</p>
@@ -295,7 +321,18 @@ export default function Cp() {
               {/* doi ngu nhan su */}
               <div className="flex gap-4">
                 <div>
-                  <span className="icofont-people text-xl text-[#e40900]"></span>
+                  <UploadSingleImage
+                    extraClass="icon"
+                    image={store.iconTeamInfo}
+                    onChangeUpload={(img) => {
+                      if (img) {
+                        setStore({
+                          ...store,
+                          iconTeamInfo: img,
+                        });
+                      }
+                    }}
+                  />
                 </div>
                 <div className="flex-auto">
                   <p className="font-bold text-lg">Đội ngũ nhân sự</p>
@@ -346,7 +383,18 @@ export default function Cp() {
               {/* phim truong */}
               <div className="flex gap-4">
                 <div>
-                  <span className="icofont-location-pin text-xl text-[#e40900]"></span>
+                  <UploadSingleImage
+                    extraClass="icon"
+                    image={store.iconAddress}
+                    onChangeUpload={(img) => {
+                      if (img) {
+                        setStore({
+                          ...store,
+                          iconAddress: img,
+                        });
+                      }
+                    }}
+                  />
                 </div>
                 <div className="flex-auto">
                   <p className="font-bold text-lg">Phim trường ZoOm media</p>
@@ -431,7 +479,18 @@ export default function Cp() {
               {/* email */}
               <div className="flex gap-4">
                 <div>
-                  <span className="icofont-email text-xl text-[#e40900]"></span>
+                  <UploadSingleImage
+                    extraClass="icon"
+                    image={store.iconEmail}
+                    onChangeUpload={(img) => {
+                      if (img) {
+                        setStore({
+                          ...store,
+                          iconEmail: img,
+                        });
+                      }
+                    }}
+                  />
                 </div>
                 <div className="flex-auto">
                   <Input
@@ -449,7 +508,18 @@ export default function Cp() {
               {/* sdt */}
               <div className="flex gap-4">
                 <div>
-                  <span className="icofont-phone text-xl text-[#e40900]"></span>
+                  <UploadSingleImage
+                    extraClass="icon"
+                    image={store.iconHotline}
+                    onChangeUpload={(img) => {
+                      if (img) {
+                        setStore({
+                          ...store,
+                          iconHotline: img,
+                        });
+                      }
+                    }}
+                  />
                 </div>
                 <div className="flex-auto">
                   <Input

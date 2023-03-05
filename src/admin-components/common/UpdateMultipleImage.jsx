@@ -3,17 +3,12 @@ import { Upload, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import uploadFile from "../../service/uploadService";
 import { message } from "antd";
-import imageCompression from "browser-image-compression";
 
 const handleUploadFile = async (file, folder = "") => {
   try {
     let url = "";
     if (file) {
-      const _file = await imageCompression(file, {
-        maxSizeMB: 0.5,
-        maxWidthOrHeight: 1500,
-      });
-      url = await uploadFile(_file, folder);
+      url = await uploadFile(file, folder);
     }
     return url;
   } catch (error) {

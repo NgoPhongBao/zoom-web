@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Menu from "./Menu";
 
-export default function Header({ services }) {
+export default function Header({ services, store }) {
   const { locale, asPath } = useRouter();
   const router = useRouter();
   const [showMenuMobile, setShowMenuMobile] = useState(false);
@@ -69,6 +69,7 @@ export default function Header({ services }) {
               setShowMenuMobile={setShowMenuMobile}
               locale={locale}
               services={services}
+              store={store}
             />
             <div className="hidden items-center justify-between lg:flex">
               <div

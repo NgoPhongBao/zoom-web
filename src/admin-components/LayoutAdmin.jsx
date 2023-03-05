@@ -8,7 +8,8 @@ import {
   MessageOutlined,
   DeploymentUnitOutlined,
   InfoOutlined,
-  BorderBottomOutlined 
+  BorderBottomOutlined,
+  UploadOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { useState, useEffect } from "react";
@@ -49,17 +50,35 @@ const LayoutAdmin = ({ children }) => {
   };
 
   const items = [
-    getItem(
-      <p onClick={() => Router.push("/admin/banner")}>Banner trang chủ</p>,
-      "1",
-      <PictureOutlined />
-    ),
-    getItem(
-      <p onClick={() => Router.push("/admin")}>Nội dung trang chủ</p>,
-      "2",
-      <HomeOutlined />
-    ),
-  
+    getItem("Trang chủ", "sub01", <HomeOutlined />, [
+      getItem(
+        <p onClick={() => Router.push("/admin/banner")}>Banner trang chủ</p>,
+        "1",
+        <PictureOutlined />
+      ),
+      getItem(
+        <p onClick={() => Router.push("/admin")}>Nội dung trang chủ</p>,
+        "2",
+        <HomeOutlined />
+      ),
+    ]),
+
+    getItem("Giới thiệu", "sub001", <InfoOutlined />, [
+      getItem(
+        <p onClick={() => Router.push("/admin/gioi-thieu")}>
+          Nội dung trang Về Chúng Tôi
+        </p>,
+        "22",
+        <InfoOutlined />
+      ),
+      getItem(
+        <p onClick={() => Router.push("/admin/ho-so-nang-luc")}>
+          Hồ sơ năng lực
+        </p>,
+        "222",
+        <UploadOutlined />
+      ),
+    ]),
 
     getItem("Nội dung trang chi tiết dịch vụ", "sub1", <BorderOutlined />, [
       getItem(
@@ -69,7 +88,9 @@ const LayoutAdmin = ({ children }) => {
         "33"
       ),
       getItem(
-        <p onClick={() => Router.push("/admin/san-xuat-tvc-kv-billboard")}>Sản xuất TVC-KV-BILLBOARD</p>,
+        <p onClick={() => Router.push("/admin/san-xuat-tvc-kv-billboard")}>
+          Sản xuất TVC-KV-BILLBOARD
+        </p>,
         "44"
       ),
       getItem(
@@ -112,28 +133,14 @@ const LayoutAdmin = ({ children }) => {
       ),
     ]),
     getItem(
-      <p onClick={() => Router.push("/admin/khach-hang")}>Khách hàng</p>,
-      "9",
-      <ContactsOutlined />
-    ),
-    getItem(
       <p onClick={() => Router.push("/admin/du-an")}>Nội dung trang Dự Án</p>,
       "10",
       <DeploymentUnitOutlined />
     ),
     getItem(
-      <p onClick={() => Router.push("/admin/gioi-thieu")}>
-        Nội dung trang Về Chúng Tôi
-      </p>,
-      "22",
-      <InfoOutlined />
-    ),
-    getItem(
-      <p onClick={() => Router.push("/admin/footer")}>
-        Nội dung Footer
-      </p>,
-      "eqwe",
-      <BorderBottomOutlined />
+      <p onClick={() => Router.push("/admin/khach-hang")}>Khách hàng</p>,
+      "9",
+      <ContactsOutlined />
     ),
     getItem(
       <p onClick={() => Router.push("/admin/danh-sach-lien-he")}>
@@ -141,6 +148,11 @@ const LayoutAdmin = ({ children }) => {
       </p>,
       "11",
       <MessageOutlined />
+    ),
+    getItem(
+      <p onClick={() => Router.push("/admin/footer")}>Nội dung Footer</p>,
+      "eqwe",
+      <BorderBottomOutlined />
     ),
     getItem(
       <p onClick={() => Router.push("/admin/tai-khoan-admin")}>
@@ -174,7 +186,9 @@ const LayoutAdmin = ({ children }) => {
             />
           </Link>
         </div>
-        <Menu theme="dark" mode="inline" items={items} className="h-full" />
+        <div className="h-[550px] overflow-auto">
+          <Menu theme="dark" mode="inline" items={items} className="h-full" />
+        </div>
       </Sider>
       <Layout className="site-layout">
         <Header className="fixed top-0 left-0 w-full z-10">

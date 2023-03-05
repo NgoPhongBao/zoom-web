@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Breadcrumb, message, Button, Popconfirm } from "antd";
-import Link from "next/link";
+import { Breadcrumb, message, Button, Tabs, Input } from "antd";
 import { ContactsOutlined } from "@ant-design/icons";
 import UploadSingleImage from "../../admin-components/common/UploadSingleImage";
 import UploadMultipleImage from "../../admin-components/common/UpdateMultipleImage";
@@ -58,34 +57,88 @@ export default function Cp() {
         </Breadcrumb>
         <div className="mt-4 p-5 bg-white h-full">
           <div>
-            <p className="font-semibold">Hình ảnh trang khách hàng:</p>
-            <div className="flex justify-center items-center gap-4 mt-4">
-              <UploadSingleImage
-                extraClass="ngang"
-                image={customer?.aboutImg ? customer.aboutImg[0] : ""}
-                onChangeUpload={(img) => {
-                  if (img) {
-                    const _aboutImg = [...customer.aboutImg];
-                    _aboutImg[0] = img;
-                    setCustomer({ ...customer, aboutImg: _aboutImg });
-                  }
-                }}
+            <p className="font-semibold">Tiêu đề:</p>
+            <div className="flex flex-wrap justify-center items-center gap-10 mt-4">
+              <Tabs
+                defaultActiveKey="1"
+                centered
+                items={[
+                  {
+                    key: "1",
+                    label: (
+                      <p className="font-semibold">
+                        Tiếng Việt<span className="text-red-500">*</span>
+                      </p>
+                    ),
+                    children: (
+                      <div className="flex justify-center">
+                        <Input
+                          placeholder="Tiếng Việt"
+                          className="w-96"
+                          value={customer.abouttitle_VN}
+                          onChange={(e) => {
+                            setCustomer({
+                              ...customer,
+                              abouttitle_VN: e.target.value,
+                            });
+                          }}
+                        />
+                      </div>
+                    ),
+                  },
+                  {
+                    key: "2",
+                    label: (
+                      <p className="font-semibold">
+                        Tiếng Anh<span className="text-red-500">*</span>
+                      </p>
+                    ),
+                    children: (
+                      <div className="flex justify-center">
+                        <Input
+                          placeholder="Tiếng Anh"
+                          className="w-96"
+                          value={customer.abouttitle_EN}
+                          onChange={(e) => {
+                            setCustomer({
+                              ...customer,
+                              abouttitle_EN: e.target.value,
+                            });
+                          }}
+                        />
+                      </div>
+                    ),
+                  },
+                ]}
               />
-              <UploadSingleImage
-                extraClass="doc"
-                image={customer?.aboutImg ? customer.aboutImg[1] : ""}
-                onChangeUpload={(img) => {
-                  if (img) {
-                    const _aboutImg = [...customer.aboutImg];
-                    _aboutImg[1] = img;
-                    setCustomer({ ...customer, aboutImg: _aboutImg });
-                  }
-                }}
-              />
+              <div className="flex justify-center items-center gap-3">
+                <UploadSingleImage
+                  extraClass="ngang"
+                  image={customer?.aboutImg ? customer.aboutImg[0] : ""}
+                  onChangeUpload={(img) => {
+                    if (img) {
+                      const _aboutImg = [...customer.aboutImg];
+                      _aboutImg[0] = img;
+                      setCustomer({ ...customer, aboutImg: _aboutImg });
+                    }
+                  }}
+                />
+                <UploadSingleImage
+                  extraClass="doc"
+                  image={customer?.aboutImg ? customer.aboutImg[1] : ""}
+                  onChangeUpload={(img) => {
+                    if (img) {
+                      const _aboutImg = [...customer.aboutImg];
+                      _aboutImg[1] = img;
+                      setCustomer({ ...customer, aboutImg: _aboutImg });
+                    }
+                  }}
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-16">
             <p className="font-semibold">Logo khách hàng:</p>
             <div className="mt-4">
               <UploadMultipleImage

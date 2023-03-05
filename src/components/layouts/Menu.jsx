@@ -4,7 +4,7 @@ import useTrans from "../../hooks/useTrans";
 import { useRouter } from "next/router";
 
 export default function Menu(props) {
-  const { showMenuMobile, locale, services, setShowMenuMobile } = props;
+  const { showMenuMobile, locale, services, store, setShowMenuMobile } = props;
   const trans = useTrans();
   const { asPath } = useRouter();
   const router = useRouter();
@@ -62,7 +62,7 @@ export default function Menu(props) {
           </li>
           <li className="py-2 px-5">
             <Link
-              href={`/files/Portfolio-ZoomMedia.pdf`}
+              href={store.capacityProfile}
               locale="vi"
               target={"_blank"}
               onClick={() => setShowMenuMobile(false)}

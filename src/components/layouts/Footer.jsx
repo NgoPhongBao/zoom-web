@@ -21,10 +21,14 @@ export default function Footer({ services, store }) {
         <div className="mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {/* gioi thieu */}
           <div className="flex gap-4">
-            <div>
-              <span className="icofont-street-view text-4xl lg:text-[60px] text-[#e40900]"></span>
+            <div className="w-[32px] min-w-[32px]">
+              <img
+                src={store.iconIntro}
+                alt=""
+                className="w-full object-contain block"
+              />
             </div>
-            <div>
+            <div className="flex-auto">
               <p className="font-bold text-lg">{trans.introduction}</p>
               <p className="my-1">
                 {locale === "vi" ? store.intro_VN : store.intro_EN}
@@ -33,10 +37,14 @@ export default function Footer({ services, store }) {
           </div>
           {/* lien he */}
           <div className="flex gap-4">
-            <div>
-              <span className="icofont-phone text-4xl lg:text-[50px] text-[#e40900]"></span>
+            <div className="w-[32px] min-w-[32px]">
+              <img
+                src={store.iconContact}
+                alt=""
+                className="w-full object-contain block"
+              />
             </div>
-            <div>
+            <div className="flex-auto">
               <p className="font-bold text-lg">{trans.contact}</p>
               <p className="my-1">
                 <span className="font-bold underline underline-offset-4">
@@ -66,10 +74,14 @@ export default function Footer({ services, store }) {
           </div>
           {/* cong viec */}
           <div className="flex gap-4">
-            <div>
-              <span className="icofont-computer text-4xl lg:text-[50px] text-[#e40900]"></span>
+            <div className="w-[32px] min-w-[32px]">
+              <img
+                src={store.iconJobInfo}
+                alt=""
+                className="w-full object-contain block"
+              />
             </div>
-            <div>
+            <div className="flex-auto">
               <p className="font-bold text-lg">{trans.cong_viec}</p>
               <p className="my-1">
                 {locale === "vi" ? store.jobInfo_VN : store.jobInfo_EN}
@@ -78,10 +90,14 @@ export default function Footer({ services, store }) {
           </div>
           {/* doi ngu nhan su */}
           <div className="flex gap-4">
-            <div>
-              <span className="icofont-people text-4xl lg:text-[50px] text-[#e40900]"></span>
+            <div className="w-[32px] min-w-[32px]">
+              <img
+                src={store.iconTeamInfo}
+                alt=""
+                className="w-full object-contain block"
+              />
             </div>
-            <div>
+            <div className="flex-auto">
               <p className="font-bold text-lg">{trans.doi_ngu_nhan_su}</p>
               <p className="my-1">
                 {locale === "vi" ? store.teamInfo_VN : store.teamInfo_EN}
@@ -92,10 +108,14 @@ export default function Footer({ services, store }) {
         <div className="mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {/* phim truong */}
           <div className="flex gap-4">
-            <div>
-              <span className="icofont-location-pin text-4xl lg:text-[50px] text-[#e40900]"></span>
+            <div className="w-[32px] min-w-[32px]">
+              <img
+                src={store.iconAddress}
+                alt=""
+                className="w-full object-contain block"
+              />
             </div>
-            <div>
+            <div className="flex-auto">
               <p className="font-bold text-lg">
                 {trans.phim_truong_zoom_media}
               </p>
@@ -109,19 +129,27 @@ export default function Footer({ services, store }) {
           </div>
           {/* email */}
           <div className="flex gap-4">
-            <div>
-              <span className="icofont-email text-4xl lg:text-[50px] text-[#e40900]"></span>
+            <div className="w-[32px] min-w-[32px]">
+              <img
+                src={store.iconEmail}
+                alt=""
+                className="w-full object-contain block"
+              />
             </div>
-            <div>
+            <div className="flex-auto">
               <p className="font-bold text-lg mt-1">{store.email}</p>
             </div>
           </div>
           {/* sdt */}
           <div className="flex gap-4">
-            <div>
-              <span className="icofont-phone text-4xl lg:text-[50px] text-[#e40900]"></span>
+            <div className="w-[32px] min-w-[32px]">
+              <img
+                src={store.iconHotline}
+                alt=""
+                className="w-full object-contain block"
+              />
             </div>
-            <div>
+            <div className="flex-auto">
               <p className="font-bold text-lg mt-1">{store.hotLine}</p>
             </div>
           </div>

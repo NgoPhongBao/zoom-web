@@ -1,11 +1,11 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Tabs } from "antd";
 import useTrans from "../../hooks/useTrans";
 import { useRouter } from "next/router";
 import { Masonry } from "masonic";
 
-export default function index({ services }) {
+export default function index({ services, store }) {
   const [activeKey, setActiveKey] = useState("0");
   const trans = useTrans();
   const { locale } = useRouter();
@@ -83,13 +83,13 @@ export default function index({ services }) {
             data-aos="fade-zoom-in"
           >
             <img
-              src="/images/services/banner-service-detail.jpg"
+              src={store.projectBanner}
               alt="Banner service detail"
               className="max-h-[250px] w-full object-cover"
             />
             <div className="flex items-center justify-center absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)]">
               <p className="text-lg lg:text-2xl text-white text-center font-bold uppercase ">
-                {trans.cac_du_an_media_da_tham_gia_va_hop_tac}
+                {locale === "vi" ? store.projectTitle_VN : store.projectTitle_EN}
               </p>
             </div>
           </div>
