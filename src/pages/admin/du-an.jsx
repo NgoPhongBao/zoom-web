@@ -251,7 +251,7 @@ export default function Cp() {
               />
             </div>
           </div>
-          <div>
+          <div className="mt-16">
             <p className="font-semibold mb-2">
               Banner<span className="text-red-500">*</span>
             </p>
