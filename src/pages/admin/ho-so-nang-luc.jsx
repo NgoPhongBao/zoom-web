@@ -52,6 +52,7 @@ export default function Cp() {
 
     async onChange(info) {
       try {
+        setLoading(true);
         if (info.file.status === "removed") {
           setStore({ ...store, capacityProfile: "" });
         }
@@ -61,6 +62,8 @@ export default function Cp() {
         }
       } catch (error) {
         message.error("Tải lên thất bại");
+      } finally {
+        setLoading(false);
       }
     },
     accept: ".doc,.docx,.pdf,image/*",
