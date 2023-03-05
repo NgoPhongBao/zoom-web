@@ -62,7 +62,7 @@ export default function Menu(props) {
           </li>
           <li className="py-2 px-5">
             <Link
-              href={store.capacityProfile}
+              href={store.capacityProfile || ""}
               locale="vi"
               target={"_blank"}
               onClick={() => setShowMenuMobile(false)}
