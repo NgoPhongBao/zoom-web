@@ -70,39 +70,41 @@ export default function Cp() {
   };
 
   return (
-    <div data-aos="fade-up" className="h-full">
+    <>
       {loading ? <Loading /> : null}
-      <Breadcrumb>
-        <Breadcrumb.Item>
-          <div className="flex items-center gap-2">
-            <UploadOutlined />
-            <span>Hồ sơ năng lực</span>
+      <div data-aos="fade-up" className="h-full">
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <div className="flex items-center gap-2">
+              <UploadOutlined />
+              <span>Hồ sơ năng lực</span>
+            </div>
+          </Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="mt-4 p-5 bg-white h-full">
+          <div className="flex justify-center">
+            <Upload {...props}>
+              <Button
+                icon={<UploadOutlined />}
+                className="bg-blue-500 text-white flex items-center"
+              >
+                Tải lên hồ sơ năng lực
+              </Button>
+            </Upload>
           </div>
-        </Breadcrumb.Item>
-      </Breadcrumb>
-      <div className="mt-4 p-5 bg-white h-full">
-        <div className="flex justify-center">
-          <Upload {...props}>
+          <div className="mt-16 flex justify-end">
             <Button
-              icon={<UploadOutlined />}
-              className="bg-blue-500 text-white flex items-center"
+              type="primary"
+              className="bg-blue-500"
+              size="large"
+              onClick={updateStore}
             >
-              Tải lên hồ sơ năng lực
+              Lưu lại
             </Button>
-          </Upload>
-        </div>
-        <div className="mt-16 flex justify-end">
-          <Button
-            type="primary"
-            className="bg-blue-500"
-            size="large"
-            onClick={updateStore}
-          >
-            Lưu lại
-          </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
