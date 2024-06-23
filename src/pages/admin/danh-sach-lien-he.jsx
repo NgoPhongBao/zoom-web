@@ -13,7 +13,7 @@ import moment from "moment";
 export default function Cp() {
   const [query, setQuery] = useState({
     pageIndex: 0,
-    pageSize: 5,
+    pageSize: 10,
   });
   const [customers, setCustomers] = useState([]);
   const [total, setTotal] = useState(0);
@@ -110,8 +110,8 @@ export default function Cp() {
     },
     {
       title: `Ngày liên hệ`,
-      dataIndex: "createdDate",
-      key: "createdDate",
+      dataIndex: "createdAt",
+      key: "createdAt",
       render: (value) => {
         return <p className="whitespace-nowrap">{moment(value).format("HH:mm DD/MM/YYYY")}</p>;
       },
@@ -202,7 +202,7 @@ export default function Cp() {
             columns={columns}
             rowKey={(record) => record.id}
             pagination={{
-              pageSizeOptions: ["5", "10", "20"],
+              pageSizeOptions: ["10", "20"],
               total: total,
               current: query.pageIndex + 1,
               pageSize: query.pageSize,

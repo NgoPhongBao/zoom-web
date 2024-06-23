@@ -71,12 +71,12 @@ export default function Cp() {
   const handleCreateOrUpdate = async () => {
     setLoading(true);
     try {
-      const { UserId, Username, Password } = selectedUser;
-      if (isChangePass && !Password) {
+      const { UserId, Username, password } = selectedUser;
+      if (isChangePass && !password) {
         message.warning("Vui lòng nhập password mới");
         return;
       }
-      if (!Username || !Password) {
+      if (!Username || !password) {
         message.warning("Vui lòng nhập username và passworrd");
         return;
       }
@@ -86,7 +86,7 @@ export default function Cp() {
       } else {
         await api.put("/admin/user/" + UserId, {
           ...selectedUser,
-          Password: isChangePass ? selectedUser.Password : null,
+          password: isChangePass ? selectedUser.password : null,
         });
         message.success("Cập nhật thành công");
       }
@@ -114,13 +114,13 @@ export default function Cp() {
     },
     {
       title: `Tên`,
-      dataIndex: "FullName",
-      key: "FullName",
+      dataIndex: "fullName",
+      key: "fullName",
     },
     {
-      title: `Username`,
-      dataIndex: "Username",
-      key: "Username",
+      title: `username`,
+      dataIndex: "username",
+      key: "username",
     },
     {
       title: `Hành động`,
@@ -148,7 +148,7 @@ export default function Cp() {
               size={"small"}
               onClick={() => {
                 setIsChangePass(true);
-                setSelectedUser({ ...record, Password: "" });
+                setSelectedUser({ ...record, password: "" });
                 setShowModalUpdate(true);
               }}
             >
@@ -202,11 +202,11 @@ export default function Cp() {
                 <p>Tên</p>
                 <Input
                   placeholder="Nhập tên"
-                  value={selectedUser.FullName}
+                  value={selectedUser.fullName}
                   onChange={(e) => {
                     setSelectedUser({
                       ...selectedUser,
-                      FullName: e.target.value,
+                      fullName: e.target.value,
                     });
                   }}
                 />
@@ -239,11 +239,11 @@ export default function Cp() {
                 </p>
                 <Input
                   placeholder="Nhập password"
-                  value={selectedUser.Password}
+                  value={selectedUser.password}
                   onChange={(e) => {
                     setSelectedUser({
                       ...selectedUser,
-                      Password: e.target.value,
+                      password: e.target.value,
                     });
                   }}
                 />
